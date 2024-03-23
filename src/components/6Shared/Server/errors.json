@@ -1,0 +1,13 @@
+{
+  "LanguageNotFound": {
+    "en": "We couldn't find a suitable language for you :(",
+    "ru": "Нам не удалось найти подходящий для вас язык :(",
+    "id": "Kami tidak dapat menemukan bahasa yang cocok untuk Anda :(",
+    "da": "Vi kunne ikke finde et passende sprog til dig :(",
+    "de": "Wir konnten keine passende Sprache für Sie finden :(",
+    "es": "No pudimos encontrar un idioma adecuado para usted :(",
+    "fr": "Nous n'avons pas trouvé de langue qui vous convient :(",
+    "pl": "Nie znaleźliśmy dla Ciebie odpowiedniego języka :(",
+    "tr": "Size uygun bir dil bulamadık :("
+  }
+}
