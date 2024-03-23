@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { CategoryContext } from '@/context/CommandsContext';
-import SVGCommandsEconomy from '@/components5Entities/SVG/SVGCommandsEconomy';
-import SVGCommandsAll from '@/components5Entities/SVG/SVGCommandsAll';
-import SVGCommandsMajor from '@/components5Entities/SVG/SVGCommandsMajor';
-import SVGCommandsModeration from '@/components5Entities/SVG/SVGCommandsModeration';
-import SVGCommandsVoice from '@/components5Entities/SVG/SVGCommandsVoice';
+import SVGCommandsEconomy from '@/components/5Entities/SVG/SVGCommandsEconomy';
+import SVGCommandsAll from '@/components/5Entities/SVG/SVGCommandsAll';
+import SVGCommandsMajor from '@/components/5Entities/SVG/SVGCommandsMajor';
+import SVGCommandsModeration from '@/components/5Entities/SVG/SVGCommandsModeration';
+import SVGCommandsVoice from '@/components/5Entities/SVG/SVGCommandsVoice';
 
 export default function CommandsCategories() {
   const { toggleCategory } = useContext(CategoryContext);

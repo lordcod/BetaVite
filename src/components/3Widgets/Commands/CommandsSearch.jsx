@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import SVGSearch from '@/components5Entities/SVG/SVGSearch';
+import SVGSearch from '@/components/5Entities/SVG/SVGSearch';
 import { CategoryContext } from '@/context/CommandsContext';
 
 export default function CommandsSearch() {

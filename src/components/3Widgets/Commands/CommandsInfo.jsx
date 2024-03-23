@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import SVGInfo from '@/components5Entities/SVG/SVGInfo';
-import SVGExpand from '@/components5Entities/SVG/SVGExpand';
+import SVGInfo from '@/components/5Entities/SVG/SVGInfo';
+import SVGExpand from '@/components/5Entities/SVG/SVGExpand';
 
 export default function CommandsInfo() {
   const [opened, setOpened] = useState(false);
