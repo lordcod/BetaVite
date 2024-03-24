@@ -1,59 +1,28 @@
 import { useState } from 'react';
 import SVGInfo from '@/components/5Entities/SVG/SVGInfo';
 import SVGExpand from '@/components/5Entities/SVG/SVGExpand';
+import InfoPrefix from '../../4Features/Commands/InfoPrefix';
+import InfoParams from '../../4Features/Commands/InfoParams';
 
 export default function CommandsInfo() {
   const [opened, setOpened] = useState(false);
 
   return (
-    <div className='sidebar__info_wrapper'>
-      <div
-        className={['sidebar__block sidebar__info ', opened ? ' opened' : '']}>
+    <div>
+      <div className={`commands_sidebar_info ${opened ? 'opened' : ''}`}>
         <div
-          className='sidebar__info__title'
+          className='commands_sidebar_info_title'
           onClick={() => setOpened(!opened)}>
-          <div>
+          <div className='w-full flex items-center gap-4'>
             <SVGInfo /> Справка
           </div>
           <SVGExpand />
         </div>
-        <div className='sidebar__info__body_wrapper'>
-          <div className='sidebar__info__body'>
-            <div className='sidebar__info__body_paragraph'>
-              <p>
-                Стандартный префикс <span className='usage_info'>l.</span>. Вы
-                можете поменять его в панели управления.
-              </p>
-              <p>
-                Можно использовать
-                <span className='ping'>@LordCord#2170</span>.
-              </p>
-              <p>
-                <span className='usage_short'>l.help</span>{' '}
-                <span className='usage_short'>
-                  <span className='ping'>@LordCord#2170</span> help
-                </span>
-              </p>
-            </div>
-            <hr />
-
-            <div className='sidebar__info__body_paragraph'>
-              <h4>Синтаксис</h4>
-              <ul>
-                <li>
-                  <span className='usage_info'>[ ]</span> — Опциональный
-                  параметр
-                </li>
-                <li>
-                  <span className='usage_info'>{'<>'}</span> — Обязательный
-                  параметр
-                </li>
-                <li>
-                  <span className='usage_info'>A | Б | В</span> — Выбор
-                  параметра
-                </li>
-              </ul>
-            </div>
+        <div className='commands_sidebar_info_body'>
+          <div className='flex min-h-0 flex-col invisible opacity-0 transition-all duration-200 ease-out-max px-1'>
+            <InfoPrefix />
+            <hr className='mb-2' />
+            <InfoParams />
           </div>
         </div>
       </div>

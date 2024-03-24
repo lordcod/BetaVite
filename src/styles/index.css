@@ -1,3 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply min-h-[100vh] w-full;
+  }
+
+  html {
+    @apply tracking-wider font-main;
+  }
+
+  #root {
+    @apply text-lt-font dark:text-dt-font;
+  }
+  /* a {
+    color: #1ba2ef;
+  } */
+
+  *::selection {
+    background: #b8ddec;
+  }
+}
+
+header {
+  @apply fixed top-0 self-start w-full h-16 bg-lt-main dark:bg-dt-main flex items-center z-50 has-[#home.active]:bg-transparent transition-colors duration-150 ease-linear;
+}
+
+.page {
+  @apply pt-16 bg-lt-second dark:bg-dt-second w-full min-h-[calc(100vh-156px)];
+}
+.size-limit {
+  @apply max-w-[1320px];
+}
+
+.commands_search {
+  @apply h-full w-full  bg-lt-main hover:bg-lt-main-hover dark:bg-dt-main dark:hover:bg-dt-main-hover rounded-2xl p-4 pl-[50px] outline-none border-2 border-solid border-lt-main dark:border-dt-main hover:border-lt-main-hover dark:hover:border-dt-main-hover  focus:border-main-active  hover:focus:border-main-active transition-colors duration-150 ease-linear;
+}
+
+.commands_search_label {
+  @apply group-hover:[&>svg>path]:fill-lt-svg-hover dark:group-hover:[&>svg>path]:fill-dt-svg-hover peer-focus:[&>svg>path]:fill-main-active group-hover:peer-focus:[&>svg>path]:fill-main-active transition-colors duration-150 ease-linear absolute top-4 left-4;
+}
+
+.commands_category_btn {
+  @apply h-10 rounded-lg py-2 px-3 border-2 select-none border-solid border-lt-main dark:border-dt-main flex gap-4 items-center cursor-pointer hover:bg-lt-main-hover dark:hover:bg-dt-main-hover [&.current]:text-main-active hover:[&.current]:text-main-active-hover hover:[&.current]:bg-main-active-hover-bg transition-colors duration-150 ease-linear [&:hover>svg]:fill-lt-svg-hover dark:[&:hover>svg]:fill-dt-svg-hover  [&.current>svg]:fill-main-active [&.current:hover>svg]:fill-main-active-hover;
+}
+
+.commands_sidebar_info {
+  @apply bg-lt-main dark:bg-dt-main rounded-2xl p-3 hover:[&.opened>div:first-child]:bg-main-active-bg  [&.opened>div:first-child]:text-main-active hover:[&.opened>div:first-child]:text-main-active-hover [&.opened>div:first-child>svg]:fill-main-active [&.opened>div:first-child>div>svg]:fill-main-active hover:[&.opened>div:first-child>svg]:fill-main-active-hover hover:[&.opened>div:first-child>div>svg]:fill-main-active-hover [&.opened>div:first-child>svg]:rotate-180 [&.opened>div:first-child>div>svg]:rotate-180 [&.opened>div:first-child]:duration-200 [&.opened>div:first-child]:ease-in-out [&.opened>div:last-child]:pt-2 [&.opened>div:last-child]:grid-rows-[1fr] [&.opened>div:last-child]:ease-in-out [&.opened>div:last-child>div]:visible [&.opened>div:last-child>div]:opacity-100 [&.opened>div:last-child>div]:ease-in-out;
+}
+
+.commands_sidebar_info_title {
+  @apply h-10 rounded-lg py-2 px-3 flex gap-4 items-center cursor-pointer transition-all duration-150 ease-linear select-none hover:bg-lt-main-hover dark:hover:bg-dt-main-hover [&:hover>svg]:fill-lt-svg-hover [&:hover>div>svg]:fill-lt-svg-hover dark:[&:hover>svg]:fill-dt-svg-hover dark:[&:hover>div>svg]:fill-dt-svg-hover;
+}
+
+.commands_sidebar_info_body {
+  @apply pt-0 grid grid-rows-[0fr] overflow-hidden transition-all duration-200 ease-out-max;
+}

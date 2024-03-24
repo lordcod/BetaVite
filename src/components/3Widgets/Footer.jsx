@@ -4,29 +4,31 @@ import SVGDiscord from '@/components/5Entities/SVG/SVGDiscord';
 
 export default function Footer() {
   return (
-    <footer>
-      <div className='footer__container'>
-        <div className='footer__container__column'>
-          <div className='logo'>
-            <SVGCrown />
-            <h1>
-              <span>Lord</span>
+    <footer className='h-[156px] bg-black py-2 px-4 flex items-center flex-col'>
+      <div className='h-[120px] size-limit mx-a gap-4 grid grid-cols-[1fr_1fr_2fr]'>
+        <div className='flex items-center justify-center'>
+          <div className='flex gap-1.5 items-center'>
+            <SVGCrown
+              height='32px'
+              width='32px'
+            />
+            <h1 className='text-3xl'>
+              <span className='font-bold'>Lord</span>
               Bot
             </h1>
           </div>
         </div>
-        <div className='footer__container__column'>
+        <div className='flex items-center justify-center'>
           <a
             href=''
-            target='blank'>
-            <div className='navbar__button circle'>
-              <SVGDiscord />
-            </div>
+            target='blank'
+            className='p-2'>
+            <SVGDiscord />
           </a>
         </div>
-        <div className='footer__container__column'>
-          <div className='column__links_container'>
-            <div className='column__links_container__column'>
+        <div className='flex items-center justify-center'>
+          <div className='grid grid-cols-3'>
+            <div className='flex flex-col'>
               <Link to={'/'}>Главная</Link>
               <a
                 href='https://docs.lordcord.fun/english/'
@@ -40,7 +42,7 @@ export default function Footer() {
                 Обратная свзяь
               </a>
             </div>
-            <div className='column__links_container__column'>
+            <div className='flex flex-col'>
               <Link to={'/support'}>Поддержите нас</Link>
               <a
                 href=''
@@ -58,7 +60,7 @@ export default function Footer() {
                 Статус
               </a>
             </div>
-            <div className='column__links_container__column'>
+            <div className='flex flex-col'>
               <a
                 href=''
                 target='blank'>
@@ -78,7 +80,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className='footer__copyright'>&#9400; 2023-2024 — LORDBOT</div>
+      <div>&#9400; 2023-2024 — LORDBOT</div>
     </footer>
   );
 }

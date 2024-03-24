@@ -5,7 +5,7 @@ import Avatar from '@/components/5Entities/Assets/1.webp';
 
 export default function MainPage() {
   return (
-    <div className='page'>
+    <div className='pt-16 bg-gray-600 w-full min-h-[calc(100vh - 156px)]'>
       <div className='main_page__grid_container'>
         <div className='main_page__block main_page__block_title'>
           <div className='main_page__block'>
@@ -18,7 +18,9 @@ export default function MainPage() {
               </div>
               <div className='main_page__block_title__info'>
                 <div className='main_page__block_title__info__about'>
-                  <h4>Tune in, let the magic begin!</h4>
+                  <h4 className='font-bold w-full font text-lg'>
+                    Tune in, let the magic begin!
+                  </h4>
                   <p>
                     Добро пожаловать в мир LordCord - вашего верного бота для
                     управления сервером!

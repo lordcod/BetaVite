@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import CommandsList from '@/components/3Widgets/Commands/CommandsList';
+import CommandCategoryList from '@/components/3Widgets/Commands/CommandCategoryList';
 import CommandsData from '@/components/6Shared/Server/commands';
 import useLang from '@/hooks/LangHook';
 
@@ -24,10 +24,13 @@ export const CategoryState = props => {
   const [previosButton, setPreviosButton] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const commandsEconomy = CommandsList(CommandsData.economy, prefLang); //Экономика
-  const commandsMajor = CommandsList(CommandsData.major, prefLang); //Главные
-  const commandsModeration = CommandsList(CommandsData.moderation, prefLang); //Модерация
-  const commandsVoice = CommandsList(CommandsData.voice, prefLang); //Голосовые
+  const commandsEconomy = CommandCategoryList(CommandsData.economy, prefLang); //Экономика
+  const commandsMajor = CommandCategoryList(CommandsData.major, prefLang); //Главные
+  const commandsModeration = CommandCategoryList(
+    CommandsData.moderation,
+    prefLang,
+  ); //Модерация
+  const commandsVoice = CommandCategoryList(CommandsData.voice, prefLang); //Голосовые
   const commandsAll = [
     ...commandsVoice.props.children,
     ...commandsMajor.props.children,
