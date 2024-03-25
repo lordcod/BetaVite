@@ -4,8 +4,7 @@ export default function SVGServers() {
       xmlns='http://www.w3.org/2000/svg'
       height='24'
       viewBox='0 0 24 24'
-      width='24'
-      className='fill-lt-svg dark:fill-dt-svg transition-all duration-150 ease-linear'>
+      width='24'>
       <path
         fillRule='evenodd'
         clipRule='evenodd'

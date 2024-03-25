@@ -170,6 +170,9 @@ export default {
       'dt-font': '#fff',
       'dt-svg': '#fff',
       'dt-svg-hover': '#e0e0e0',
+      'dt-third': '#202024',
+      'dt-ping': '#d9ddf2',
+      'dt-selection': '#789dac',
 
       'lt-main': '#fffffd',
       'lt-main-hover': '#f7f7f3',
@@ -177,6 +180,9 @@ export default {
       'lt-font': '#000',
       'lt-svg': '#000',
       'lt-svg-hover': '#1f1f1f',
+      'lt-third': '#DFDFDB',
+      'lt-ping': '#5865f2',
+      'lt-selection': '#b8ddec',
 
       'header-btn': '#ffffff10',
       'header-btn-hover': '#ffffff18',
@@ -185,6 +191,11 @@ export default {
       'main-active-bg': '#9456e430',
       'main-active-hover': '#7b3dc5',
       'main-active-hover-bg': '#8446d430',
+      'ping-hover': '#e9edf2',
+      'ping-bg': '#5865f260',
+      'ping-hover-bg': '#5865f2',
+      'error-red': '#F53218',
+      link: '#1ba2ef',
     }),
     columns: {
       auto: 'auto',

@@ -16,25 +16,28 @@
   html {
     @apply tracking-wider font-main;
   }
-
-  #root {
-    @apply text-lt-font dark:text-dt-font;
-  }
-  /* a {
-    color: #1ba2ef;
-  } */
-
-  *::selection {
-    background: #b8ddec;
-  }
 }
 
+#root {
+  @apply text-lt-font dark:text-dt-font;
+}
+*::selection {
+  @apply bg-lt-selection dark:bg-dt-selection;
+}
+
+svg {
+  @apply fill-lt-svg dark:fill-dt-svg transition-all duration-150 ease-linear;
+}
 header {
-  @apply fixed top-0 self-start w-full h-16 bg-lt-main dark:bg-dt-main flex items-center z-50 has-[#home.active]:bg-transparent transition-colors duration-150 ease-linear;
+  @apply fixed top-0 self-start w-full h-16 bg-lt-main dark:bg-dt-main flex items-center z-50 has-[#home.active]:bg-main-purple;
+}
+
+.header-btn {
+  @apply rounded-full flex items-center gap-1.5 cursor-pointer hover:bg-header-btn-hover transition-colors duration-200 ease-linear;
 }
 
 .page {
-  @apply pt-16 bg-lt-second dark:bg-dt-second w-full min-h-[calc(100vh-156px)];
+  @apply pt-16 bg-lt-second dark:bg-dt-second w-full min-h-[calc(100vh-156px)] pb-4;
 }
 .size-limit {
   @apply max-w-[1320px];
@@ -62,4 +65,32 @@ header {
 
 .commands_sidebar_info_body {
   @apply pt-0 grid grid-rows-[0fr] overflow-hidden transition-all duration-200 ease-out-max;
+}
+
+.ping {
+  @apply cursor-pointer text-lt-ping hover:text-dt-ping bg-dt-ping hover:bg-lt-ping dark:text-dt-ping  dark:bg-ping-bg  dark:hover:bg-ping-hover-bg  dark:hover:text-ping-hover hover:underline px-1 py-0.5 rounded  transition-colors duration-150 ease-linear;
+}
+
+.command {
+  @apply bg-lt-main dark:bg-dt-main overflow-hidden rounded-2xl	py-4 pl-5 grid grid-cols-[1fr_auto] [&.opened>div>div:first-child]:pb-4 [&.opened>div]:ease-in-out [&.opened>div>svg]:rotate-180 [&.opened>div:first-child>div:last-child]:grid-rows-[1fr] [&.opened>div:first-child>div:last-child]:ease-in-out [&.opened>div:first-child>div:last-child>div]:visible [&.opened>div:first-child>div:last-child>div]:opacity-100 [&.opened>div:first-child>div:last-child>div]:ease-in-out;
+}
+
+.command_wrapper {
+  @apply cursor-pointer justify-between flex select-none z-10 transition-all duration-200 ease-out-max;
+}
+
+.command_expand {
+  @apply cursor-pointer grid items-end transition-all duration-200 ease-out-max px-5;
+}
+
+.command_body {
+  @apply grid grid-rows-[0fr] overflow-hidden transition-all duration-200 ease-out-max;
+}
+
+.command_body_content {
+  @apply flex min-h-0 gap-4 flex-col invisible opacity-0 transition-all duration-200 ease-out-max [&>div>p>a]:text-link;
+}
+
+.usage {
+  @apply py-1 px-4 rounded-lg bg-lt-third dark:bg-dt-third font-inconsolata;
 }

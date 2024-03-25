@@ -25,35 +25,38 @@ export default function CommandsList(category) {
     return (
       <div
         key={comName}
-        className='command'>
-        <div className='command_wrapper'>
+        className='command'
+        tabIndex='0'>
+        <div className='flex flex-col'>
           <div
-            className='command__title'
+            className='command_wrapper'
             onClick={clickHandler}>
             <div>
-              <span className='command__title_name'>{comName}</span> —{' '}
-              {descriptionShort}
+              <span className='rounded-lg py-1 px-4 bg-main-active mx-0.5 text-dt-font'>
+                {comName}
+              </span>{' '}
+              — {descriptionShort}
             </div>
           </div>
-          <div className='command__body_wrapper'>
-            <div className='command__body'>
-              <div className='command__body_paragraph'>
+          <div className='command_body'>
+            <div className='command_body_content'>
+              <div className='flex gap-3 flex-wrap'>
                 {aliases && (
                   <>
                     <h4 className='font-bold w-full font text-lg'>Варианты</h4>
-                    <p>
+                    <p className='w-full'>
                       <span className='usage'>{aliases}</span>
                     </p>
                   </>
                 )}
                 <h4 className='font-bold w-full font text-lg'>Использование</h4>
-                <p>
+                <p className='w-full'>
                   <span className='usage'>
                     {comName} {argumentList}
                   </span>
                 </p>
               </div>
-              <div className='command__body_paragraph'>
+              <div className='flex gap-3 flex-wrap'>
                 <h4 className='font-bold w-full font text-lg'>
                   {deactivable ? <>Можно</> : <>Нельзя</>} выключить
                 </h4>
@@ -64,7 +67,7 @@ export default function CommandsList(category) {
           </div>
         </div>
         <div
-          className='command_switch'
+          className='command_expand'
           onClick={clickHandler}>
           <SVGExpand />
         </div>

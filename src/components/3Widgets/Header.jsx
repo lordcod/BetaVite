@@ -9,7 +9,7 @@ import UserData from '@/components/6Shared/UserVatinats/ParseUser';
 export default function Header() {
   return (
     <header>
-      <div className='px-6 mx-auto flex items-center justify-between w-full size-limit'>
+      <nav className='px-6 mx-auto flex items-center justify-between w-full size-limit'>
         <div className='flex items-center gap-4 h-16'>
           <NavLink
             id='home'
@@ -28,7 +28,7 @@ export default function Header() {
             href='https://docs.lordcord.fun/english/'
             className='entry_2'
             target='blank'>
-            <div className='rounded-full flex items-center gap-1.5 cursor-pointer py-1 px-[18px] hover:bg-header-btn-hover transition-colors duration-200 ease-linear'>
+            <div className='header-btn py-1 px-[18px]'>
               <SVGDocumentation />
               <h1 className='font-bold'>ДОКУМЕНТАЦИЯ</h1>
             </div>
@@ -36,8 +36,8 @@ export default function Header() {
           <NavLink
             id='commands'
             to='/commands'
-            className='entry_3 [&.active>div]:bg-header-btn '>
-            <div className='rounded-full flex items-center gap-1.5 cursor-pointer py-1 px-[18px] hover:bg-header-btn-hover transition-colors duration-200 ease-linear'>
+            className='entry_3 [&.active>div]:bg-header-btn [&.active>div:hover]:bg-header-btn-hover '>
+            <div className='header-btn py-1 px-[18px]'>
               <SVGCommands />
               <h1 className='font-bold'>КОМАНДЫ</h1>
             </div>
@@ -45,8 +45,8 @@ export default function Header() {
           <NavLink
             id='support'
             to='/support'
-            className='entry_4 [&.active>div]:bg-header-btn'>
-            <div className='rounded-full flex items-center gap-1.5 cursor-pointer py-1 px-[18px] hover:bg-header-btn-hover transition-colors duration-200 ease-linear'>
+            className='entry_4 [&.active>div]:bg-header-btn [&.active>div:hover]:bg-header-btn-hover'>
+            <div className='header-btn  py-1 px-[18px]'>
               <SVGHeart />
               <h1 className='font-bold '>ПОДДЕРЖИТЕ НАС</h1>
             </div>
@@ -54,16 +54,19 @@ export default function Header() {
         </div>
         <div className='flex items-center gap-4 h-16'>
           <NavLink
-            className='entry_4 [&.active>div]:bg-header-btn'
+            className='entry_4 [&.active>div]:bg-header-btn [&.active>div:hover]:bg-header-btn-hover'
             id='servers'
-            to='/servers'>
-            <div className='rounded-full flex items-center gap-1.5 cursor-pointer p-1.5 hover:bg-header-btn-hover transition-colors duration-200 ease-linear'>
+            to='/servers'
+            aria-label='Ваши сервера'>
+            <div className=' header-btn px-2 py-2'>
               <SVGServers />
             </div>
           </NavLink>
           <div
-            className='rounded-full flex items-center gap-1.5 cursor-pointer p-1.5 hover:bg-header-btn-hover  transition-colors duration-200 ease-linear entry_1'
-            id='profile'>
+            className='header-btn px-1.5 py-1.5 entry_1'
+            id='profile'
+            tabIndex='0'
+            aria-label='Профиль и настройка сайта'>
             <img
               src={UserData.avatar}
               alt='avatar'
@@ -71,7 +74,7 @@ export default function Header() {
             />
           </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

@@ -6,7 +6,6 @@ export default function SVGCrown(props) {
       height='24'
       viewBox='0 0 512 512'
       width='24'
-      className='fill-lt-svg dark:fill-dt-svg transition-all duration-150 ease-linear'
       {...rest}>
       <g>
         <path

@@ -4,8 +4,8 @@ import SVGDiscord from '@/components/5Entities/SVG/SVGDiscord';
 
 export default function Footer() {
   return (
-    <footer className='h-[156px] bg-black py-2 px-4 flex items-center flex-col'>
-      <div className='h-[120px] size-limit mx-a gap-4 grid grid-cols-[1fr_1fr_2fr]'>
+    <footer className='h-[156px] bg-lt-main dark:bg-dt-main py-2 px-4 flex items-center flex-col'>
+      <nav className='h-[120px] size-limit mx-a gap-4 grid grid-cols-[1fr_1fr_2fr]'>
         <div className='flex items-center justify-center'>
           <div className='flex gap-1.5 items-center'>
             <SVGCrown
@@ -79,7 +79,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </nav>
       <div>&#9400; 2023-2024 — LORDBOT</div>
     </footer>
   );
