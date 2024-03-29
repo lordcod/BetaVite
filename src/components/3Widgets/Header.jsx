@@ -14,7 +14,7 @@ export default function Header() {
           <NavLink
             id='home'
             to='/'
-            className='entry_1'>
+            className='animate-entry1'>
             <div className='rounded-full flex items-center gap-1.5 cursor-pointer py-1 px-[18px]'>
               <SVGCrown />
               <h1 className='text-2xl'>
@@ -26,7 +26,7 @@ export default function Header() {
           <a
             id='documentation'
             href='https://docs.lordcord.fun/english/'
-            className='entry_2'
+            className='animate-entry2'
             target='blank'>
             <div className='header-btn py-1 px-[18px]'>
               <SVGDocumentation />
@@ -36,7 +36,7 @@ export default function Header() {
           <NavLink
             id='commands'
             to='/commands'
-            className='entry_3 [&.active>div]:bg-header-btn [&.active>div:hover]:bg-header-btn-hover '>
+            className='animate-entry3 [&.active>div]:bg-header-btn [&.active>div:hover]:bg-header-btn-hover '>
             <div className='header-btn py-1 px-[18px]'>
               <SVGCommands />
               <h1 className='font-bold'>КОМАНДЫ</h1>
@@ -45,7 +45,7 @@ export default function Header() {
           <NavLink
             id='support'
             to='/support'
-            className='entry_4 [&.active>div]:bg-header-btn [&.active>div:hover]:bg-header-btn-hover'>
+            className='animate-entry4 [&.active>div]:bg-header-btn [&.active>div:hover]:bg-header-btn-hover'>
             <div className='header-btn  py-1 px-[18px]'>
               <SVGHeart />
               <h1 className='font-bold '>ПОДДЕРЖИТЕ НАС</h1>
@@ -54,7 +54,7 @@ export default function Header() {
         </div>
         <div className='flex items-center gap-4 h-16'>
           <NavLink
-            className='entry_4 [&.active>div]:bg-header-btn [&.active>div:hover]:bg-header-btn-hover'
+            className='animate-entry5 [&.active>div]:bg-header-btn [&.active>div:hover]:bg-header-btn-hover'
             id='servers'
             to='/servers'
             aria-label='Ваши сервера'>
@@ -63,7 +63,7 @@ export default function Header() {
             </div>
           </NavLink>
           <div
-            className='header-btn px-1.5 py-1.5 entry_1'
+            className='animate-entry6 header-btn px-1.5 py-1.5'
             id='profile'
             tabIndex='0'
             aria-label='Профиль и настройка сайта'>

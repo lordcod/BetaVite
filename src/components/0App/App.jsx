@@ -43,7 +43,10 @@ export default function App() {
               path='/embed'
               element={<EmbedBuilder />}
             />
-
+            <Route
+              path='/servers'
+              element={<MainLoader />}
+            />
             <Route
               path='*'
               element={'tttttttexxt'}

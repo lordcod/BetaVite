@@ -3,7 +3,7 @@ import SearchLabel from '../../4Features/Commands/SearchLabel';
 
 export default function CommandsSearch() {
   return (
-    <div className='rounded-2xl group'>
+    <div className='rounded-2xl'>
       <SearchInput />
       <SearchLabel />
     </div>

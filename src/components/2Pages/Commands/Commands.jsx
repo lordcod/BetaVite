@@ -7,14 +7,16 @@ export default function CommandsPage() {
   return (
     <div className='page'>
       <div className='pt-10 px-6 size-limit mx-auto'>
-        <h1 className='font-bold text-6xl mb-12'>Команды</h1>
+        <h1 className='font-bold text-6xl mb-12 animate-anti-entry1'>
+          Команды
+        </h1>
         <div className='grid grid-cols-[340px_calc(100%-352px)] gap-3 h-full'>
-          <div className='sticky self-start top-[76px] flex flex-col gap-3'>
+          <div className='sticky self-start top-[76px] flex flex-col gap-3 animate-anti-entry2'>
             <CommandsSearch />
             <CommandsCategories />
             <CommandsInfo />
           </div>
-          <div className='flex flex-col gap-3'>
+          <div className='flex flex-col gap-3 animate-anti-entry3'>
             <CommandsList />
           </div>
         </div>

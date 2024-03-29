@@ -7,7 +7,7 @@ export default function sortCommand(command, prefLang) {
   let errorMes = '';
 
   function addLanguageNotFoundError(value) {
-    errorMes = Error('LanguageNotFound');
+    errorMes = Error('Нам не удалось найти подходящий для вас язык :(');
     return value;
   }
 

@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { CategoryContext } from '@/context/CommandsContext';
+import NotFound from '../../5Entities/UI/Messages/NotFound';
 
 export default function SearchInput() {
   const { commandsAll, setDisplay, searchTerm, setSearchTerm, toggleCategory } =
@@ -19,7 +20,13 @@ export default function SearchInput() {
       }
     });
 
+    if (!result[0]) {
+      result = <NotFound />;
+    }
+
     setDisplay(result);
+
+    console.log(result);
   };
 
   return (

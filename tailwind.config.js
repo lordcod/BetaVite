@@ -14,6 +14,17 @@ export default {
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
+      entry6: 'entry 1.5s forwards',
+      entry5: 'entry 1.3s forwards',
+      entry4: 'entry 1.1s forwards',
+      entry3: 'entry 0.9s forwards',
+      entry2: 'entry 0.7s forwards',
+      entry1: 'entry 0.5s forwards',
+      'anti-entry3': 'anti-entry 0.9s backwards',
+      'anti-entry2': 'anti-entry 0.7s backwards',
+      'anti-entry1': 'anti-entry 0.5s backwards',
+      'load-spin': '1s lspin linear infinite',
+      'load-spin-delay': '1s lspin linear infinite 0.4s',
     },
     aria: {
       busy: 'busy="true"',
@@ -648,6 +659,68 @@ export default {
         '50%': {
           transform: 'none',
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+        },
+      },
+      entry: {
+        from: {
+          opacity: 0,
+          transform: 'translateY(-50px)',
+        },
+        to: {
+          opacity: 1,
+          transform: 'translateY(0)',
+        },
+      },
+      'anti-entry': {
+        from: {
+          opacity: 0,
+          transform: 'translateY(50px)',
+        },
+        to: {
+          opacity: 1,
+          transform: 'translateY(0)',
+        },
+      },
+      rotate: {
+        '0%': {
+          transform: 'translate(-50%, -50%) rotateZ(0deg)',
+        },
+        '100%': {
+          transform: 'translate(-50%, -50%) rotateZ(360deg)',
+        },
+      },
+      rotateccw: {
+        '0%': {
+          transform: 'translate(-50%, -50%) rotate(0deg)',
+        },
+        '100%': {
+          transform: 'translate(-50%, -50%) rotate(-360deg)',
+        },
+      },
+      lspin: {
+        '0%, 100%': {
+          boxShadow: '0.2em 0px 0 0px currentcolor',
+        },
+        '12%': {
+          boxShadow: '0.2em 0.2em 0 0 currentcolor',
+        },
+        '25%': {
+          boxShadow: '0 0.2em 0 0px currentcolor',
+        },
+        '37%': {
+          boxShadow: '-0.2em 0.2em 0 0 currentcolor',
+        },
+        '50%': {
+          boxShadow: '-0.2em 0 0 0 currentcolor',
+        },
+        '62%': {
+          boxShadow: '-0.2em -0.2em 0 0 currentcolor',
+        },
+        '75%': {
+          boxShadow: '0px -0.2em 0 0 currentcolor',
+        },
+        '87%': {
+          boxShadow: '0.2em -0.2em 0 0 currentcolor',
         },
       },
     },

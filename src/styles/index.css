@@ -6,91 +6,142 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html,
-  body,
-  #root {
-    @apply min-h-[100vh] w-full;
-  }
-
-  html {
-    @apply tracking-wider font-main;
-  }
-}
-
+html,
+body,
 #root {
-  @apply text-lt-font dark:text-dt-font;
+  @apply min-h-[100vh] w-full tracking-wider text-lt-font dark:text-dt-font font-main;
 }
 *::selection {
   @apply bg-lt-selection dark:bg-dt-selection;
 }
-
 svg {
   @apply fill-lt-svg dark:fill-dt-svg transition-all duration-150 ease-linear;
 }
 header {
   @apply fixed top-0 self-start w-full h-16 bg-lt-main dark:bg-dt-main flex items-center z-50 has-[#home.active]:bg-main-purple;
 }
-
 .header-btn {
   @apply rounded-full flex items-center gap-1.5 cursor-pointer hover:bg-header-btn-hover transition-colors duration-200 ease-linear;
 }
-
 .page {
   @apply pt-16 bg-lt-second dark:bg-dt-second w-full min-h-[calc(100vh-156px)] pb-4;
 }
 .size-limit {
   @apply max-w-[1320px];
 }
-
 .commands_search {
-  @apply h-full w-full  bg-lt-main hover:bg-lt-main-hover dark:bg-dt-main dark:hover:bg-dt-main-hover rounded-2xl p-4 pl-[50px] outline-none border-2 border-solid border-lt-main dark:border-dt-main hover:border-lt-main-hover dark:hover:border-dt-main-hover  focus:border-main-active  hover:focus:border-main-active transition-colors duration-150 ease-linear;
+  @apply h-full w-full  bg-lt-main hover:bg-lt-main-hover dark:bg-dt-main dark:hover:bg-dt-main-hover rounded-2xl p-[15px] pl-[50px] outline-none border-2 border-solid border-lt-main dark:border-dt-main hover:border-lt-main-hover dark:hover:border-dt-main-hover  focus:border-main-active  hover:focus:border-main-active transition-colors duration-150 ease-linear;
 }
-
 .commands_search_label {
-  @apply group-hover:[&>svg>path]:fill-lt-svg-hover dark:group-hover:[&>svg>path]:fill-dt-svg-hover peer-focus:[&>svg>path]:fill-main-active group-hover:peer-focus:[&>svg>path]:fill-main-active transition-colors duration-150 ease-linear absolute top-4 left-4;
+  @apply transition-colors duration-150 ease-linear absolute top-4 left-4;
 }
-
+.commands_search:hover + label path {
+  @apply fill-lt-svg-hover dark:fill-dt-svg-hover;
+}
+.commands_search:focus + label path {
+  @apply fill-main-active;
+}
 .commands_category_btn {
-  @apply h-10 rounded-lg py-2 px-3 border-2 select-none border-solid border-lt-main dark:border-dt-main flex gap-4 items-center cursor-pointer hover:bg-lt-main-hover dark:hover:bg-dt-main-hover [&.current]:text-main-active hover:[&.current]:text-main-active-hover hover:[&.current]:bg-main-active-hover-bg transition-colors duration-150 ease-linear [&:hover>svg]:fill-lt-svg-hover dark:[&:hover>svg]:fill-dt-svg-hover  [&.current>svg]:fill-main-active [&.current:hover>svg]:fill-main-active-hover;
+  @apply h-10 rounded-lg py-2 px-3 border-2 select-none border-solid border-lt-main dark:border-dt-main flex gap-4 items-center cursor-pointer hover:bg-lt-main-hover dark:hover:bg-dt-main-hover  transition-colors duration-150 ease-linear;
 }
-
+.commands_category_btn:hover svg {
+  @apply fill-lt-svg-hover dark:fill-dt-svg-hover;
+}
+.commands_category_btn.current {
+  @apply text-main-active hover:text-main-active-hover hover:bg-main-active-hover-bg;
+}
+.commands_category_btn.current svg {
+  @apply fill-main-active;
+}
+.commands_category_btn.current:hover svg {
+  @apply fill-main-active-hover;
+}
 .commands_sidebar_info {
-  @apply bg-lt-main dark:bg-dt-main rounded-2xl p-3 hover:[&.opened>div:first-child]:bg-main-active-bg  [&.opened>div:first-child]:text-main-active hover:[&.opened>div:first-child]:text-main-active-hover [&.opened>div:first-child>svg]:fill-main-active [&.opened>div:first-child>div>svg]:fill-main-active hover:[&.opened>div:first-child>svg]:fill-main-active-hover hover:[&.opened>div:first-child>div>svg]:fill-main-active-hover [&.opened>div:first-child>svg]:rotate-180 [&.opened>div:first-child>div>svg]:rotate-180 [&.opened>div:first-child]:duration-200 [&.opened>div:first-child]:ease-in-out [&.opened>div:last-child]:pt-2 [&.opened>div:last-child]:grid-rows-[1fr] [&.opened>div:last-child]:ease-in-out [&.opened>div:last-child>div]:visible [&.opened>div:last-child>div]:opacity-100 [&.opened>div:last-child>div]:ease-in-out;
+  @apply bg-lt-main dark:bg-dt-main rounded-2xl p-3;
 }
-
+.commands_sidebar_info.opened svg {
+  @apply fill-main-active rotate-180;
+}
+.commands_sidebar_info.opened:hover svg {
+  @apply fill-main-active-hover;
+}
+.commands_sidebar_info.opened > div:first-child {
+  @apply text-main-active fill-main-active duration-200 ease-in-out;
+}
+.commands_sidebar_info.opened:hover > div:first-child {
+  @apply bg-main-active-bg text-main-active-hover;
+}
+.commands_sidebar_info.opened > div:last-child {
+  @apply pt-2 grid-rows-[1fr] ease-in-out;
+}
+.commands_sidebar_info.opened > div:last-child > div {
+  @apply visible opacity-100 ease-in-out;
+}
 .commands_sidebar_info_title {
-  @apply h-10 rounded-lg py-2 px-3 flex gap-4 items-center cursor-pointer transition-all duration-150 ease-linear select-none hover:bg-lt-main-hover dark:hover:bg-dt-main-hover [&:hover>svg]:fill-lt-svg-hover [&:hover>div>svg]:fill-lt-svg-hover dark:[&:hover>svg]:fill-dt-svg-hover dark:[&:hover>div>svg]:fill-dt-svg-hover;
+  @apply h-10 rounded-lg py-2 px-3 flex gap-4 items-center cursor-pointer transition-all duration-150 ease-linear select-none hover:bg-lt-main-hover dark:hover:bg-dt-main-hover;
 }
-
+.commands_sidebar_info_title:hover svg {
+  @apply fill-lt-svg-hover dark:fill-dt-svg-hover;
+}
 .commands_sidebar_info_body {
   @apply pt-0 grid grid-rows-[0fr] overflow-hidden transition-all duration-200 ease-out-max;
 }
-
 .ping {
   @apply cursor-pointer text-lt-ping hover:text-dt-ping bg-dt-ping hover:bg-lt-ping dark:text-dt-ping  dark:bg-ping-bg  dark:hover:bg-ping-hover-bg  dark:hover:text-ping-hover hover:underline px-1 py-0.5 rounded  transition-colors duration-150 ease-linear;
 }
-
 .command {
-  @apply bg-lt-main dark:bg-dt-main overflow-hidden rounded-2xl	py-4 pl-5 grid grid-cols-[1fr_auto] [&.opened>div>div:first-child]:pb-4 [&.opened>div]:ease-in-out [&.opened>div>svg]:rotate-180 [&.opened>div:first-child>div:last-child]:grid-rows-[1fr] [&.opened>div:first-child>div:last-child]:ease-in-out [&.opened>div:first-child>div:last-child>div]:visible [&.opened>div:first-child>div:last-child>div]:opacity-100 [&.opened>div:first-child>div:last-child>div]:ease-in-out;
+  @apply bg-lt-main dark:bg-dt-main overflow-hidden rounded-2xl	py-4 pl-5 grid grid-cols-[1fr_auto];
 }
-
+.command.opened > div {
+  @apply pb-4 ease-in-out;
+}
+.command.opened > svg {
+  @apply rotate-180;
+}
+.command.opened > div > div:first-child {
+  @apply pb-4;
+}
+.command.opened > div:first-child > div:last-child {
+  @apply grid-rows-[1fr] ease-in-out;
+}
+.command.opened > div:first-child > div:last-child > div {
+  @apply visible opacity-100 ease-in-out;
+}
 .command_wrapper {
   @apply cursor-pointer justify-between flex select-none z-10 transition-all duration-200 ease-out-max;
 }
-
 .command_expand {
   @apply cursor-pointer grid items-end transition-all duration-200 ease-out-max px-5;
 }
-
 .command_body {
   @apply grid grid-rows-[0fr] overflow-hidden transition-all duration-200 ease-out-max;
 }
-
 .command_body_content {
-  @apply flex min-h-0 gap-4 flex-col invisible opacity-0 transition-all duration-200 ease-out-max [&>div>p>a]:text-link;
+  @apply flex min-h-0 gap-4 flex-col invisible opacity-0 transition-all duration-200 ease-out-max;
 }
-
+.command_body_content a {
+  @apply text-link;
+}
 .usage {
   @apply py-1 px-4 rounded-lg bg-lt-third dark:bg-dt-third font-inconsolata;
+}
+.loader_container {
+  @apply grid justify-center items-center;
+}
+.loader {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  @apply rounded-[50%] w-24 h-24 text-dt-third dark:text-lt-third;
+}
+.loader:before,
+.loader:after {
+  @apply block content-[''] absolute top-0 left-0 w-24 h-24 rounded-full;
+}
+.loader:before {
+  transform: rotateX(70deg);
+  @apply animate-load-spin;
+}
+.loader:after {
+  transform: rotateY(70deg);
+  @apply text-main-purple animate-load-spin-delay;
 }
