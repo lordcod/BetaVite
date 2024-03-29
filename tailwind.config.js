@@ -2,7 +2,7 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   presets: [],
-  darkMode: 'media', // or 'class'
+  darkMode: 'class', // media
   theme: {
     accentColor: ({ theme }) => ({
       ...theme('colors'),
@@ -24,7 +24,7 @@ export default {
       'anti-entry2': 'anti-entry 0.7s backwards',
       'anti-entry1': 'anti-entry 0.5s backwards',
       'load-spin': '1s lspin linear infinite',
-      'load-spin-delay': '1s lspin linear infinite 0.4s',
+      'load-spin-delay': '1s lspin linear infinite 0.5s',
     },
     aria: {
       busy: 'busy="true"',
@@ -195,8 +195,9 @@ export default {
       'lt-ping': '#5865f2',
       'lt-selection': '#b8ddec',
 
-      'header-btn': '#ffffff10',
-      'header-btn-hover': '#ffffff18',
+      'header-btn': '#80808010',
+      'header-btn-hover': '#80808018',
+      'main-purple-trans': '#8b00ff20',
       'main-purple': '#8b00ff',
       'main-active': '#8b4dd5',
       'main-active-bg': '#9456e430',

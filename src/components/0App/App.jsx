@@ -8,6 +8,7 @@ import { EmbedBuilder } from '@/components/2Pages/EmbedBuilder/EmbedBuilder.lazy
 import Footer from '@/components/3Widgets/Footer';
 import { Support } from '@/components/2Pages/Support/Support.lazy';
 import MainLoader from '@/components/5Entities/Loaders/MainLoader';
+import Admin from '../3Widgets/Menus/Admin';
 
 export default function App() {
   useEffect(() => {
@@ -20,6 +21,7 @@ export default function App() {
   return (
     <Suspense fallback={<MainLoader />}>
       <BrowserRouter>
+        <Admin />
         <Header />
         <Suspense fallback={<MainLoader />}>
           <Routes>

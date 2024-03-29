@@ -18,7 +18,10 @@ svg {
   @apply fill-lt-svg dark:fill-dt-svg transition-all duration-150 ease-linear;
 }
 header {
-  @apply fixed top-0 self-start w-full h-16 bg-lt-main dark:bg-dt-main flex items-center z-50 has-[#home.active]:bg-main-purple;
+  @apply fixed top-0 self-start w-full h-16 flex items-center z-50 transition-all duration-150 ease-linear;
+}
+header.scrolled {
+  @apply bg-lt-main dark:bg-dt-main shadow-md shadow-lt-main/50 dark:shadow-dt-main/50;
 }
 .header-btn {
   @apply rounded-full flex items-center gap-1.5 cursor-pointer hover:bg-header-btn-hover transition-colors duration-200 ease-linear;
@@ -129,19 +132,17 @@ header {
   @apply grid justify-center items-center;
 }
 .loader {
-  transform: rotateZ(45deg);
-  perspective: 1000px;
-  @apply rounded-[50%] w-24 h-24 text-dt-third dark:text-lt-third;
+  @apply rounded-[50%] w-24 h-24 text-dt-third dark:text-lt-third rotate-45;
 }
 .loader:before,
 .loader:after {
-  @apply block content-[''] absolute top-0 left-0 w-24 h-24 rounded-full;
+  @apply block content-[''] absolute top-0 left-0 w-24 h-24 rounded-3xl;
 }
 .loader:before {
-  transform: rotateX(70deg);
+  /* transform: rotateX(70deg); */
   @apply animate-load-spin;
 }
 .loader:after {
-  transform: rotateY(70deg);
+  /* transform: rotateY(70deg); */
   @apply text-main-purple animate-load-spin-delay;
 }
