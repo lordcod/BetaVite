@@ -185,13 +185,13 @@ export default {
       'dt-ping': '#d9ddf2',
       'dt-selection': '#789dac',
 
-      'lt-main': '#fffffd',
-      'lt-main-hover': '#f7f7f3',
-      'lt-second': '#E7E7DF',
+      'lt-main': '#fcfcff',
+      'lt-main-hover': '#f4f4f8',
+      'lt-second': '#E8E8EC',
       'lt-font': '#000',
       'lt-svg': '#000',
       'lt-svg-hover': '#1f1f1f',
-      'lt-third': '#DFDFDB',
+      'lt-third': '#DFDFE4',
       'lt-ping': '#5865f2',
       'lt-selection': '#b8ddec',
 

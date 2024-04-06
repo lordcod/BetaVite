@@ -1,4 +1,4 @@
-import Avatar from '@/components/5Entities/Assets/1.webp';
+import Avatar from '@/Assets/1.webp';
 
 export default function CHomeHrBlock() {
   return (

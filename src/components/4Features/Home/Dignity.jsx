@@ -1,7 +1,9 @@
-import Avatar from '@/components/5Entities/Assets/1.webp';
-export default function Dignity() {
+import Avatar from '@/Assets/1.webp';
+
+export default function Dignity(props) {
   return (
-    <div className='grid grid-cols-2 gap-16 '>
+    <div
+      className={`dignity wow animate__animated animate__${props.animation}`}>
       <div className='flex items-center'>
         <img
           src={Avatar}

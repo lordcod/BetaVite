@@ -4,9 +4,9 @@ import SVGDiscord from '@/components/5Entities/SVG/SVGDiscord';
 
 export default function HomeTitleBlock() {
   return (
-    <div className='w-full bg-main-purple z-10 mt-[-64px] pt-16'>
+    <div className='w-full bg-main-purple z-10 mt-[-64px] pt-16 min-h-[calc(100vh-156px)] flex items-center'>
       <div className='size-limit mx-auto grid grid-cols-2  items-center'>
-        <div className='flex justify-end p-2.5'>
+        <div className='flex justify-end p-2.5 animate-anti-entry1'>
           <SVGCrown
             height='480'
             width='480'
@@ -15,15 +15,15 @@ export default function HomeTitleBlock() {
         </div>
         <div className='flex flex-col gap-2 p-2.5'>
           <div className='pl-2.5 flex flex-col gap-2 text-dt-font'>
-            <h4 className='font-bold w-full font text-4xl'>
+            <h4 className='font-bold w-full font text-4xl animate-anti-entry2'>
               Tune in, let the magic begin!
             </h4>
-            <p>
+            <p className='animate-anti-entry3'>
               Добро пожаловать в мир LordCord - вашего верного бота для
               управления сервером!
             </p>
           </div>
-          <div className='flex gap-4'>
+          <div className='flex gap-4 animate-anti-entry3'>
             <a
               href=''
               target='blank'

@@ -2,7 +2,7 @@ import CommandsCategories from '@/components/3Widgets/Commands/CommandsCategorie
 import CommandsSearch from '@/components/3Widgets/Commands/CommandsSearch';
 import CommandsInfo from '@/components/3Widgets/Commands/CommandsInfo';
 import CommandsList from '../../3Widgets/Commands/CommandsList';
-
+import { CategoryState } from '@/context/CommandsContext';
 export default function CommandsPage() {
   return (
     <div className='page'>
@@ -17,7 +17,9 @@ export default function CommandsPage() {
             <CommandsInfo />
           </div>
           <div className='flex flex-col gap-3 animate-anti-entry3'>
-            <CommandsList />
+            <CategoryState>
+              <CommandsList />
+            </CategoryState>
           </div>
         </div>
       </div>

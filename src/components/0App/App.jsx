@@ -3,12 +3,13 @@ import { Main } from '@/components/2Pages/Main/Main.lazy';
 import { Commands } from '@/components/2Pages/Commands/Commands.lazy';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from '@/components/3Widgets/Header';
-import { CategoryState } from '@/context/CommandsContext';
 import { EmbedBuilder } from '@/components/2Pages/EmbedBuilder/EmbedBuilder.lazy';
 import Footer from '@/components/3Widgets/Footer';
 import { Support } from '@/components/2Pages/Support/Support.lazy';
 import MainLoader from '@/components/5Entities/Loaders/MainLoader';
 import Admin from '../3Widgets/Menus/Admin';
+import { ThemeChangingState } from '../../context/ThemeChanging';
+import ThemeChangingLoader from '../3Widgets/ThemeChangingLoader';
 
 export default function App() {
   useEffect(() => {
@@ -18,10 +19,14 @@ export default function App() {
     );
     console.log(`%cLordBot starts magic`, 'color: #D902FF');
   }, []);
+
   return (
     <Suspense fallback={<MainLoader />}>
       <BrowserRouter>
-        <Admin />
+        <ThemeChangingState>
+          <Admin />
+          <ThemeChangingLoader />
+        </ThemeChangingState>
         <Header />
         <Suspense fallback={<MainLoader />}>
           <Routes>
@@ -31,11 +36,7 @@ export default function App() {
             />
             <Route
               path='/commands'
-              element={
-                <CategoryState>
-                  <Commands />
-                </CategoryState>
-              }
+              element={<Commands />}
             />
             <Route
               path='/support'
