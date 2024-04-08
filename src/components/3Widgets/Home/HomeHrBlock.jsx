@@ -1,11 +1,30 @@
 import Avatar from '@/Assets/1.webp';
+import { useEffect, useState } from 'react';
 
 export default function CHomeHrBlock() {
+  const [serversAmount, setServersAmount] = useState(100);
+
+  useEffect(() => {
+    if (!localStorage.seram || Date.now() - 60000 > localStorage.seramtime) {
+      fetch('https://discord.bots.gg/api/v1/bots/1095713975532007434')
+        .then(res => {
+          return res.json();
+        })
+        .then(data => {
+          localStorage.seramtime = Date.now();
+          if (localStorage.seram == 'undefined')
+            localStorage.seram = data.guildCount;
+        });
+    }
+    setServersAmount(localStorage.seram);
+  }, []);
+
   return (
     <div className='bg-lt-main dark:bg-dt-main'>
       <div className='size-limit mx-auto grid grid-cols-2 gap-10 p-8'>
         <p className='text-2xl text-bold flex items-center'>
-          Больее чем N серверов используют LordBot
+          LordCord завоевал сердца не только на {serversAmount} серверах
+          Discord, но и за их границами!
         </p>
         <div className='flex gap-8 justify-end w-full'>
           <img

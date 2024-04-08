@@ -10,18 +10,28 @@ export const ThemeChangingState = props => {
   const [isChanging, setIsChanging] = useState(false);
   const [theme, setTheme] = useState('light');
 
-  function change(theme) {
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+
+  function change() {
     setIsChanging(true);
-    setTheme(theme == 'light' ? 'dark' : 'light');
+
+    setTimeout(() => {
+      setTheme(theme == 'light' ? 'dark' : 'light');
+    }, 200);
+
     setTimeout(() => {
       setIsChanging(false);
-      console.log(theme);
-    }, 500);
+    }, 1000);
   }
 
   return (
     <ThemeChangingContext.Provider
       value={{
+        setIsChanging,
         isChanging,
         change,
         theme,

@@ -29,7 +29,7 @@ export const CategoryState = props => {
   const commandsModeration = CommandCategoryList(
     CommandsData.moderation,
     prefLang,
-  ); //Модерация
+  );
   const commandsVoice = CommandCategoryList(CommandsData.voice, prefLang); //Голосовые
   const commandsAll = [
     ...commandsVoice.props.children,
@@ -44,8 +44,6 @@ export const CategoryState = props => {
   category == 'moderation' && commandsModeration;
   category == 'economy' && commandsEconomy;
   category == 'voice' && commandsVoice;
-
-  // const commandsAll = ['help', 'ping', 'invite', 'captcha', 'purge', 'temp-role', 'trmp-role list', 'say', 'settings', 'balance', 'leaderboard', 'pay', 'daily', 'weekly', 'monthly', 'deposit', 'withdraw', 'gift', 'take', 'join', 'leave', 'play', 'stop', 'pause', 'resume', 'volume']
 
   const toggleCategory = value => {
     const clicked = document.getElementById(value);

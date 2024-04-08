@@ -4,10 +4,11 @@ import SVGLight from '../5Entities/SVG/SVGLight';
 import SVGDark from '../5Entities/SVG/SVGDark';
 
 export default function ThemeChangingLoader() {
-  const { isChanging, theme } = useContext(ThemeChangingContext);
+  const { isChanging, theme, isHidding } = useContext(ThemeChangingContext);
 
   return (
-    <div className={`theme-changing ${theme} ${!isChanging && 'hidden'}`}>
+    <div
+      className={`theme-changing ${theme} ${isChanging ? 'flex ' : 'hidden'}`}>
       <SVGLight
         id='theme-sun'
         width='240px'
