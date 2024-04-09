@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { CategoryContext } from '@/context/CommandsContext';
-import NotFound from '../../5Entities/UI/Messages/NotFound';
+import NotFound from '@/components/5Entities/UI/Messages/NotFound';
+import { CommandsContext } from '@/context/CommandsContext';
 
 export default function SearchInput() {
   const { commandsAll, setDisplay, searchTerm, setSearchTerm, toggleCategory } =
-    useContext(CategoryContext);
+    useContext(CommandsContext);
 
   const search = e => {
     toggleCategory('all');
@@ -25,8 +25,6 @@ export default function SearchInput() {
     }
 
     setDisplay(result);
-
-    console.log(result);
   };
 
   return (

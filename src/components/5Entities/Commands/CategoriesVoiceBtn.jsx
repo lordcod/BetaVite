@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { CategoryContext } from '@/context/CommandsContext';
+import { CommandsContext } from '@/context/CommandsContext';
 import SVGCommandsVoice from '@/components/5Entities/SVG/SVGCommandsVoice';
 
 export default function CategoriesVoiceBtn() {
-  const { toggleCategory } = useContext(CategoryContext);
+  const { toggleCategory } = useContext(CommandsContext);
 
   return (
     <button

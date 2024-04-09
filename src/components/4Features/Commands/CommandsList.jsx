@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CategoryContext } from '@/context/CommandsContext';
+import { CommandsContext } from '@/context/CommandsContext';
 
 export default function CommandsList() {
   const {
@@ -9,7 +9,7 @@ export default function CommandsList() {
     commandsModeration,
     commandsVoice,
     display,
-  } = useContext(CategoryContext);
+  } = useContext(CommandsContext);
 
   return (
     <>

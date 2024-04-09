@@ -4,20 +4,20 @@ import { useEffect, useState } from 'react';
 export default function CHomeHrBlock() {
   const [serversAmount, setServersAmount] = useState(100);
 
-  useEffect(() => {
-    if (!localStorage.seram || Date.now() - 60000 > localStorage.seramtime) {
-      fetch('https://discord.bots.gg/api/v1/bots/1095713975532007434')
-        .then(res => {
-          return res.json();
-        })
-        .then(data => {
-          localStorage.seramtime = Date.now();
-          if (localStorage.seram == 'undefined')
-            localStorage.seram = data.guildCount;
-        });
-    }
-    setServersAmount(localStorage.seram);
-  }, []);
+  // useEffect(() => {
+  //   if (!localStorage.seram || Date.now() - 60000 > localStorage.seramtime) {
+  //     fetch('https://discord.bots.gg/api/v1/bots/1095713975532007434')
+  //       .then(res => {
+  //         return res.json();
+  //       })
+  //       .then(data => {
+  //         localStorage.seramtime = Date.now();
+  //         if (localStorage.seram == 'undefined')
+  //           localStorage.seram = data.guildCount;
+  //       });
+  //   }
+  //   setServersAmount(localStorage.seram);
+  // }, []);
 
   return (
     <div className='bg-lt-main dark:bg-dt-main'>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import SVGInfo from '@/components/5Entities/SVG/SVGInfo';
 import SVGExpand from '@/components/5Entities/SVG/SVGExpand';
-import InfoPrefix from '../../4Features/Commands/InfoPrefix';
-import InfoParams from '../../4Features/Commands/InfoParams';
+import InfoPrefix from '@/components/5Entities/Commands/InfoPrefix';
+import InfoParams from '@/components/5Entities/Commands/InfoParams';
 
 export default function CommandsInfo() {
   const [opened, setOpened] = useState(false);

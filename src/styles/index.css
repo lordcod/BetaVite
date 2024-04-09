@@ -29,8 +29,20 @@ header:not(.scrolled):has(#home.active) {
 header:not(.scrolled):has(#home.active) svg {
   @apply fill-dt-svg;
 }
+/* .header-btn {
+  @apply rounded-full flex items-center gap-1.5 cursor-pointer hover:bg-header-btn-hover transition-colors duration-200 ease-linear py-1 px-[18px];
+} */
 .header-btn {
-  @apply rounded-full flex items-center gap-1.5 cursor-pointer hover:bg-header-btn-hover transition-colors duration-200 ease-linear;
+  @apply rounded-full flex items-center py-1 px-[18px] gap-1.5 hover:bg-header-btn transition-colors duration-200 ease-linear;
+}
+.header-btn.active {
+  @apply bg-header-btn hover:bg-header-btn-hover;
+}
+.header-btn.p-1\.5 {
+  @apply px-1.5 py-1.5;
+}
+.header-btn.p-2 {
+  @apply px-2 py-2;
 }
 .page {
   @apply pt-16 bg-lt-second dark:bg-dt-second w-full min-h-[calc(100vh-156px)] pb-4;

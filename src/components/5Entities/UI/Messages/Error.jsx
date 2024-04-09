@@ -1,4 +1,4 @@
-import SVGError from '@/components/5Entities/SVG/SVGError';
+import SVGError from '@components/5Entities/SVG/SVGError';
 
 export default function Error(name) {
   return (

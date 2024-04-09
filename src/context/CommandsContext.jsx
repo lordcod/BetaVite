@@ -1,11 +1,11 @@
 import { createContext, useState } from 'react';
-import CommandCategoryList from '@/components/3Widgets/Commands/CommandCategoryList';
-import CommandsData from '@/components/6Shared/Server/commands';
+import CommandCategoryList from '@components/4Features/Commands/CommandCategoryList';
+import CommandsData from '@data/commands.json';
 import useLang from '@/hooks/LangHook';
 
 const prefLang = useLang();
 
-export const CategoryContext = createContext({
+export const CommandsContext = createContext({
   category: '',
   toggleCategory: () => {},
   display: [],
@@ -16,10 +16,10 @@ export const CategoryContext = createContext({
   commandsVoice: [],
   commandsAll: [],
   searchTerm: '',
-  setSearchTerm: '',
+  setSearchTerm: () => {},
 });
 
-export const CategoryState = props => {
+export const CommandsState = props => {
   const [category, setCategory] = useState('all');
   const [previosButton, setPreviosButton] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
@@ -29,7 +29,7 @@ export const CategoryState = props => {
   const commandsModeration = CommandCategoryList(
     CommandsData.moderation,
     prefLang,
-  );
+  ); //Модерация
   const commandsVoice = CommandCategoryList(CommandsData.voice, prefLang); //Голосовые
   const commandsAll = [
     ...commandsVoice.props.children,
@@ -38,12 +38,7 @@ export const CategoryState = props => {
     ...commandsEconomy.props.children,
   ];
 
-  const [display, setCommands] = useState(commandsAll);
-
-  category == 'major' && commandsMajor;
-  category == 'moderation' && commandsModeration;
-  category == 'economy' && commandsEconomy;
-  category == 'voice' && commandsVoice;
+  const [display, setDisplay] = useState(commandsAll);
 
   const toggleCategory = value => {
     const clicked = document.getElementById(value);
@@ -58,12 +53,8 @@ export const CategoryState = props => {
     }
   };
 
-  const setDisplay = value => {
-    setCommands(value);
-  };
-
   return (
-    <CategoryContext.Provider
+    <CommandsContext.Provider
       value={{
         category,
         toggleCategory,
@@ -80,6 +71,6 @@ export const CategoryState = props => {
         commandsAll,
       }}>
       {props.children}
-    </CategoryContext.Provider>
+    </CommandsContext.Provider>
   );
 };

@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { CategoryContext } from '@/context/CommandsContext';
+import { CommandsContext } from '@/context/CommandsContext';
 import SVGCommandsEconomy from '@/components/5Entities/SVG/SVGCommandsEconomy';
 
 export default function CategoriesEconomyBtn() {
-  const { toggleCategory } = useContext(CategoryContext);
+  const { toggleCategory } = useContext(CommandsContext);
 
   return (
     <button

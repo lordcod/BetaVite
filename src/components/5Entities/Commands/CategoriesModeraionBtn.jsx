@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { CategoryContext } from '@/context/CommandsContext';
+import { CommandsContext } from '@/context/CommandsContext';
 import SVGCommandsModeration from '@/components/5Entities/SVG/SVGCommandsModeration';
 
 export default function CategoriesModerationBtn() {
-  const { toggleCategory } = useContext(CategoryContext);
+  const { toggleCategory } = useContext(CommandsContext);
 
   return (
     <button

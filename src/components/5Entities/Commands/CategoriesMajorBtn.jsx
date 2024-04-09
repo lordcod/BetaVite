@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { CategoryContext } from '@/context/CommandsContext';
+import { CommandsContext } from '@/context/CommandsContext';
 import SVGCommandsMajor from '@/components/5Entities/SVG/SVGCommandsMajor';
 
 export default function CategoriesMajorBtn() {
-  const { toggleCategory } = useContext(CategoryContext);
+  const { toggleCategory } = useContext(CommandsContext);
 
   return (
     <button

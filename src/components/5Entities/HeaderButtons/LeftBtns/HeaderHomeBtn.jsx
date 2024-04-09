@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import SVGCrown from '@/components/5Entities/SVG/SVGCrown';
+import SVGCrown from '@components/5Entities/SVG/SVGCrown';
 
 export default function HeaderHomeBtn() {
   return (

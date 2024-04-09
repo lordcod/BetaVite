@@ -10,7 +10,6 @@ import MainLoader from '@/components/5Entities/Loaders/MainLoader';
 import Admin from '../3Widgets/Menus/Admin';
 import { ThemeChangingState } from '../../context/ThemeChanging';
 import ThemeChangingLoader from '../3Widgets/ThemeChangingLoader';
-import { CategoryState } from '../../context/CommandsContext';
 
 export default function App() {
   useEffect(() => {
@@ -37,12 +36,7 @@ export default function App() {
             />
             <Route
               path='/commands'
-              element={
-                <CategoryState>
-                  {' '}
-                  <Commands />
-                </CategoryState>
-              }
+              element={<Commands />}
             />
             <Route
               path='/support'

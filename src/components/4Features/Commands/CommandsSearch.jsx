@@ -1,5 +1,5 @@
-import SearchInput from '../../4Features/Commands/SearchInput';
-import SearchLabel from '../../4Features/Commands/SearchLabel';
+import SearchInput from '@/components/5Entities/Commands/SearchInput';
+import SearchLabel from '@/components/5Entities/Commands/SearchLabel';
 
 export default function CommandsSearch() {
   return (
