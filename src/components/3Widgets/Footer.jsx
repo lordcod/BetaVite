@@ -5,8 +5,8 @@ import Copyright from '@/components/5Entities/UI/Copyright';
 
 export default function Footer() {
   return (
-    <footer className='h-[156px] bg-lt-main dark:bg-dt-main py-2 px-4 flex items-center flex-col'>
-      <nav className='h-[120px] size-limit mx-a gap-4 grid grid-cols-[1fr_1fr_2fr]'>
+    <footer className=' bg-lt-main dark:bg-dt-main py-2 px-4 flex items-center flex-col'>
+      <nav className='size-limit mx-a gap-4 flex flex-col md:w-full 2md:grid 2md:grid-cols-[1fr,1fr,2fr]'>
         <FooterLogo />
         <FooterSocials />
         <FooterLinks />

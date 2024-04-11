@@ -4,9 +4,8 @@ import { NavLink } from 'react-router-dom';
 export default function HeaderSupporBtn() {
   return (
     <NavLink
-      id='support'
       to='/support'
-      className='animate-entry4 header-btn'>
+      className='animate-entry4 header-btn hidden'>
       <SVGHeart />
       <h1 className='font-bold '>ПОДДЕРЖИТЕ НАС</h1>
     </NavLink>

@@ -8,7 +8,7 @@ export const ThemeChangingContext = createContext({
 
 export const ThemeChangingState = props => {
   const [isChanging, setIsChanging] = useState(false);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   if (theme === 'dark') {
     document.documentElement.classList.add('dark');

@@ -1,15 +1,15 @@
 import { Suspense, useEffect } from 'react';
-import { Main } from '@/components/2Pages/Main/Main.lazy';
-import { Commands } from '@/components/2Pages/Commands/Commands.lazy';
+import { Main } from '@components/2Pages/Main/Main.lazy';
+import { Commands } from '@components/2Pages/Commands/Commands.lazy';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from '@/components/3Widgets/Header';
-import { EmbedBuilder } from '@/components/2Pages/EmbedBuilder/EmbedBuilder.lazy';
-import Footer from '@/components/3Widgets/Footer';
-import { Support } from '@/components/2Pages/Support/Support.lazy';
-import MainLoader from '@/components/5Entities/Loaders/MainLoader';
-import Admin from '../3Widgets/Menus/Admin';
-import { ThemeChangingState } from '../../context/ThemeChanging';
-import ThemeChangingLoader from '../3Widgets/ThemeChangingLoader';
+import Header from '@components/3Widgets/Header';
+import Footer from '@components/3Widgets/Footer';
+import MainLoader from '@components/5Entities/Loaders/MainLoader';
+import Admin from '@components/3Widgets/Menus/Admin';
+import { ThemeChangingState } from '@context/ThemeChanging';
+import ThemeChangingLoader from '@components/3Widgets/ThemeChangingLoader';
+import { NoSiteTemporarily } from '../2Pages/Errors/NoSiteTemporarily/NoSiteTemporarily.lazy';
+import { Error404 } from '../2Pages/Errors/Error 404/Error404.lazy';
 
 export default function App() {
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function App() {
     <Suspense fallback={<MainLoader />}>
       <BrowserRouter>
         <ThemeChangingState>
-          <Admin />
+          {/* <Admin /> */}
           <ThemeChangingLoader />
         </ThemeChangingState>
         <Header />
@@ -38,27 +38,32 @@ export default function App() {
               path='/commands'
               element={<Commands />}
             />
+
             <Route
               path='/support'
-              element={<Support />}
+              element={<NoSiteTemporarily />}
             />
             <Route
               path='/embed'
-              element={<EmbedBuilder />}
+              element={<NoSiteTemporarily />}
             />
             <Route
               path='/servers'
-              element={<MainLoader />}
+              element={<NoSiteTemporarily />}
+            />
+
+            <Route
+              path=''
+              element={<Error404 />}
             />
             <Route
               path='*'
-              element={'tttttttexxt'}
+              element={<Error404 />}
             />
+            <Route element={<Error404 />} />
           </Routes>
         </Suspense>
-        <Suspense fallback={<MainLoader />}>
-          <Footer />
-        </Suspense>
+        <Footer />
       </BrowserRouter>
     </Suspense>
   );

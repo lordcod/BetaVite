@@ -5,9 +5,10 @@ export default function HeaderProfileBtn() {
       className='animate-entry6 header-btn p-1.5'
       id='profile'
       tabIndex='0'
-      aria-label='Профиль и настройка сайта'>
+      aria-label='Профиль и настройка сайта'
+      data-tip='OinkiePie'>
       <img
-        className='w-7 h-7'
+        className='min-w-7 h-7'
         src={UserData.avatar}
         alt='avatar'
       />

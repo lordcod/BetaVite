@@ -18,22 +18,20 @@ svg {
   @apply fill-lt-svg dark:fill-dt-svg transition-all duration-150 ease-linear;
 }
 header {
-  @apply fixed top-0 self-start w-full h-16 flex items-center z-20 transition-all duration-150 ease-linear;
+  @apply fixed top-0 self-start w-full h-16 flex items-center z-20 transition-all duration-150 ease-linear bg-lt-main dark:bg-dt-main;
 }
 header.scrolled {
   @apply bg-lt-main dark:bg-dt-main dark:text-dt-font shadow-md shadow-lt-main/50 dark:shadow-dt-main/50 text-lt-font;
 }
 header:not(.scrolled):has(#home.active) {
-  @apply text-dt-font;
+  @apply text-dt-font bg-transparent;
 }
 header:not(.scrolled):has(#home.active) svg {
   @apply fill-dt-svg;
 }
-/* .header-btn {
-  @apply rounded-full flex items-center gap-1.5 cursor-pointer hover:bg-header-btn-hover transition-colors duration-200 ease-linear py-1 px-[18px];
-} */
 .header-btn {
-  @apply rounded-full flex items-center py-1 px-[18px] gap-1.5 hover:bg-header-btn transition-colors duration-200 ease-linear;
+  transition-property: background-color, opacity;
+  @apply rounded-full items-center py-1 px-[18px] gap-1.5 hover:bg-header-btn duration-200 ease-linear;
 }
 .header-btn.active {
   @apply bg-header-btn hover:bg-header-btn-hover;
@@ -45,7 +43,10 @@ header:not(.scrolled):has(#home.active) svg {
   @apply px-2 py-2;
 }
 .page {
-  @apply pt-16 bg-lt-second dark:bg-dt-second w-full min-h-[calc(100vh-156px)] pb-4;
+  @apply pt-16 bg-lt-second dark:bg-dt-second min-h-[max(calc(100vh-156px),480px)] pb-4 min-w-[max(320px,100%)];
+}
+a.link {
+  @apply text-link;
 }
 .size-limit {
   @apply max-w-[1320px];
@@ -111,7 +112,7 @@ header:not(.scrolled):has(#home.active) svg {
   @apply cursor-pointer text-lt-ping hover:text-dt-ping bg-dt-ping hover:bg-lt-ping dark:text-dt-ping  dark:bg-ping-bg  dark:hover:bg-ping-hover-bg  dark:hover:text-ping-hover hover:underline px-1 py-0.5 rounded  transition-colors duration-150 ease-linear;
 }
 .command {
-  @apply bg-lt-main dark:bg-dt-main overflow-hidden rounded-2xl	py-4 pl-5 grid grid-cols-[1fr_auto];
+  @apply bg-lt-main dark:bg-dt-main overflow-hidden rounded-2xl	py-4 pl-5 grid grid-cols-[1fr_auto] pr-5 2xl:pr-0;
 }
 .command.opened > div {
   @apply pb-4 ease-in-out;
@@ -132,7 +133,7 @@ header:not(.scrolled):has(#home.active) svg {
   @apply cursor-pointer justify-between flex select-none z-10 transition-all duration-200 ease-out-max;
 }
 .command_expand {
-  @apply cursor-pointer grid items-end transition-all duration-200 ease-out-max px-5;
+  @apply cursor-pointer items-end transition-all duration-200 ease-out-max px-5 hidden 2xl:grid;
 }
 .command_body {
   @apply grid grid-rows-[0fr] overflow-hidden transition-all duration-200 ease-out-max;
@@ -147,59 +148,75 @@ header:not(.scrolled):has(#home.active) svg {
   @apply py-1 px-4 rounded-lg bg-lt-third dark:bg-dt-third font-inconsolata;
 }
 .loader_container {
-  @apply grid justify-center items-center;
+  @apply flex justify-center items-center;
 }
 .loader {
-  @apply rounded-[50%] w-24 h-24 text-dt-third dark:text-lt-third rotate-45;
+  @apply w-24 h-24 text-dt-third dark:text-lt-third rotate-45;
 }
 .loader:before,
 .loader:after {
-  @apply block content-[''] absolute top-0 left-0 w-24 h-24 rounded-3xl;
+  @apply block content-[''] absolute top-0 left-0 w-24 h-24 rounded-[35%];
 }
 .loader:before {
-  /* transform: rotateX(70deg); */
   @apply animate-load-spin;
 }
 .loader:after {
-  /* transform: rotateY(70deg); */
   @apply text-main-purple animate-load-spin-delay;
 }
 .dignity-list {
   @apply size-limit mx-auto flex flex-col gap-4 m-4 px-8 pt-8 transition-all duration-150 ease-in;
 }
 .dignity-list > div:nth-child(even) > div:first-child {
-  @apply order-1;
+  @apply 2xl:order-1;
+}
+.dignity-list > div:nth-child(odd) > div:last-child > a {
+  @apply 2xl:self-end;
+}
+.dignity-list > div:nth-child(even) > div:last-child > a {
+  @apply 2xl:self-start;
 }
 .dignity {
-  @apply grid grid-cols-2 gap-16;
+  @apply grid 2xl:grid-cols-2 gap-16;
 }
 .theme-changing-container {
   @apply transition-all duration-200 ease-linear;
 }
 .theme-changing {
-  @apply fixed w-full h-full z-30 bg-lt-main dark:bg-dt-main items-center duration-[600ms] delay-200 ease-out transition-all overflow-x-hidden;
+  @apply fixed w-full h-full z-30 bg-lt-main dark:bg-dt-main items-center duration-300 delay-100 ease-out transition-all overflow-x-hidden;
 }
 
 .theme-changing svg {
-  @apply duration-[600ms] ease-out transition-all delay-200;
+  @apply duration-300 ease-out transition-all delay-100;
 }
 
 .theme-changing.dark > #theme-moon {
   transform: rotateY(0deg) translate(50%);
-  @apply right-[50%];
+  @apply right-1/2;
 }
 
 .theme-changing.light > #theme-moon {
   transform: rotateY(-45deg) translate(50%);
-  @apply right-[0%] opacity-0;
+  @apply right-0 opacity-0;
 }
 
 .theme-changing.dark > #theme-sun {
   transform: rotateY(45deg) translate(-50%);
-  @apply left-[0%] opacity-0;
+  @apply left-0 opacity-0;
 }
 
 .theme-changing.light > #theme-sun {
   transform: rotateY(0deg) translate(-50%);
-  @apply left-[50%];
+  @apply left-1/2;
+}
+
+[data-tip]:before {
+  @apply absolute py-1 px-2 text-center rounded dark:text-lt-font text-dt-font dark:bg-lt-main bg-dt-main z-30  hover:opacity-100 transition-opacity ease-linear duration-200 delay-100 content-[attr(data-tip)] opacity-0 -translate-x-1/2 left-1/2 top-full hidden;
+}
+
+.ontop-btn {
+  @apply opacity-0 transition-all duration-200 bg-lt-third dark:bg-dt-third hover:bg-lt-third-hover dark:hover:bg-dt-third-hover rounded-xl p-2 rotate-180 z-30 fixed right-4 bottom-4;
+}
+
+.ontop-btn.show {
+  @apply opacity-100 rotate-0;
 }
