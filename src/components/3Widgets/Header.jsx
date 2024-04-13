@@ -39,7 +39,7 @@ export default function Header() {
       </button>
       <header ref={header}>
         <nav className='px-6 mx-auto flex items-center justify-between w-full size-limit'>
-          <button className=' header-btn p-2 '>
+          <button className=' header-btn p-2 2md:hidden'>
             <SVGMenu />
           </button>
           <LeftButtons />
