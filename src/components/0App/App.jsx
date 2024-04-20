@@ -10,6 +10,7 @@ import { ThemeChangingState } from '@context/ThemeChanging';
 import ThemeChangingLoader from '@components/3Widgets/ThemeChangingLoader';
 import { NoSiteTemporarily } from '../2Pages/Errors/NoSiteTemporarily/NoSiteTemporarily.lazy';
 import { Error404 } from '../2Pages/Errors/Error 404/Error404.lazy';
+import { Results } from '../2Pages/Results/Results.lazy';
 
 export default function App() {
   useEffect(() => {
@@ -24,7 +25,7 @@ export default function App() {
     <Suspense fallback={<MainLoader />}>
       <BrowserRouter>
         <ThemeChangingState>
-          {/* <Admin /> */}
+          <Admin />
           <ThemeChangingLoader />
         </ThemeChangingState>
         <Header />
@@ -50,6 +51,10 @@ export default function App() {
             <Route
               path='/servers'
               element={<NoSiteTemporarily />}
+            />
+            <Route
+              path='/results'
+              element={<Results />}
             />
 
             <Route

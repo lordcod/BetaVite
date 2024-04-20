@@ -21,12 +21,12 @@ export default function CHomeHrBlock() {
 
   return (
     <div className='bg-lt-main dark:bg-dt-main'>
-      <div className='size-limit mx-auto gap-10 p-8 grid 2xl:grid-cols-2'>
-        <p className='text-2xl text-bold flex items-center'>
+      <div className='size-limit mx-auto gap-5 p-8 grid 2md:grid-cols-[1fr_auto] 2md:gap-10 '>
+        <p className='text-2xl text-bold flex items-center text-center 2md:text-start'>
           LordCord завоевал сердца не только на {serversAmount} серверах
-          Discord, но и за их границами!
+          Discord, но и за их пределами!
         </p>
-        <div className='flex flex-wrap gap-8 w-full justify-center 2xl:justify-end'>
+        <div className='flex flex-wrap gap-8 w-full justify-center items-center 2md:justify-end'>
           <img
             src={Avatar}
             className='w-[60px] h-[60px] rounded-xl'

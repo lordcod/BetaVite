@@ -5,7 +5,7 @@ export default function HeaderSupporBtn() {
   return (
     <NavLink
       to='/support'
-      className='animate-entry4 header-btn hidden'>
+      className='animate-entry4 header-btn hidden lg:flex'>
       <SVGHeart />
       <h1 className='font-bold '>ПОДДЕРЖИТЕ НАС</h1>
     </NavLink>

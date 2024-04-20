@@ -14,6 +14,7 @@ export default args => {
         '@components': resolve(__dirname, './src/components'),
         '@data': resolve(__dirname, './src/components/6Shared'),
         '@context': resolve(__dirname, './src/context'),
+        '@styles': resolve(__dirname, './src/styles'),
       },
     },
     css: {

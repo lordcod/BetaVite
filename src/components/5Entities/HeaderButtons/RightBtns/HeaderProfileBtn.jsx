@@ -1,4 +1,6 @@
-import UserData from '@data/user.json';
+// import UserData from '@data/user.json';
+import SVGSettings from '@components/5Entities/SVG/SVGSettings';
+
 export default function HeaderProfileBtn() {
   return (
     <div
@@ -7,11 +9,12 @@ export default function HeaderProfileBtn() {
       tabIndex='0'
       aria-label='Профиль и настройка сайта'
       data-tip='OinkiePie'>
-      <img
+      {/* <img
         className='min-w-7 h-7'
         src={UserData.avatar}
         alt='avatar'
-      />
+      /> */}
+      <SVGSettings />
     </div>
   );
 }

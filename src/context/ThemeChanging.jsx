@@ -8,7 +8,19 @@ export const ThemeChangingContext = createContext({
 
 export const ThemeChangingState = props => {
   const [isChanging, setIsChanging] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
+
+  window.addEventListener('load', () => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark');
+    }
+  });
+
+  window
+    .matchMedia('(prefers-color-scheme: light)')
+    .addEventListener('change', () => {
+      setTheme(theme == 'light' ? 'dark' : 'light');
+    });
 
   if (theme === 'dark') {
     document.documentElement.classList.add('dark');

@@ -32,10 +32,7 @@ export default function CommandsList(category) {
             className='command_wrapper'
             onClick={clickHandler}>
             <div>
-              <span className='rounded-lg py-1 px-4 bg-main-active mx-0.5 text-dt-font'>
-                {comName}
-              </span>{' '}
-              — {descriptionShort}
+              <span className='main-sec'>{comName}</span> — {descriptionShort}
             </div>
           </div>
           <div className='command_body'>
