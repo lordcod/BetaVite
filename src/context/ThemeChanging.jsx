@@ -7,22 +7,17 @@ export const ThemeChangingContext = createContext({
 });
 
 export const ThemeChangingState = props => {
+  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [isChanging, setIsChanging] = useState(false);
-  const [theme, setTheme] = useState('light');
-
-  window.addEventListener('load', () => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    }
-  });
+  const [theme, setTheme] = useState(isDark ? 'dark' : 'light');
 
   window
-    .matchMedia('(prefers-color-scheme: light)')
+    .matchMedia('(prefers-color-scheme: dark)')
     .addEventListener('change', () => {
-      setTheme(theme == 'light' ? 'dark' : 'light');
+      setTheme(isDark ? 'light' : 'dark');
     });
 
-  if (theme === 'dark') {
+  if (theme == 'dark') {
     document.documentElement.classList.add('dark');
   } else {
     document.documentElement.classList.remove('dark');

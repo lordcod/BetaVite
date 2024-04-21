@@ -3,9 +3,12 @@ import SVGInfo from '@/components/5Entities/SVG/SVGInfo';
 import SVGExpand from '@/components/5Entities/SVG/SVGExpand';
 import InfoPrefix from '@/components/5Entities/Commands/InfoPrefix';
 import InfoParams from '@/components/5Entities/Commands/InfoParams';
+import { LangChangingContext } from '@context/LangContext';
+import { useContext } from 'react';
 
 export default function CommandsInfo() {
   const [opened, setOpened] = useState(false);
+  const { t } = useContext(LangChangingContext);
 
   return (
     <div
@@ -16,7 +19,7 @@ export default function CommandsInfo() {
           className='commands_sidebar_info_title'
           onClick={() => setOpened(!opened)}>
           <div className='w-full flex items-center gap-4'>
-            <SVGInfo /> Справка
+            <SVGInfo /> {t('commands.info')}
           </div>
           <SVGExpand />
         </div>

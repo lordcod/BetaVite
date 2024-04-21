@@ -1,22 +1,36 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { ThemeChangingContext } from '@/context/ThemeChanging';
+import React, { useContext } from 'react';
+import { ThemeChangingContext } from '@context/ThemeChanging';
+import { LangChangingContext } from '@context/LangContext';
 
 export default function Admin() {
-  // const [theme, setTheme] = useState('light');
-  const { change, isChanging, setIsChanging, isHidding, setIsHidding } =
-    useContext(ThemeChangingContext);
+  const { change } = useContext(ThemeChangingContext);
+
+  const { t, changeLanguage } = useContext(LangChangingContext);
 
   return (
-    <div className='fixed right-0 bottom-0 bg-black text-white w-16 h-16 z-50'>
-      <button onClick={change}>Тема</button>
+    <div className='flex flex-col fixed right-0 bottom-0 bg-black text-white w-20 h-50 z-50 gap-1'>
       <button
-        onClick={() => {
-          setIsChanging(!isChanging);
-          setIsHidding(!isHidding);
-        }}
-        className={`${isChanging && 'bg-green-500'}`}>
-        loader
+        onClick={change}
+        className='bg-red-500 '>
+        Тема
       </button>
+      <div className='flex gap-1'>
+        <button
+          className='bg-red-500  px-1'
+          onClick={() => {
+            changeLanguage('ru');
+          }}>
+          ru
+        </button>
+        <button
+          className='bg-red-500  px-1'
+          onClick={() => {
+            changeLanguage('en');
+          }}>
+          en
+        </button>
+        <span className='bg-green-500  px-1'>{t('language')}</span>
+      </div>
     </div>
   );
 }

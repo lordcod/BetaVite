@@ -11,6 +11,7 @@ import ThemeChangingLoader from '@components/3Widgets/ThemeChangingLoader';
 import { NoSiteTemporarily } from '../2Pages/Errors/NoSiteTemporarily/NoSiteTemporarily.lazy';
 import { Error404 } from '../2Pages/Errors/Error 404/Error404.lazy';
 import { Results } from '../2Pages/Results/Results.lazy';
+import { LangChangingState } from '../../context/LangContext';
 
 export default function App() {
   useEffect(() => {
@@ -23,53 +24,55 @@ export default function App() {
 
   return (
     <Suspense fallback={<MainLoader />}>
-      <BrowserRouter>
-        <ThemeChangingState>
-          <Admin />
-          <ThemeChangingLoader />
-        </ThemeChangingState>
-        <Header />
-        <Suspense fallback={<MainLoader />}>
-          <Routes>
-            <Route
-              path='/'
-              element={<Main />}
-            />
-            <Route
-              path='/commands'
-              element={<Commands />}
-            />
+      <LangChangingState>
+        <BrowserRouter>
+          <ThemeChangingState>
+            <Admin />
+            <ThemeChangingLoader />
+          </ThemeChangingState>
+          <Header />
+          <Suspense fallback={<MainLoader />}>
+            <Routes>
+              <Route
+                path='/'
+                element={<Main />}
+              />
+              <Route
+                path='/commands'
+                element={<Commands />}
+              />
 
-            <Route
-              path='/support'
-              element={<NoSiteTemporarily />}
-            />
-            <Route
-              path='/embed'
-              element={<NoSiteTemporarily />}
-            />
-            <Route
-              path='/servers'
-              element={<NoSiteTemporarily />}
-            />
-            <Route
-              path='/results'
-              element={<Results />}
-            />
+              <Route
+                path='/support'
+                element={<NoSiteTemporarily />}
+              />
+              <Route
+                path='/embed'
+                element={<NoSiteTemporarily />}
+              />
+              <Route
+                path='/servers'
+                element={<NoSiteTemporarily />}
+              />
+              <Route
+                path='/results'
+                element={<Results />}
+              />
 
-            <Route
-              path=''
-              element={<Error404 />}
-            />
-            <Route
-              path='*'
-              element={<Error404 />}
-            />
-            <Route element={<Error404 />} />
-          </Routes>
-        </Suspense>
-        <Footer />
-      </BrowserRouter>
+              <Route
+                path=''
+                element={<Error404 />}
+              />
+              <Route
+                path='*'
+                element={<Error404 />}
+              />
+              <Route element={<Error404 />} />
+            </Routes>
+          </Suspense>
+          <Footer />
+        </BrowserRouter>
+      </LangChangingState>
     </Suspense>
   );
 }

@@ -23,7 +23,7 @@
   @apply max-w-[1320px];
 }
 .dignity-list {
-  @apply size-limit mx-auto flex flex-col gap-4 m-4 px-8 pt-8 transition-all duration-150 ease-in;
+  @apply size-limit mx-auto flex flex-col gap-4 m-4 px-8 pt-8 transition-all duration-150 ease-in overflow-x-hidden;
 }
 .dignity-list > div:nth-child(even) > div:first-child {
   @apply 2md:order-1;
@@ -33,6 +33,12 @@
 }
 .dignity-list > div:nth-child(even) > div:last-child > a {
   @apply 2md:self-start;
+}
+.dignity-list > div:nth-child(odd) h1 {
+  @apply 2md:text-end;
+}
+.dignity-list > div:nth-child(even) h1 {
+  @apply 2md:text-start;
 }
 .dignity {
   @apply grid 2md:grid-cols-2 gap-16;

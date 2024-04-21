@@ -49,7 +49,7 @@ header:not(.scrolled):has(#home.active) svg {
 }
 .header-btn {
   transition-property: background-color, opacity;
-  @apply rounded-full items-center py-1 px-[18px] gap-1.5 hover:bg-header-btn-hover duration-200 ease-linear;
+  @apply rounded-full items-center py-1 px-[18px] gap-1.5 hover:bg-header-btn-hover duration-200 ease-linear cursor-pointer;
 }
 .header-btn.active {
   @apply bg-header-btn hover:bg-header-btn-hover;

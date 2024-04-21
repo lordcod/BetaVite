@@ -1,39 +1,38 @@
 import stringToElement from './parseStringToElement';
-import Error from '../UI/Messages/Error';
 import markDown from './parseMarkDown';
 
 export default function sortCommand(command, prefLang) {
-  prefLang = prefLang.prefLang;
-  let errorMes = '';
+  const translateList = list => {
+    let translatedList = [];
+    list.forEach(el => {
+      translatedList.push(el[prefLang]);
+    });
+    return translatedList;
+  };
 
-  function addLanguageNotFoundError(value) {
-    errorMes = Error('Нам не удалось найти подходящий для вас язык :(');
-    return value;
-  }
+  const examplesList = list => {
+    let examples = [];
 
-  function getInfo(find) {
-    const result =
-      command[find][
-        //ПРоверяет наличие информации на предпочтительном языке
-        !!command[find][prefLang]
-          ? prefLang
-          : //Если она отсутствует то проверяет наличие её английского варианта
-          !!command[find]['en']
-          ? addLanguageNotFoundError('en')
-          : //Если и его нет то возвращает "то что есть"
-            addLanguageNotFoundError(Object.keys(command[find])[0])
-      ];
+    list.forEach(el => {
+      let example = {
+        usage: '',
+        description: '',
+      };
+      example.usage = el[0];
+      example.description = el[1][prefLang];
+      examples.push(example);
+    });
 
-    return result;
-  }
+    return examples;
+  };
 
-  //Передается название переменной в json файле
-  const descriptionShort = getInfo('brief_descriptrion');
-  const description = markDown(getInfo('descriptrion'));
-  const argumentList = stringToElement(command.arguments.join(' '));
-  const aliases = command.aliases[0] && `${command.aliases.join(' | ')}`;
-  const deactivable = command.allowed_disabled;
   const comName = command.name;
+  const aliases = command.aliases[0] && `${command.aliases.join(' | ')}`;
+  const argumentList = translateList(command.arguments).join(' ');
+  const deactivable = command.allowed_disabled;
+  const descriptionShort = command.brief_descriptrion[prefLang];
+  const description = markDown(command.descriptrion[prefLang]);
+  const examples = !command.examples ? null : examplesList(command.examples);
 
   return [
     comName,
@@ -42,6 +41,6 @@ export default function sortCommand(command, prefLang) {
     descriptionShort,
     deactivable,
     argumentList,
-    errorMes,
+    examples,
   ];
 }

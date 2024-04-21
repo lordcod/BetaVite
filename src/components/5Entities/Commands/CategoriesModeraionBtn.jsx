@@ -1,9 +1,11 @@
 import { useContext } from 'react';
 import { CommandsContext } from '@/context/CommandsContext';
 import SVGCommandsModeration from '@/components/5Entities/SVG/SVGCommandsModeration';
+import { LangChangingContext } from '@context/LangContext';
 
 export default function CategoriesModerationBtn() {
   const { toggleCategory } = useContext(CommandsContext);
+  const { t } = useContext(LangChangingContext);
 
   return (
     <button
@@ -11,7 +13,7 @@ export default function CategoriesModerationBtn() {
       className='commands_category_btn'
       onClick={() => toggleCategory('moderation')}>
       <SVGCommandsModeration />
-      Модерация
+      {t('commands.moderation')}
     </button>
   );
 }

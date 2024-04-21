@@ -1,10 +1,11 @@
 import sortCommand from '@/components/5Entities/Functions/sortCommand';
 import SVGExpand from '@/components/5Entities/SVG/SVGExpand';
-import useLang from '@/hooks/LangHook';
-
-const prefLang = useLang();
+import { LangChangingContext } from '@context/LangContext';
+import { useContext } from 'react';
 
 export default function CommandsList(category) {
+  const { t } = useContext(LangChangingContext);
+
   function clickHandler(e) {
     let targetCommand = e.target.closest('.command');
     targetCommand.className =
@@ -19,8 +20,8 @@ export default function CommandsList(category) {
       descriptionShort,
       deactivable,
       argumentList,
-      errorMes,
-    ] = sortCommand(command, prefLang);
+      examples,
+    ] = sortCommand(command, localStorage.i18nextLng);
 
     return (
       <div
@@ -37,29 +38,50 @@ export default function CommandsList(category) {
           </div>
           <div className='command_body'>
             <div className='command_body_content'>
-              <div className='flex gap-3 flex-wrap'>
-                {aliases && (
-                  <>
-                    <h4 className='font-bold w-full font text-lg'>Варианты</h4>
-                    <p className='w-full'>
-                      <span className='usage'>{aliases}</span>
-                    </p>
-                  </>
-                )}
-                <h4 className='font-bold w-full font text-lg'>Использование</h4>
-                <p className='w-full'>
-                  <span className='usage'>
-                    {comName} {argumentList}
-                  </span>
-                </p>
-              </div>
+              {description}
+              {(examples || aliases) && (
+                <div className='flex gap-1 flex-wrap'>
+                  {aliases && (
+                    <>
+                      <h4 className='font-bold w-full font text-lg'>
+                        {t('commands.variants')}
+                      </h4>
+                      <p>
+                        <span className='usage'>{aliases}</span>
+                      </p>
+                    </>
+                  )}
+                  {examples && (
+                    <>
+                      <h4 className='font-bold w-full font text-lg'>
+                        {t('commands.examples')}
+                      </h4>
+                      <div className='flex flex-col gap-1'>
+                        {examples.map((ex, index) => {
+                          return (
+                            <div
+                              className='flex flex-col'
+                              key={comName + index}>
+                              <div className='usage self-start'>{ex.usage}</div>
+                              {ex.description}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
               <div className='flex gap-3 flex-wrap'>
                 <h4 className='font-bold w-full font text-lg'>
-                  {deactivable ? <>Можно</> : <>Нельзя</>} выключить
+                  {deactivable ? (
+                    <span className='text-green-500'>{t('commands.can')}</span>
+                  ) : (
+                    <span className='text-red-500'>{t('commands.cant')}</span>
+                  )}{' '}
+                  {t('commands.beTurnedOff')}
                 </h4>
-                {description}
               </div>
-              <>{errorMes}</>
             </div>
           </div>
         </div>

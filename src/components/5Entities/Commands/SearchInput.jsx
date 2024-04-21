@@ -1,8 +1,11 @@
 import { useContext } from 'react';
 import NotFound from '@/components/5Entities/UI/Messages/NotFound';
 import { CommandsContext } from '@/context/CommandsContext';
+import { LangChangingContext } from '@context/LangContext';
 
 export default function SearchInput() {
+  const { t } = useContext(LangChangingContext);
+
   const { commandsAll, setDisplay, searchTerm, setSearchTerm, toggleCategory } =
     useContext(CommandsContext);
 
@@ -29,7 +32,7 @@ export default function SearchInput() {
 
   return (
     <input
-      placeholder='Найти команду'
+      placeholder={t('commands.findCommand')}
       type='text'
       autoComplete='off'
       id='command'

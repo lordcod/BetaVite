@@ -1,9 +1,11 @@
 import { useContext } from 'react';
 import { CommandsContext } from '@/context/CommandsContext';
 import SVGCommandsEconomy from '@/components/5Entities/SVG/SVGCommandsEconomy';
+import { LangChangingContext } from '@context/LangContext';
 
 export default function CategoriesEconomyBtn() {
   const { toggleCategory } = useContext(CommandsContext);
+  const { t } = useContext(LangChangingContext);
 
   return (
     <button
@@ -11,7 +13,7 @@ export default function CategoriesEconomyBtn() {
       className='commands_category_btn'
       onClick={() => toggleCategory('economy')}>
       <SVGCommandsEconomy />
-      Экономика
+      {t('commands.economy')}
     </button>
   );
 }

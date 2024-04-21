@@ -1,25 +1,30 @@
+import { LangChangingContext } from '@context/LangContext';
+import { useContext } from 'react';
+
 export default function InfoParams() {
+  const { t } = useContext(LangChangingContext);
+
   return (
     <div className='mb-2'>
-      <h4 className='font-bold w-full font text-lg'>Синтаксис</h4>
+      <h4 className='font-bold w-full font text-lg'>{t('commands.syntax')}</h4>
       <ul className='pl-[30px] list-disc flex flex-col gap-3'>
         <li>
           <span className='px-2 py-1 bg-lt-second dark:bg-dt-second rounded-lg'>
             [ ]
           </span>{' '}
-          — Опциональный параметр
+          — {t('commands.optionalParameter')}
         </li>
         <li>
           <span className='px-2 py-1 bg-lt-second dark:bg-dt-second rounded-lg'>
             {'<>'}
           </span>{' '}
-          — Обязательный параметр
+          — {t('commands.requiredParameter')}
         </li>
         <li>
           <span className='px-2 py-1 bg-lt-second dark:bg-dt-second rounded-lg'>
-            A | Б | В
+            {t('commands.selectionExample')}
           </span>{' '}
-          — Выбор параметра
+          — {t('commands.parameterSelection')}
         </li>
       </ul>
     </div>

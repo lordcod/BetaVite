@@ -2,10 +2,14 @@ import SVGCrown from '@components/5Entities/SVG/SVGCrown.jsx';
 import { Link } from 'react-router-dom';
 import SVGDiscord from '@components/5Entities/SVG/SVGDiscord';
 import SVGServers from '../../5Entities/SVG/SVGServers';
+import { LangChangingContext } from '@context/LangContext';
+import { useContext } from 'react';
 
 export default function HomeTitleBlock() {
+  const { t } = useContext(LangChangingContext);
+
   return (
-    <div className='w-full bg-main-purple z-10 mt-[-64px] pt-16 min-h-[calc(100vh-156px)] flex items-center'>
+    <div className='w-full bg-main-purple z-10 mt-[-64px] pt-16 h-[max(calc(100vh-156px),600px)] max-h-[1000px] flex items-center'>
       <div className='size-limit mx-auto flex flex-col items-center 2md:grid 2md:grid-cols-2 lg:gap-10'>
         <div className='flex justify-center p-2.5 animate-anti-entry1 lg:justify-end'>
           <SVGCrown className='fill-dt-svg w-60 h-60  2md:w-80 2md:h-80' />
@@ -15,10 +19,7 @@ export default function HomeTitleBlock() {
             <h4 className='font-bold w-full font text-4xl animate-anti-entry2'>
               Tune in, let the magic begin!
             </h4>
-            <p className='animate-anti-entry3'>
-              Добро пожаловать в мир LordCord - вашего верного бота для
-              управления сервером!
-            </p>
+            <p className='animate-anti-entry3'>{t('main.description')}</p>
           </div>
           <div className='flex flex-col gap-4 animate-anti-entry3 md:flex-row md:justify-center 2md:justify-start'>
             <a
@@ -30,7 +31,7 @@ export default function HomeTitleBlock() {
                 width='18px'
                 className='fill-dt-svg dark:fill-lt-svg'
               />
-              ДОБАВИТЬ В DISCORD
+              {t('main.addToDiscord')}
             </a>
             <Link
               to={'/servers'}
@@ -40,7 +41,7 @@ export default function HomeTitleBlock() {
                 width='18px'
                 className='dark:fill-dt-svg fill-lt-svg'
               />
-              МОИ СЕРВЕРЫ
+              {t('main.myServers')}
             </Link>
           </div>
         </div>

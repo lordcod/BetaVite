@@ -11,7 +11,8 @@
 .commands_search:hover + label path {
   @apply fill-lt-svg-hover dark:fill-dt-svg-hover;
 }
-.commands_search:focus + label path {
+.commands_search:focus + label path,
+.commands_search:focus:hover + label path {
   @apply fill-main-active;
 }
 .commands_category_btn {
@@ -87,11 +88,11 @@
   @apply grid grid-rows-[0fr] overflow-hidden transition-all duration-200 ease-out-max;
 }
 .command_body_content {
-  @apply flex min-h-0 gap-4 flex-col invisible opacity-0 transition-all duration-200 ease-out-max;
+  @apply flex min-h-0 gap-2 flex-col invisible opacity-0 transition-all duration-200 ease-out-max;
 }
 .command_body_content a {
   @apply text-link;
 }
 .usage {
-  @apply py-1 px-4 rounded-lg bg-lt-third dark:bg-dt-third font-inconsolata;
+  @apply py-1 px-4 rounded-lg bg-lt-third dark:bg-dt-third font-inconsolata flex items-center gap-2;
 }

@@ -1,9 +1,6 @@
 import { createContext, useState } from 'react';
 import CommandCategoryList from '@components/4Features/Commands/CommandCategoryList';
 import CommandsData from '@data/commands.json';
-import useLang from '@/hooks/LangHook';
-
-const prefLang = useLang();
 
 export const CommandsContext = createContext({
   category: '',
@@ -24,13 +21,34 @@ export const CommandsState = props => {
   const [previosButton, setPreviosButton] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const commandsEconomy = CommandCategoryList(CommandsData.economy, prefLang); //Экономика
-  const commandsMajor = CommandCategoryList(CommandsData.major, prefLang); //Главные
+  const commandsCategories = {
+    economy: [],
+    major: [],
+    voice: [],
+    moderation: [],
+  };
+
+  CommandsData.forEach(element => {
+    commandsCategories[element.category].push(element);
+  });
+
+  const commandsEconomy = CommandCategoryList(
+    commandsCategories.economy,
+    localStorage.i18nextLng,
+  ); //Экономика
+  const commandsMajor = CommandCategoryList(
+    commandsCategories.major,
+    localStorage.i18nextLng,
+  ); //Главные
   const commandsModeration = CommandCategoryList(
-    CommandsData.moderation,
-    prefLang,
+    commandsCategories.moderation,
+    localStorage.i18nextLng,
   ); //Модерация
-  const commandsVoice = CommandCategoryList(CommandsData.voice, prefLang); //Голосовые
+  const commandsVoice = CommandCategoryList(
+    commandsCategories.voice,
+    localStorage.i18nextLng,
+  ); //Голосовые
+
   const commandsAll = [
     ...commandsVoice.props.children,
     ...commandsMajor.props.children,
