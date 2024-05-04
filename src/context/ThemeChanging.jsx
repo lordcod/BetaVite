@@ -1,39 +1,62 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const ThemeChangingContext = createContext({
   isChanging: false,
   change: () => {},
   theme: '',
+  setIsAuto: () => {},
 });
 
 export const ThemeChangingState = props => {
-  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [isChanging, setIsChanging] = useState(false);
-  const [theme, setTheme] = useState(isDark ? 'dark' : 'light');
+  const [theme, setTheme] = useState(
+    localStorage.themeIsDark ??
+      window.matchMedia('(prefers-color-scheme: dark)').matches,
+  );
 
-  window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addEventListener('change', () => {
-      setTheme(isDark ? 'light' : 'dark');
-    });
-
-  if (theme == 'dark') {
+  if (theme) {
     document.documentElement.classList.add('dark');
   } else {
     document.documentElement.classList.remove('dark');
   }
 
-  function change() {
+  const change = isDark => {
+    if (typeof isDark == 'object') isDark = !theme;
+    if (theme == isDark) return;
+    localStorage.themeIsDark = isDark;
+
     setIsChanging(true);
 
     setTimeout(() => {
-      setTheme(theme == 'light' ? 'dark' : 'light');
+      setTheme(isDark);
     }, 200);
 
     setTimeout(() => {
       setIsChanging(false);
     }, 1000);
-  }
+  };
+
+  const toSystem = () => {
+    change(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    localStorage.removeItem('themeIsDark');
+  };
+  // if (isAuto) {
+  //   setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  // }
+  // useEffect(() => {
+  //   window
+  //     .matchMedia('(prefers-color-scheme: dark)')
+  //     .addEventListener('change', e => {
+  //       change(e.matches);
+  //       console.log(e.matches);
+  //     });
+  // }, []);
+
+  // window
+  //   .matchMedia('(prefers-color-scheme: light)')
+  //   .addEventListener('change', () => {
+  //     setTheme(theme == 'light' ? 'dark' : 'light');
+  //   });
 
   return (
     <ThemeChangingContext.Provider
@@ -42,6 +65,7 @@ export const ThemeChangingState = props => {
         isChanging,
         change,
         theme,
+        toSystem,
       }}>
       {props.children}
     </ThemeChangingContext.Provider>

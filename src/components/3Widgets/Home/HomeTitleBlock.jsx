@@ -16,9 +16,9 @@ export default function HomeTitleBlock() {
         </div>
         <div className='flex flex-col gap-2 p-2.5'>
           <div className='pl-2.5 flex flex-col gap-2 text-dt-font text-center 2md:text-start'>
-            <h4 className='font-bold w-full font text-4xl animate-anti-entry2'>
+            <h1 className='font-bold w-full font text-4xl animate-anti-entry2'>
               Tune in, let the magic begin!
-            </h4>
+            </h1>
             <p className='animate-anti-entry3'>{t('main.description')}</p>
           </div>
           <div className='flex flex-col gap-4 animate-anti-entry3 md:flex-row md:justify-center 2md:justify-start'>

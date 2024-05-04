@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,500&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap'); */
 
 @tailwind base;
 @tailwind components;
@@ -36,7 +36,7 @@ svg {
   @apply fill-lt-svg dark:fill-dt-svg transition-all duration-150 ease-linear;
 }
 header {
-  @apply fixed top-0 self-start w-full h-16 flex items-center z-20 transition-all duration-150 ease-linear bg-lt-main dark:bg-dt-main;
+  @apply fixed top-0 self-start w-full h-16 flex items-center z-20 transition-all duration-150 ease-linear bg-lt-main dark:bg-dt-main max-w-[100vw];
 }
 header.scrolled {
   @apply bg-lt-main dark:bg-dt-main dark:text-dt-font shadow-md shadow-lt-main/50 dark:shadow-dt-main/50 text-lt-font;
@@ -61,7 +61,7 @@ header:not(.scrolled):has(#home.active) svg {
   @apply px-2 py-2;
 }
 .page {
-  @apply pt-16 bg-lt-second dark:bg-dt-second min-h-[max(calc(100vh-152px),480px)] pb-4 min-w-[max(320px,100%)];
+  @apply pt-16 bg-lt-second dark:bg-dt-second min-h-[max(calc(100vh-152px),480px)] pb-4 min-w-[max(320px,100%)] max-w-[100vw];
 }
 a.link {
   @apply text-link;

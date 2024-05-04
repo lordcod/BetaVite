@@ -8,7 +8,9 @@ export default function ThemeChangingLoader() {
 
   return (
     <div
-      className={`theme-changing ${theme} ${isChanging ? 'flex ' : 'hidden'}`}>
+      className={`theme-changing ${theme ? 'dark' : 'light'} ${
+        isChanging ? 'flex ' : 'hidden'
+      }`}>
       <SVGLight
         id='theme-sun'
         width='240px'

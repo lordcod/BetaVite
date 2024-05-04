@@ -19,27 +19,33 @@
 
 /* animate.css end */
 
-.size-limit {
-  @apply max-w-[1320px];
-}
 .dignity-list {
-  @apply size-limit mx-auto flex flex-col gap-4 m-4 px-8 pt-8 transition-all duration-150 ease-in overflow-x-hidden;
+  @apply max-w-[1320px] mx-auto flex flex-col gap-8 2md:gap-2 m-4 px-8 pt-8 transition-all duration-150 ease-in overflow-x-hidden;
 }
-.dignity-list > div:nth-child(even) > div:first-child {
+.animate__fadeInLeft > div:first-child {
   @apply 2md:order-1;
 }
-.dignity-list > div:nth-child(odd) > div:last-child > a {
+.animate__fadeInRight a {
   @apply 2md:self-end;
 }
-.dignity-list > div:nth-child(even) > div:last-child > a {
+.animate__fadeInLeft a {
   @apply 2md:self-start;
 }
-.dignity-list > div:nth-child(odd) h1 {
+.animate__fadeInRight h1 {
   @apply 2md:text-end;
 }
-.dignity-list > div:nth-child(even) h1 {
+.animate__fadeInLeft h1 {
   @apply 2md:text-start;
 }
 .dignity {
-  @apply grid 2md:grid-cols-2 gap-16;
+  @apply grid gap-4 2md:grid-cols-2 2md:gap-16;
+}
+
+/* .reaction {
+} */
+.reaction > path:first-child {
+  @apply fill-lt-reaction-bg dark:fill-dt-reaction-bg stroke-[1.5] cursor-pointer;
+}
+.reaction.active > path:first-child {
+  @apply fill-red-500 stroke-reaction-active fill-reaction-active-trans;
 }

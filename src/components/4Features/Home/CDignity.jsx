@@ -1,7 +1,7 @@
 import Dignity from '../../5Entities/Home/Dignity';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
-import image from '@/Assets/C.png';
+import SVGMultilang from '@components/5Entities/SVG/Dignitys/SVGMultilang';
 
 export default function CDignity() {
   const { t } = useContext(LangChangingContext);
@@ -11,7 +11,7 @@ export default function CDignity() {
       postition='right'
       title={t('main.dignity.thirdTitle')}
       body={t('main.dignity.thirdContent')}
-      avatar={image}
+      image={<SVGMultilang />}
     />
   );
 }

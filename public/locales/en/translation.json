@@ -3,7 +3,9 @@
   "header": {
     "commands": "COMMANDS",
     "documentation": "DOCUMENTATION",
-    "supportUs": "SUPPORT US"
+    "supportUs": "SUPPORT US",
+    "onTop": "On top",
+    "menu": "menu"
   },
   "footer": {
     "main": "Main",
@@ -61,5 +63,13 @@
     "can": "Can",
     "cant": "Can't",
     "beTurnedOff": "be turned off"
+  },
+  "notFound": {
+    "temporarilyUnavailable": "Page is temporarily unavailable",
+    "temporarilyDesc": "We are working on its creation",
+    "unavailable": "Page not found",
+    "unavailableDesc": "You followed the wrong link or the page was deleted",
+    "returnTo": "Go back to ",
+    "mainPage": "The main page"
   }
 }

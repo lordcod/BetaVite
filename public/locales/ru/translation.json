@@ -3,7 +3,9 @@
   "header": {
     "commands": "КОМАНДЫ",
     "documentation": "ДОКУМЕНТАЦИЯ",
-    "supportUs": "ПОДДЕРЖИТЕ НАС"
+    "supportUs": "ПОДДЕРЖИТЕ НАС",
+    "onTop": "На верх",
+    "menu": "меню"
   },
   "footer": {
     "main": "Главная",
@@ -61,5 +63,13 @@
     "can": "Можно",
     "cant": "Нельзя",
     "beTurnedOff": "выключить"
+  },
+  "notFound": {
+    "temporarilyUnavailable": "Страница временно отсутствует",
+    "temporarilyDesc": "Мы работаем над её созданием",
+    "unavailable": "Страница не найдена",
+    "unavailableDesc": "Вы перешли по неправильной ссылке или старница была удалена",
+    "returnTo": "Вернуться на ",
+    "mainPage": "Главную"
   }
 }

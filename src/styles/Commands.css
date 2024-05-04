@@ -61,7 +61,7 @@
   @apply pt-0 grid grid-rows-[0fr] overflow-hidden transition-all duration-200 ease-out-max;
 }
 .command {
-  @apply bg-lt-main dark:bg-dt-main overflow-hidden rounded-2xl	py-4 pl-5 grid grid-cols-[1fr_auto] pr-5 2xl:pr-0;
+  @apply bg-lt-main dark:bg-dt-main overflow-hidden rounded-2xl	py-4 pl-5 grid grid-cols-[1fr_auto] pr-5 2xl:pr-0 max-w-[calc(100vw-48px)];
 }
 .command.opened > div {
   @apply ease-in-out;

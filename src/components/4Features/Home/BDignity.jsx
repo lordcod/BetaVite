@@ -1,7 +1,7 @@
 import Dignity from '../../5Entities/Home/Dignity';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
-import image from '@/Assets/B.png';
+import SVGSettings from '@components/5Entities/SVG/Dignitys/SVGSettings';
 
 export default function BDignity() {
   const { t } = useContext(LangChangingContext);
@@ -11,7 +11,7 @@ export default function BDignity() {
       postition='left'
       title={t('main.dignity.secondTitle')}
       body={t('main.dignity.secondContent')}
-      avatar={image}
+      image={<SVGSettings />}
     />
   );
 }

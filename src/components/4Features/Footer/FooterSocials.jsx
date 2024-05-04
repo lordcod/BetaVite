@@ -6,7 +6,8 @@ export default function FooterSocials() {
       <a
         href=''
         target='blank'
-        className='p-2'>
+        className='p-2'
+        aria-label='discord'>
         <SVGDiscord />
       </a>
     </div>

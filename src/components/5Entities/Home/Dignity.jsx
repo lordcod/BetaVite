@@ -11,10 +11,15 @@ export default function Dignity(props) {
         props.postition == 'left' ? 'fadeInLeft' : 'fadeInRight'
       }`}>
       <div className='flex items-center justify-center'>
-        <img
-          src={props.avatar}
-          className='h-full max-h-64 rounded'
-        />
+        {props.image}
+        {/* <img
+          src={props.image}
+          srcSet={`${props.imgs} 128w, ${props.imgm} 256w, ${props.imgb} 384w, ${props.imgl} 512w`}
+          className='max-h-64 rounded'
+          alt='dignity'
+          height='100%'
+          sizes='100vw'
+        /> */}
       </div>
       <div className='flex flex-col justify-center gap-4'>
         <h1 className='text-4xl font-bold text-center'>{props.title}</h1>

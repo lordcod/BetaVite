@@ -3,25 +3,38 @@ import LeftButtons from '@components/4Features/Header/LeftButtons';
 import RightButtons from '@components/4Features/Header/RightButtons';
 import SVGOnTop from '@components/5Entities/SVG/SVGOnTop';
 import SVGMenu from '@components/5Entities/SVG/SVGMenu';
+import { LangChangingContext } from '@context/LangContext';
+import { useContext } from 'react';
 
 export default function Header() {
+  const { t } = useContext(LangChangingContext);
+
   const header = useRef(null);
   const btn = useRef(null);
+
   useEffect(() => {
     const headerEl = header.current;
     const btnEl = btn.current;
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      scrollY > 64
-        ? headerEl.classList.add('scrolled')
-        : headerEl.classList.remove('scrolled');
-      scrollY > window.innerHeight
-        ? btnEl.classList.add('show')
-        : btnEl.classList.remove('show');
+
+    window.addEventListener('scroll', e => {
+      e.preventDefault();
+
+      let scrollY = Math.floor(window.visualViewport.pageTop);
+
+      scrollY > 64;
+      if (scrollY > 64) {
+        headerEl.classList.add('scrolled');
+        btnEl.classList.add('show');
+      } else {
+        headerEl.classList.remove('scrolled');
+        btnEl.classList.remove('show');
+      }
     });
   });
 
-  const scroll = () => {
+  const scroll = e => {
+    e.preventDefault();
+
     window.scrollTo({
       top: 0,
       left: 0,
@@ -34,12 +47,15 @@ export default function Header() {
       <button
         ref={btn}
         onClick={scroll}
-        className='ontop-btn'>
+        className='ontop-btn'
+        aria-label={t('header.onTop')}>
         <SVGOnTop />
       </button>
       <header ref={header}>
         <nav className='px-6 mx-auto flex items-center justify-between w-full size-limit'>
-          <button className=' header-btn p-2 2md:hidden'>
+          <button
+            className=' header-btn p-2 2md:hidden'
+            aria-label={t('header.menu')}>
             <SVGMenu />
           </button>
           <LeftButtons />
