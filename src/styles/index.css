@@ -1,16 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,500&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,700&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap'); */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer utilities {
   ::-webkit-scrollbar {
     width: 16px;
   }
-
   ::-webkit-scrollbar-track {
     @apply bg-lt-main;
   }
@@ -18,7 +12,7 @@
     @apply bg-dt-main;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-lt-third hover:bg-lt-third-hover border-4 border-solid border-lt-main;
+    @apply bg-lt-third hover:bg-lt-third-hover border-4 border-solid border-lt-main rounded-md;
   }
   html.dark *::-webkit-scrollbar-thumb {
     @apply bg-dt-third hover:bg-dt-third-hover border-dt-main;
@@ -36,7 +30,7 @@ svg {
   @apply fill-lt-svg dark:fill-dt-svg transition-all duration-150 ease-linear;
 }
 header {
-  @apply fixed top-0 self-start w-full h-16 flex items-center z-20 transition-all duration-150 ease-linear bg-lt-main dark:bg-dt-main max-w-[100vw];
+  @apply fixed top-0 self-start w-full h-16 flex items-center z-30 transition-all duration-150 ease-linear bg-lt-main dark:bg-dt-main;
 }
 header.scrolled {
   @apply bg-lt-main dark:bg-dt-main dark:text-dt-font shadow-md shadow-lt-main/50 dark:shadow-dt-main/50 text-lt-font;
@@ -59,6 +53,9 @@ header:not(.scrolled):has(#home.active) svg {
 }
 .header-btn.p-2 {
   @apply px-2 py-2;
+}
+.phone-menu {
+  @apply flex flex-col gap-4 h-full overflow-y-scroll fixed top-0 shadow-lt-main/50 dark:shadow-dt-main/50 z-30 transition-all duration-150 bg-lt-main dark:bg-dt-main pt-16 px-6 pb-2;
 }
 .page {
   @apply pt-16 bg-lt-second dark:bg-dt-second min-h-[max(calc(100vh-152px),480px)] pb-4 min-w-[max(320px,100%)] max-w-[100vw];
@@ -91,11 +88,9 @@ a.link {
 .theme-changing {
   @apply fixed w-full h-full z-30 bg-lt-main dark:bg-dt-main items-center duration-300 delay-100 ease-out transition-all overflow-x-hidden;
 }
-
 .theme-changing svg {
   @apply duration-300 ease-out transition-all delay-100;
 }
-
 .theme-changing.dark > #theme-moon {
   transform: rotateY(0deg) translate(50%);
   @apply right-1/2;
@@ -127,8 +122,12 @@ a.link {
 .main-sec {
   @apply rounded-lg py-1 px-4 bg-main-active hover:bg-main-active-hover mx-0.5 text-dt-font transition-all duration-150 ease-linear;
 }
-
-html.shashlychok * {
-  background-color: unset !important;
-  @apply bg-[url(../Assets/shashlychok.png)] bg-contain;
+.phone-btn {
+  @apply flex items-center gap-4 h-10 p-2 rounded-md select-none;
+}
+.phone-btn.active {
+  @apply bg-lt-main-hover dark:bg-dt-main-hover;
+}
+footer {
+  @apply bg-lt-main dark:bg-dt-main py-2 px-4 flex items-center flex-col h-full;
 }

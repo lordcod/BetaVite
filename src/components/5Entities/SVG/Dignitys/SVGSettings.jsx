@@ -8,7 +8,7 @@ export default function SVGBrush(props) {
       height='100%'
       className='max-h-64 -rotate-3 2md:rotate-0 overflow-visible'
       {...rest}>
-      <g style={{ transform: 'translate(100px,100px) rotate(5deg)' }}>
+      <g className='translate-x-[100px] translate-y-[100px] rotate-6'>
         <path
           fill='#e6c35b'
           d='M913 126c0-63-62-126-125-126h-130v375h251v-124z'
@@ -28,9 +28,7 @@ export default function SVGBrush(props) {
       </g>
       <path
         fill='#909098'
-        style={{
-          transform: 'rotate(45deg) translate(1500px,500px) scale(1.25)',
-        }}
+        className='translate-x-[500px] translate-y-[1500px] rotate-45 scale-125'
         d='M-1640 643c-133-80-133-266 0-346v150l75 50 75-50v-150c133 80 133 266 0 346v500c133 80 133 266 0 346v-150l-75-50-75 50v150c-133-80-133-266 0-346v-500z'
       />
     </svg>

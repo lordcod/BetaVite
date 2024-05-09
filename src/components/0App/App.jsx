@@ -13,6 +13,8 @@ import { Error404 } from '../2Pages/Errors/Error 404/Error404.lazy';
 import { Results } from '../2Pages/Results/Results.lazy';
 import { LangChangingState } from '../../context/LangContext';
 import SiteLoader from '../5Entities/Loaders/SiteLoader';
+import { MenuState } from '@context/MenuContext';
+import PhoneMenu from '../3Widgets/Menus/PhoneMenu';
 
 export default function App() {
   useEffect(() => {
@@ -27,11 +29,15 @@ export default function App() {
     <Suspense fallback={<SiteLoader />}>
       <LangChangingState>
         <BrowserRouter>
+          <MenuState>
+            <PhoneMenu />
+            <Header />
+          </MenuState>
           <ThemeChangingState>
-            {/* <Admin /> */}
+            <Admin />
             <ThemeChangingLoader />
           </ThemeChangingState>
-          <Header />
+
           <Suspense fallback={<MainLoader />}>
             <Routes>
               <Route

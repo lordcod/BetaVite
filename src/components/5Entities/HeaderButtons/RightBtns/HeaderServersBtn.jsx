@@ -7,8 +7,7 @@ export default function HeaderServersBtn() {
       className='animate-entry5 header-btn p-2 hidden 2md:flex'
       id='servers'
       to='/servers'
-      aria-label='Ваши сервера'
-      data-tip='Сервера'>
+      aria-label='Ваши сервера'>
       <SVGServers />
     </NavLink>
   );

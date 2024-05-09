@@ -24,7 +24,7 @@ export default function FooterLinks() {
             </a>
           </div>
           <div className='flex flex-col text-end md:text-start'>
-            <Link to={'/support'}>{t('footer.supportUs')}</Link>
+            {/* <Link to={'/support'}>{t('footer.supportUs')}</Link> */}
             <a
               href=''
               target='blank'>
@@ -53,11 +53,11 @@ export default function FooterLinks() {
             target='blank'>
             {t('footer.confidentiality')}
           </a>
-          <a
+          {/* <a
             href=''
             target='blank'>
             {t('footer.cookies')}
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

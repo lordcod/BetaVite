@@ -40,12 +40,12 @@
 .dignity {
   @apply grid gap-4 2md:grid-cols-2 2md:gap-16;
 }
-
-/* .reaction {
-} */
+.reaction {
+  @apply cursor-pointer;
+}
 .reaction > path:first-child {
-  @apply fill-lt-reaction-bg dark:fill-dt-reaction-bg stroke-[1.5] cursor-pointer;
+  @apply fill-lt-reaction-bg dark:fill-dt-reaction-bg stroke-[1.5];
 }
 .reaction.active > path:first-child {
-  @apply fill-red-500 stroke-reaction-active fill-reaction-active-trans;
+  @apply stroke-reaction-active fill-reaction-active-trans;
 }

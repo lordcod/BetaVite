@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react';
 import LeftButtons from '@components/4Features/Header/LeftButtons';
 import RightButtons from '@components/4Features/Header/RightButtons';
 import SVGOnTop from '@components/5Entities/SVG/SVGOnTop';
-import SVGMenu from '@components/5Entities/SVG/SVGMenu';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
+import PhoneMenuButton from '../4Features/Header/PhoneMenuButton';
 
 export default function Header() {
   const { t } = useContext(LangChangingContext);
@@ -37,7 +37,6 @@ export default function Header() {
 
     window.scrollTo({
       top: 0,
-      left: 0,
       behavior: 'smooth',
     });
   };
@@ -52,12 +51,8 @@ export default function Header() {
         <SVGOnTop />
       </button>
       <header ref={header}>
-        <nav className='px-6 mx-auto flex items-center justify-between w-full size-limit'>
-          <button
-            className=' header-btn p-2 2md:hidden'
-            aria-label={t('header.menu')}>
-            <SVGMenu />
-          </button>
+        <nav className='px-6 mx-auto flex items-center justify-between w-full size-limit select-none'>
+          <PhoneMenuButton />
           <LeftButtons />
           <RightButtons />
         </nav>

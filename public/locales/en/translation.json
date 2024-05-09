@@ -1,11 +1,13 @@
 {
   "language": "en",
   "header": {
+    "main": "MAIN",
     "commands": "COMMANDS",
     "documentation": "DOCUMENTATION",
-    "supportUs": "SUPPORT US",
+    "supportUs": "SUPPORT SERVER",
     "onTop": "On top",
-    "menu": "menu"
+    "menu": "menu",
+    "settings": "Settings"
   },
   "footer": {
     "main": "Main",

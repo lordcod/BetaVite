@@ -30,11 +30,9 @@ export default function CommandsList(category) {
         tabIndex='0'>
         <div className='flex flex-col'>
           <div
-            className='command_wrapper'
+            className='command_name'
             onClick={clickHandler}>
-            <div>
-              <span className='main-sec'>{comName}</span> — {descriptionShort}
-            </div>
+            <span className='main-sec'>{comName}</span> — {descriptionShort}
           </div>
           <div className='command_body'>
             <div className='command_body_content'>

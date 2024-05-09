@@ -1,11 +1,13 @@
 {
   "language": "ru",
   "header": {
+    "main": "ГЛАВНАЯ",
     "commands": "КОМАНДЫ",
     "documentation": "ДОКУМЕНТАЦИЯ",
-    "supportUs": "ПОДДЕРЖИТЕ НАС",
+    "supportUs": "СЕРВЕР ПОДДЕРЖКИ",
     "onTop": "На верх",
-    "menu": "меню"
+    "menu": "меню",
+    "settings": "Настройки"
   },
   "footer": {
     "main": "Главная",

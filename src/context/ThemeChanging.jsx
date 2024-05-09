@@ -4,68 +4,62 @@ export const ThemeChangingContext = createContext({
   isChanging: false,
   change: () => {},
   theme: '',
-  setIsAuto: () => {},
+  themeToDefault: () => {},
 });
 
 export const ThemeChangingState = props => {
   const [isChanging, setIsChanging] = useState(false);
   const [theme, setTheme] = useState(
-    localStorage.themeIsDark ??
+    !!{ true: true }[localStorage.themeIsDark] ??
       window.matchMedia('(prefers-color-scheme: dark)').matches,
   );
 
-  if (theme) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-
-  const change = isDark => {
-    if (typeof isDark == 'object') isDark = !theme;
-    if (theme == isDark) return;
+  const themeChanging = isDark => {
     localStorage.themeIsDark = isDark;
-
     setIsChanging(true);
-
     setTimeout(() => {
       setTheme(isDark);
+      isDark
+        ? document.documentElement.classList.add('dark')
+        : document.documentElement.classList.remove('dark');
     }, 200);
 
-    setTimeout(() => {
-      setIsChanging(false);
-    }, 1000);
+    setTimeout(() => setIsChanging(false), 1000);
   };
 
-  const toSystem = () => {
-    change(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    localStorage.removeItem('themeIsDark');
-  };
-  // if (isAuto) {
-  //   setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
-  // }
-  // useEffect(() => {
-  //   window
-  //     .matchMedia('(prefers-color-scheme: dark)')
-  //     .addEventListener('change', e => {
-  //       change(e.matches);
-  //       console.log(e.matches);
-  //     });
-  // }, []);
+  useEffect(() => {
+    if (theme) document.documentElement.classList.add('dark');
 
-  // window
-  //   .matchMedia('(prefers-color-scheme: light)')
-  //   .addEventListener('change', () => {
-  //     setTheme(theme == 'light' ? 'dark' : 'light');
-  //   });
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', e => {
+        if (
+          !!{ true: true }[localStorage.themeIsAuto] &&
+          !!{ true: true }[localStorage.themeIsDark] != e.matches
+        )
+          themeChanging(e.matches);
+      });
+  }, []);
+
+  const changeTheme = isDark => {
+    if (theme == isDark) return;
+    themeChanging(isDark);
+    localStorage.themeIsAuto = false;
+  };
+
+  const themeToDefault = () => {
+    let media = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (theme != media) themeChanging(media);
+    localStorage.themeIsAuto = true;
+  };
 
   return (
     <ThemeChangingContext.Provider
       value={{
-        setIsChanging,
         isChanging,
-        change,
+        changeTheme,
         theme,
-        toSystem,
+        themeToDefault,
       }}>
       {props.children}
     </ThemeChangingContext.Provider>

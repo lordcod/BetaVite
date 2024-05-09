@@ -1,21 +1,23 @@
-import React from 'react';
-import { createContext, useState } from 'react';
+import { useState, createContext } from 'react';
 
-export const MenuContext = {
+export const MenuContext = createContext({
   isPhoneMenu: false,
-  openPhomeMenu: () => {},
+  changePhomeMenu: () => {},
   isProfileMenu: false,
-  openProfileMenu: () => {},
+  changeProfileMenu: () => {},
   closeMenu: () => {},
-};
+});
 
-export const MenuState = children => {
-  const [isPhoneMenu, setUsPhoneMenu] = useState(false);
+export const MenuState = props => {
+  const [isPhoneMenu, setIsPhoneMenu] = useState(false);
   const [isProfileMenu, setIsProfileMenu] = useState(false);
-  const openPhomeMenu = () => setUsPhoneMenu(true);
-  const openProfileMenu = () => setIsProfileMenu(true);
+
+  const changePhomeMenu = () => {
+    setIsPhoneMenu(!isPhoneMenu);
+  };
+  const changeProfileMenu = () => setIsProfileMenu(!isProfileMenu);
   const closeMenu = () => {
-    setUsPhoneMenu(false);
+    setIsPhoneMenu(false);
     setIsProfileMenu(false);
   };
 
@@ -23,12 +25,12 @@ export const MenuState = children => {
     <MenuContext.Provider
       value={{
         isPhoneMenu,
-        openPhomeMenu,
+        changePhomeMenu,
         isProfileMenu,
-        openProfileMenu,
+        changeProfileMenu,
         closeMenu,
       }}>
-      {children}
+      {props.children}
     </MenuContext.Provider>
   );
 };

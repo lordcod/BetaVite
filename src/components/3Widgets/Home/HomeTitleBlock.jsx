@@ -9,7 +9,7 @@ export default function HomeTitleBlock() {
   const { t } = useContext(LangChangingContext);
 
   return (
-    <div className='w-full bg-main-purple z-10 mt-[-64px] pt-16 h-[max(calc(100vh-156px),600px)] max-h-[1000px] flex items-center'>
+    <div className='w-full bg-main-purple z-10 mt-[-64px] pt-16 min-h-[calc(100vh-64px)] max-h-[1000px] flex items-center'>
       <div className='size-limit mx-auto flex flex-col items-center 2md:grid 2md:grid-cols-2 lg:gap-10'>
         <div className='flex justify-center p-2.5 animate-anti-entry1 lg:justify-end'>
           <SVGCrown className='fill-dt-svg w-60 h-60  2md:w-80 2md:h-80' />
