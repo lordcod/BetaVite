@@ -48,19 +48,17 @@ export const LangChangingState = props => {
     'az',
   ];
 
-  const [lng, setLng] = useState(
-    !!{ true: true }[localStorage.lngIsAuto]
-      ? supportedLngs.includes(browserLng)
-        ? browserLng
-        : postSvoietLngs.includes(browserLng)
-        ? 'ru'
-        : fallbackLng
-      : localStorage.lng,
-  );
-
   useEffect(() => {
-    toggleLng(lng);
-  }, [lng]);
+    toggleLng(
+      !!{ true: true }[localStorage.lngIsAuto]
+        ? supportedLngs.includes(browserLng)
+          ? browserLng
+          : postSvoietLngs.includes(browserLng)
+          ? 'ru'
+          : fallbackLng
+        : localStorage.lng,
+    );
+  }, []);
 
   return (
     <LangChangingContext.Provider

@@ -1,4 +1,4 @@
-export default function SVGBrush(props) {
+export default function SVGSettingsDig(props) {
   const { ...rest } = props;
   return (
     <svg

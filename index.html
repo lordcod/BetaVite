@@ -10,43 +10,43 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
     <title>LordBot</title>
-    <script
-      src="/src/js/wow.min.js"
-      async></script>
     <link
       rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin />
-
+      href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap"
-      rel="preload"
-      as="style" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap"
-      rel="stylesheet" />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,500&display=swap"
-      rel="preload"
-      as="style" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,500&display=swap"
-      rel="stylesheet" />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,700;1,6..12,700&display=swap"
-      rel="preload"
-      as="style" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,700;1,6..12,700&display=swap"
-      rel="stylesheet" />
+      rel="preconnect"
+      href="https://fonts.gstatic.com" />
   </head>
   <body>
+    <div
+      id="loader"
+      style="
+        width: 100vw;
+        height: 100vh;
+        background-color: #ececef;
+        position: absolute;
+      ">
+      <span></span>
+    </div>
+    <script>
+      if (
+        { true: true, false: false }[localStorage.themeIsDark] ??
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      ) {
+        document.documentElement.classList.add('dark');
+        document.getElementById('loader').style.backgroundColor = '#181820';
+      }
+    </script>
     <div id="root"></div>
     <noscript>You need to enable Javascript for this site</noscript>
     <script
       type="module"
       src="/src/main.jsx"></script>
+    <script
+      src="/src/js/wow.min.js"
+      async></script>
+    <script>
+      window.onload = () => document.getElementById('loader').remove();
+    </script>
   </body>
 </html>

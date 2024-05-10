@@ -1,4 +1,4 @@
-import Avatar from '@/Assets/1.webp';
+import Avatar from '@/Assets/Imgs/1.webp';
 import { useEffect, useState } from 'react';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
@@ -8,22 +8,26 @@ export default function CHomeHrBlock() {
   const { t } = useContext(LangChangingContext);
 
   useEffect(() => {
-    if (
-      !localStorage.seram ||
-      Date.now() - 60000 > Number(localStorage.seramtime) ||
-      isNaN(Number(localStorage.seramtime))
-    ) {
-      fetch('https://discord.bots.gg/api/v1/bots/1095713975532007434')
-        .then(res => {
-          return res.json();
-        })
-        .then(data => {
-          if (data.guildCount == undefined) return;
-          localStorage.seramtime = Date.now();
-          localStorage.seram = data.guildCount;
-        });
+    async function req() {
+      if (
+        !localStorage.servsAmount ||
+        Date.now() - 60000 > Number(localStorage.servsReqTime) ||
+        isNaN(Number(localStorage.servsReqTime))
+      ) {
+        fetch('https://discord.bots.gg/api/v1/bots/1095713975532007434')
+          .then(res => {
+            return res.json();
+          })
+          .then(data => {
+            if (data.guildCount == undefined) return;
+            localStorage.servsReqTime = Date.now();
+            localStorage.servsAmount = data.guildCount;
+            setServersAmount(localStorage.servsAmount);
+          });
+      }
     }
-    setServersAmount(localStorage.seram);
+
+    req();
   }, []);
 
   return (

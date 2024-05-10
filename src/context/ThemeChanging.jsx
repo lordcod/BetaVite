@@ -10,7 +10,7 @@ export const ThemeChangingContext = createContext({
 export const ThemeChangingState = props => {
   const [isChanging, setIsChanging] = useState(false);
   const [theme, setTheme] = useState(
-    !!{ true: true }[localStorage.themeIsDark] ??
+    { true: true, false: false }[localStorage.themeIsDark] ??
       window.matchMedia('(prefers-color-scheme: dark)').matches,
   );
 
@@ -28,29 +28,27 @@ export const ThemeChangingState = props => {
   };
 
   useEffect(() => {
-    if (theme) document.documentElement.classList.add('dark');
-
     window
       .matchMedia('(prefers-color-scheme: dark)')
       .addEventListener('change', e => {
         if (
-          !!{ true: true }[localStorage.themeIsAuto] &&
-          !!{ true: true }[localStorage.themeIsDark] != e.matches
+          { true: true, false: false }[localStorage.themeIsAuto] &&
+          { true: true, false: false }[localStorage.themeIsDark] != e.matches
         )
           themeChanging(e.matches);
       });
   }, []);
 
   const changeTheme = isDark => {
+    localStorage.themeIsAuto = false;
     if (theme == isDark) return;
     themeChanging(isDark);
-    localStorage.themeIsAuto = false;
   };
 
   const themeToDefault = () => {
     let media = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (theme != media) themeChanging(media);
     localStorage.themeIsAuto = true;
+    if (theme != media) themeChanging(media);
   };
 
   return (

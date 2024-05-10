@@ -21,7 +21,7 @@ export default function CommandsList(category) {
       deactivable,
       argumentList,
       examples,
-    ] = sortCommand(command, localStorage.i18nextLng);
+    ] = sortCommand(command, localStorage.lng);
 
     return (
       <div

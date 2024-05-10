@@ -10,7 +10,7 @@ export default function FooterLogo() {
         />
         <h1 className='text-4xl'>
           <span className='font-bold'>Lord</span>
-          Bot
+          Cord
         </h1>
       </div>
     </div>

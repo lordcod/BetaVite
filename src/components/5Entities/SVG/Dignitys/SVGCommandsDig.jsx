@@ -1,4 +1,4 @@
-export default function SVGCommands(props) {
+export default function SVGCommandsDig(props) {
   const { ...rest } = props;
   return (
     <svg

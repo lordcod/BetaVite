@@ -15,7 +15,7 @@ export default function HeaderHomeBtn() {
         <SVGCrown />
         <h1 className='text-2xl'>
           <span className='font-bold'>Lord</span>
-          Bot
+          Cord
         </h1>
       </div>
     </NavLink>
