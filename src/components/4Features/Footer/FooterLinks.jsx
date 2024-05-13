@@ -7,7 +7,7 @@ export default function FooterLinks() {
 
   return (
     <div className='flex items-center justify-center md:w-full'>
-      <div className='flex flex-col gap-2 md:flex-row md:w-full md:grid md:grid-cols-[2fr,1fr]'>
+      <div className='flex flex-col gap-2 md:flex-row md:w-full md:justify-center'>
         <div className='2sm:flex 2sm:gap-2 md:grid md:grid-cols-2'>
           <div className='flex flex-col gap-2'>
             <Link to={'/'}>{t('footer.main')}</Link>
@@ -40,9 +40,19 @@ export default function FooterLinks() {
               target='blank'>
               {t('footer.status')}
             </a> */}
+            <a
+            href='https://lordcord.gitbook.io/other-information/terms-of-service'
+            target='blank'>
+            {t('footer.termsOfUse')}
+          </a>
+          <a
+            href='https://lordcord.gitbook.io/other-information/privacy-policy'
+            target='blank'>
+            {t('footer.confidentiality')}
+          </a>
           </div>
         </div>
-        <div className='flex flex-col 2sm:text-center md:text-start gap-2'>
+        {/* <div className='flex flex-col 2sm:text-center md:text-start gap-2'>
           <a
             href=''
             target='blank'>
@@ -53,12 +63,12 @@ export default function FooterLinks() {
             target='blank'>
             {t('footer.confidentiality')}
           </a>
-          {/* <a
+          <a
             href=''
             target='blank'>
             {t('footer.cookies')}
-          </a> */}
-        </div>
+          </a>
+        </div> */}
       </div>
     </div>
   );

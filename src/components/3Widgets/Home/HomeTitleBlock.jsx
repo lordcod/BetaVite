@@ -1,7 +1,7 @@
 import SVGCrown from '@components/5Entities/SVG/SVGCrown.jsx';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import SVGDiscord from '@components/5Entities/SVG/SVGDiscord';
-import SVGServers from '../../5Entities/SVG/SVGServers';
+// import SVGServers from '../../5Entities/SVG/SVGServers';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
 
@@ -23,7 +23,7 @@ export default function HomeTitleBlock() {
           </div>
           <div className='flex flex-col gap-4 animate-anti-entry3 md:flex-row md:justify-center 2md:justify-start'>
             <a
-              href=''
+              href='https://discord.com/oauth2/authorize?client_id=1095713975532007434&scope=bot+applications.commands&permissions=-1&response_type=code&redirect_uri=https%3A%2F%2Flordcord.fun%2Flink-role-callback'
               target='blank'
               className='flex items-center gap-4 py-3 px-6 rounded-3xl font-bold text-dt-font bg-dt-main hover:bg-dt-main-hover  dark:text-lt-font dark:bg-lt-main dark:hover:bg-lt-main-hover'>
               <SVGDiscord
@@ -33,7 +33,7 @@ export default function HomeTitleBlock() {
               />
               {t('main.addToDiscord')}
             </a>
-            <Link
+            {/* <Link
               to={'/servers'}
               className='flex items-center gap-4 py-3 px-6 rounded-3xl font-bold text-lt-font bg-lt-main hover:bg-lt-main-hover dark:text-dt-font dark:bg-dt-main dark:hover:bg-dt-main-hover'>
               <SVGServers
@@ -42,7 +42,7 @@ export default function HomeTitleBlock() {
                 className='dark:fill-dt-svg fill-lt-svg'
               />
               {t('main.myServers')}
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
