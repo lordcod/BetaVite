@@ -4,16 +4,15 @@ import RightButtons from '@components/4Features/Header/RightButtons';
 import SVGOnTop from '@components/5Entities/SVG/SVGOnTop';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
-import PhoneMenuButton from '../4Features/Header/PhoneMenuButton';
+import PhoneMenuButton from '@components/4Features/Header/PhoneMenuButton';
+import { MenuContext } from '@context/MenuContext';
 
 export default function Header() {
   const { t } = useContext(LangChangingContext);
 
-  const header = useRef(null);
   const btn = useRef(null);
 
   useEffect(() => {
-    const headerEl = header.current;
     const btnEl = btn.current;
 
     window.addEventListener('scroll', e => {
@@ -23,10 +22,8 @@ export default function Header() {
 
       scrollY > 64;
       if (scrollY > 64) {
-        headerEl.classList.add('scrolled');
         btnEl.classList.add('show');
       } else {
-        headerEl.classList.remove('scrolled');
         btnEl.classList.remove('show');
       }
     });
@@ -50,8 +47,8 @@ export default function Header() {
         aria-label={t('header.onTop')}>
         <SVGOnTop />
       </button>
-      <header ref={header}>
-        <nav className='px-6 mx-auto flex items-center justify-between w-full size-limit select-none'>
+      <header>
+        <nav className='header__nav'>
           <PhoneMenuButton />
           <LeftButtons />
           <RightButtons />

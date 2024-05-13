@@ -37,7 +37,7 @@ export default function CHomeHrBlock() {
           {t('main.serverConquestPart1')} {!!serversAmount && serversAmount}{' '}
           {t('main.serverConquestPart2')}
         </p>
-        <div className='flex flex-wrap gap-8 w-full justify-center items-center 2md:justify-end'>
+        {/* <div className='flex flex-wrap gap-8 w-full justify-center items-center 2md:justify-end'>
           <img
             src={Avatar}
             className='w-[60px] h-[60px] rounded-xl'
@@ -68,7 +68,7 @@ export default function CHomeHrBlock() {
             className='w-[60px] h-[60px] rounded-xl'
             alt='server avatar'
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import CommandCategoryList from '@components/4Features/Commands/CommandCategoryList';
 import CommandsData from '@data/commands.json';
+import { useTranslation } from 'react-i18next';
 
 export const CommandsContext = createContext({
   category: '',
@@ -20,6 +21,7 @@ export const CommandsState = props => {
   const [category, setCategory] = useState('all');
   const [previosButton, setPreviosButton] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [i18n] = useTranslation();
 
   const commandsCategories = {
     economy: [],
@@ -34,7 +36,7 @@ export const CommandsState = props => {
 
   const commandsEconomy = CommandCategoryList(
     commandsCategories.economy,
-    localStorage.i18nextLng,
+    i18n.language,
   ); //Экономика
   const commandsMajor = CommandCategoryList(
     commandsCategories.major,

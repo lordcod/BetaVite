@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeChangingContext } from '../../context/ThemeChanging';
 import SVGLight from '../5Entities/SVG/SVGLight';
-import SVGDark from '../5Entities/SVG/SVGDark';
+import SVGDark from '@components/5Entities/SVG/SVGDark';
 
 export default function ThemeChangingLoader() {
   const { isChanging, theme, isHidding } = useContext(ThemeChangingContext);

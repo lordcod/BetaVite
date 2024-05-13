@@ -9,6 +9,9 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="LordCord - многофункциональный бот для Discord, который предоставляет широкий спектр возможностей для управления сервером и обеспечения комфортного общения участников." />
     <title>LordBot</title>
     <link
       rel="preconnect"
@@ -17,18 +20,22 @@
       rel="preconnect"
       href="https://fonts.gstatic.com" />
   </head>
-  <body>
+  <body style="margin: 0">
     <div
       id="loader"
+      class="delete"
       style="
         width: 100vw;
         height: 100vh;
         background-color: #ececef;
         position: absolute;
       ">
-      <span></span>
+      <span style="color: #0000">Made by shashlychok</span>
     </div>
-    <script>
+
+    <script
+      class="delete"
+      async>
       if (
         { true: true, false: false }[localStorage.themeIsDark] ??
         window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -37,16 +44,29 @@
         document.getElementById('loader').style.backgroundColor = '#181820';
       }
     </script>
+
+    <script
+      class="delete"
+      async>
+      window.onload = () => {
+        Array.from(document.getElementsByClassName('delete')).forEach(el =>
+          el.remove(),
+        );
+        document.documentElement.lastChild.removeAttribute('style');
+        window.onload = null;
+      };
+    </script>
+
     <div id="root"></div>
+
     <noscript>You need to enable Javascript for this site</noscript>
+
     <script
       type="module"
       src="/src/main.jsx"></script>
+
     <script
       src="/src/js/wow.min.js"
       async></script>
-    <script>
-      window.onload = () => document.getElementById('loader').remove();
-    </script>
   </body>
 </html>

@@ -9,10 +9,10 @@ export default function FooterLinks() {
     <div className='flex items-center justify-center md:w-full'>
       <div className='flex flex-col gap-2 md:flex-row md:w-full md:grid md:grid-cols-[2fr,1fr]'>
         <div className='2sm:flex 2sm:gap-2 md:grid md:grid-cols-2'>
-          <div className='flex flex-col'>
+          <div className='flex flex-col gap-2'>
             <Link to={'/'}>{t('footer.main')}</Link>
             <a
-              href='https://docs.lordcord.fun/english/'
+              href='https://lordcord.gitbook.io'
               target='blank'>
               {t('footer.documentation')}
             </a>
@@ -23,10 +23,10 @@ export default function FooterLinks() {
               {t('footer.feedback')}
             </a>
           </div>
-          <div className='flex flex-col text-end md:text-start'>
+          <div className='flex flex-col text-end md:text-start gap-2'>
             {/* <Link to={'/support'}>{t('footer.supportUs')}</Link> */}
             <a
-              href=''
+              href='https://discord.com/oauth2/authorize?client_id=1095713975532007434&scope=bot+applications.commands&permissions=-1&response_type=code&redirect_uri=https%3A%2F%2Flordcord.fun%2Flink-role-callback'
               target='blank'>
               {t('footer.invite')}
             </a>
@@ -35,14 +35,14 @@ export default function FooterLinks() {
               target='blank'>
               {t('footer.poweredBy')}
             </a>
-            <a
+            {/* <a
               href=''
               target='blank'>
               {t('footer.status')}
-            </a>
+            </a> */}
           </div>
         </div>
-        <div className='flex flex-col 2sm:text-center md:text-start'>
+        <div className='flex flex-col 2sm:text-center md:text-start gap-2'>
           <a
             href=''
             target='blank'>

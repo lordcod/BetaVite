@@ -4,7 +4,7 @@ import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
 
 export default function CommandsList(category) {
-  const { t } = useContext(LangChangingContext);
+  const { t, lng } = useContext(LangChangingContext);
 
   function clickHandler(e) {
     let targetCommand = e.target.closest('.command');
@@ -21,7 +21,7 @@ export default function CommandsList(category) {
       deactivable,
       argumentList,
       examples,
-    ] = sortCommand(command, localStorage.lng);
+    ] = sortCommand(command, lng);
 
     return (
       <div

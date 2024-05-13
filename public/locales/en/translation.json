@@ -9,6 +9,15 @@
     "menu": "menu",
     "settings": "Settings"
   },
+  "menu": {
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light",
+    "language": "Language",
+    "russian": "Russian",
+    "english": "English",
+    "system": "System"
+  },
   "footer": {
     "main": "Main",
     "documentation": "Documentation",
@@ -73,5 +82,8 @@
     "unavailableDesc": "You followed the wrong link or the page was deleted",
     "returnTo": "Go back to ",
     "mainPage": "The main page"
+  },
+  "errors": {
+    "comLang": "To change the command description language, reload the page. We are working to fix this. Sorry."
   }
 }

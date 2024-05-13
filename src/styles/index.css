@@ -9,10 +9,12 @@
   ::-webkit-scrollbar {
     width: 16px;
   }
-  ::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
     @apply bg-lt-main;
   }
-  html.dark *::-webkit-scrollbar-track {
+  html.dark *::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
     @apply bg-dt-main;
   }
   ::-webkit-scrollbar-thumb {
@@ -22,116 +24,163 @@
     @apply bg-dt-third hover:bg-dt-third-hover border-dt-main;
   }
 }
-html,
-body,
-#root {
-  @apply min-h-[100vh] w-full tracking-wider text-lt-font dark:text-dt-font font-main;
+
+@layer base {
+  #root {
+    @apply grid grid-rows-[auto_1fr_auto];
+  }
+  html,
+  body,
+  #root {
+    @apply min-h-[100vh] w-full tracking-wider text-lt-font dark:text-dt-font font-main;
+  }
+  ::selection {
+    @apply bg-lt-selection;
+  }
+  svg {
+    @apply fill-lt-svg dark:fill-dt-svg transition-all duration-150 ease-linear;
+  }
+
+  img {
+    @apply select-none pointer-events-none;
+  }
+
+  header {
+    @apply fixed top-0 self-start w-full h-16 flex items-center z-30 transition-all duration-150 ease-linear bg-lt-main dark:bg-dt-main shadow-md shadow-lt-main/50 dark:shadow-dt-main/50;
+  }
+
+  footer {
+    @apply bg-lt-main dark:bg-dt-main py-2 px-4 flex items-center flex-col h-full;
+  }
+
+  a.link {
+    @apply text-link;
+  }
 }
-::selection {
-  @apply bg-lt-selection;
-}
-svg {
-  @apply fill-lt-svg dark:fill-dt-svg transition-all duration-150 ease-linear;
-}
-header {
-  @apply fixed top-0 self-start w-full h-16 flex items-center z-30 transition-all duration-150 ease-linear bg-lt-main dark:bg-dt-main;
-}
-header.scrolled {
-  @apply bg-lt-main dark:bg-dt-main dark:text-dt-font shadow-md shadow-lt-main/50 dark:shadow-dt-main/50 text-lt-font;
-}
-header:not(.scrolled):has(#home.active) {
-  @apply text-dt-font bg-transparent;
-}
-header:not(.scrolled):has(#home.active) svg {
-  @apply fill-dt-svg;
-}
-.header-btn {
-  transition-property: background-color, opacity;
-  @apply rounded-full items-center py-1 px-[18px] gap-1.5 hover:bg-header-btn-hover duration-200 ease-linear cursor-pointer;
-}
-.header-btn.active {
-  @apply bg-header-btn hover:bg-header-btn-hover;
-}
-.header-btn.p-1\.5 {
-  @apply px-1.5 py-1.5;
-}
-.header-btn.p-2 {
-  @apply px-2 py-2;
-}
-.phone-menu {
-  @apply flex flex-col gap-4 h-full overflow-y-scroll fixed top-0 shadow-lt-main/50 dark:shadow-dt-main/50 z-30 transition-all duration-150 bg-lt-main dark:bg-dt-main pt-16 px-6 pb-2;
-}
-.page {
-  @apply pt-16 bg-lt-second dark:bg-dt-second min-h-[max(calc(100vh-152px),480px)] pb-4 min-w-[max(320px,100%)] max-w-[100vw];
-}
-a.link {
-  @apply text-link;
-}
-.size-limit {
-  @apply max-w-[1320px];
-}
-.loader_container {
-  @apply flex justify-center items-center;
-}
-.loader {
-  @apply w-24 h-24 text-dt-third dark:text-lt-third rotate-45;
-}
-.loader:before,
-.loader:after {
-  @apply block content-[''] absolute top-0 left-0 w-24 h-24 rounded-[35%];
-}
-.loader:before {
-  @apply animate-load-spin;
-}
-.loader:after {
-  @apply text-main-purple animate-load-spin-delay;
-}
-.theme-changing-container {
-  @apply transition-all duration-200 ease-linear;
-}
-.theme-changing {
-  @apply fixed w-full h-full z-30 bg-lt-main dark:bg-dt-main items-center duration-300 delay-100 ease-out transition-all overflow-x-hidden;
-}
-.theme-changing svg {
-  @apply duration-300 ease-out transition-all delay-100;
-}
-.theme-changing.dark > #theme-moon {
-  transform: rotateY(0deg) translate(50%);
-  @apply right-1/2;
-}
-.theme-changing.light > #theme-moon {
-  transform: rotateY(-45deg) translate(50%);
-  @apply right-0 opacity-0;
-}
-.theme-changing.dark > #theme-sun {
-  transform: rotateY(45deg) translate(-50%);
-  @apply left-0 opacity-0;
-}
-.theme-changing.light > #theme-sun {
-  transform: rotateY(0deg) translate(-50%);
-  @apply left-1/2;
-}
-[data-tip]:before {
-  @apply absolute py-1 px-2 text-center rounded dark:text-lt-font text-dt-font dark:bg-lt-main bg-dt-main z-30  hover:opacity-100 transition-opacity ease-linear duration-200 delay-100 content-[attr(data-tip)] opacity-0 -translate-x-1/2 left-1/2 top-full hidden;
-}
-.ontop-btn {
-  @apply opacity-0 transition-all duration-200 bg-lt-third dark:bg-dt-third hover:bg-lt-third-hover dark:hover:bg-dt-third-hover rounded-xl p-2 rotate-180 z-30 fixed right-4 bottom-4;
-}
-.ontop-btn.show {
-  @apply opacity-100 rotate-0;
-}
-.ping {
-  @apply cursor-pointer text-lt-ping hover:text-dt-ping bg-dt-ping hover:bg-lt-ping dark:text-dt-ping  dark:bg-ping-bg  dark:hover:bg-ping-hover-bg  dark:hover:text-ping-hover hover:underline px-1 py-0.5 rounded  transition-all duration-150 ease-linear flex items-center;
-}
-.main-sec {
-  @apply rounded-lg py-1 px-4 bg-main-active hover:bg-main-active-hover mx-0.5 text-dt-font transition-all duration-150 ease-linear;
-}
-.phone-btn {
-  @apply flex items-center gap-4 h-10 p-2 rounded-md select-none;
-}
-.phone-btn.active {
-  @apply bg-lt-main-hover dark:bg-dt-main-hover;
-}
-footer {
-  @apply bg-lt-main dark:bg-dt-main py-2 px-4 flex items-center flex-col h-full;
+
+@layer components {
+  .header__nav {
+    @apply px-6 mx-auto flex items-center justify-between w-full size-limit select-none;
+  }
+  .header-btn {
+    @apply rounded-full items-center py-1 px-[18px] gap-1.5 hover:bg-header-btn-hover duration-200 ease-linear cursor-pointer transition-all;
+  }
+  .header-btn.active {
+    @apply bg-header-btn hover:bg-header-btn-hover;
+  }
+  .page {
+    @apply pt-16 bg-lt-second dark:bg-dt-second min-h-[max(calc(100vh-152px),480px)] pb-4 w-full;
+  }
+
+  .size-limit {
+    @apply max-w-[1320px];
+  }
+  .loader_container {
+    @apply flex justify-center items-center;
+  }
+  .loader {
+    @apply w-24 h-24 text-dt-third dark:text-lt-third rotate-45;
+  }
+  .loader:before,
+  .loader:after {
+    @apply block content-[''] absolute top-0 left-0 w-24 h-24 rounded-[35%];
+  }
+  .loader:before {
+    @apply animate-load-spin;
+  }
+  .loader:after {
+    @apply text-main-purple animate-load-spin-delay;
+  }
+  .theme-changing-container {
+    @apply transition-all duration-200 ease-linear;
+  }
+  .theme-changing {
+    @apply fixed w-full h-full z-30 bg-lt-main dark:bg-dt-main items-center duration-300 delay-100 ease-out transition-all overflow-x-hidden;
+  }
+  .theme-changing svg {
+    @apply duration-300 ease-out transition-all delay-100;
+  }
+  .theme-changing.dark > #theme-moon {
+    transform: rotateY(0deg) translate(50%);
+    @apply right-1/2;
+  }
+  .theme-changing.light > #theme-moon {
+    transform: rotateY(-45deg) translate(50%);
+    @apply right-0 opacity-0;
+  }
+  .theme-changing.dark > #theme-sun {
+    transform: rotateY(45deg) translate(-50%);
+    @apply left-0 opacity-0;
+  }
+  .theme-changing.light > #theme-sun {
+    transform: rotateY(0deg) translate(-50%);
+    @apply left-1/2;
+  }
+
+  .ontop-btn {
+    @apply opacity-0 transition-all duration-200 bg-lt-main dark:bg-dt-main hover:bg-lt-main-hover dark:hover:bg-dt-main-hover shadow-md shadow-white/50 dark:shadow-black/50 rounded-xl p-2 rotate-180 z-30 fixed right-4 bottom-4;
+  }
+  .ontop-btn.show {
+    @apply opacity-100 rotate-0;
+  }
+  .ping {
+    @apply cursor-pointer text-lt-ping hover:text-dt-ping bg-dt-ping hover:bg-lt-ping dark:text-dt-ping  dark:bg-ping-bg  dark:hover:bg-ping-hover-bg  dark:hover:text-ping-hover hover:underline px-1 py-0.5 rounded  transition-all duration-150 ease-linear flex items-center;
+  }
+  .main-sec {
+    @apply rounded-lg py-1 px-4 bg-main-active hover:bg-main-active-hover mx-0.5 text-dt-font transition-all duration-150 ease-linear;
+  }
+
+  .phone-menu,
+  .settings-menu {
+    @apply pb-0 rounded-xl gap-2 top-20 max-h-[calc(100vh-80px)] translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 p-2 flex flex-col shadow-white/50 dark:shadow-black/50 transition-all duration-200 ease-out bg-lt-main dark:bg-dt-main fixed z-30 overflow-x-hidden cursor-pointer;
+  }
+  .phone-menu {
+    direction: rtl;
+    @apply left-4 -translate-x-1/2;
+  }
+  .settings-menu.show,
+  .phone-menu.show {
+    @apply opacity-100 translate-x-0 -translate-y-0 scale-100;
+  }
+
+  .settings-block {
+    @apply gap-2 flex flex-col overflow-hidden py-0 max-h-0 transition-all duration-200 ease-out;
+  }
+  .settings-block.active {
+    @apply max-h-[152px] py-2 overflow-visible;
+  }
+
+  .phone-btn {
+    @apply flex-row-reverse;
+  }
+  .phone-btn,
+  .settings-btn,
+  .commands_category_btn {
+    @apply flex items-center gap-4 h-10 px-4 py-2 rounded-md select-none hover:bg-lt-main-hover dark:hover:bg-dt-main-hover dark:hover:text-lt-main-hover hover:text-dt-main-hover w-full;
+  }
+
+  .phone-btn:hover svg,
+  .settings-btn:hover svg,
+  .commands_category_btn:hover svg,
+  .commands_search:hover + label svg {
+    @apply dark:fill-lt-main-hover fill-dt-main-hover;
+  }
+
+  .phone-btn.active,
+  .settings-btn.active,
+  .commands_category_btn.current {
+    @apply text-main-active hover:text-main-active-hover hover:bg-main-active-hover-bg;
+  }
+  .phone-btn.active svg,
+  .settings-btn.active svg {
+    @apply fill-main-active;
+  }
+  .phone-btn.active:hover svg,
+  .settings-btn.active:hover svg {
+    @apply fill-main-active-hover;
+  }
+
+  .settings-menu > hr {
+    @apply border-dt-third-hover dark:border-lt-third-hover py-1;
+  }
 }

@@ -5,14 +5,21 @@ export const ThemeChangingContext = createContext({
   change: () => {},
   theme: '',
   themeToDefault: () => {},
+  themeIsAuto: true,
 });
 
 export const ThemeChangingState = props => {
   const [isChanging, setIsChanging] = useState(false);
+  const [themeIsAuto, setThemeIsAuto] = useState(
+    { true: true, false: false }[localStorage.themeIsAuto] ?? true,
+  );
+
   const [theme, setTheme] = useState(
     { true: true, false: false }[localStorage.themeIsDark] ??
       window.matchMedia('(prefers-color-scheme: dark)').matches,
   );
+
+  if (theme) document.documentElement.classList.add('dark');
 
   const themeChanging = isDark => {
     localStorage.themeIsDark = isDark;
@@ -40,6 +47,7 @@ export const ThemeChangingState = props => {
   }, []);
 
   const changeTheme = isDark => {
+    setThemeIsAuto(false);
     localStorage.themeIsAuto = false;
     if (theme == isDark) return;
     themeChanging(isDark);
@@ -47,6 +55,7 @@ export const ThemeChangingState = props => {
 
   const themeToDefault = () => {
     let media = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setThemeIsAuto(true);
     localStorage.themeIsAuto = true;
     if (theme != media) themeChanging(media);
   };
@@ -54,10 +63,11 @@ export const ThemeChangingState = props => {
   return (
     <ThemeChangingContext.Provider
       value={{
-        isChanging,
         changeTheme,
         theme,
         themeToDefault,
+        themeIsAuto,
+        isChanging,
       }}>
       {props.children}
     </ThemeChangingContext.Provider>

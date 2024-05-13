@@ -8,26 +8,17 @@
 .commands_search_label {
   @apply transition-all duration-150 ease-linear absolute top-4 left-4;
 }
-.commands_search:hover + label path {
-  @apply fill-lt-svg-hover dark:fill-dt-svg-hover;
-}
+
 .commands_search:focus + label path,
-.commands_search:focus:hover + label path {
+.commands_search:focus:hover + label path,
+.commands_category_btn.current path {
   @apply fill-main-active;
 }
-.commands_category_btn {
-  @apply h-10 rounded-lg py-2 px-3 border-2 select-none border-solid border-lt-main dark:border-dt-main flex gap-4 items-center cursor-pointer hover:bg-lt-main-hover dark:hover:bg-dt-main-hover  transition-all duration-150 ease-linear;
+.commands_search:focus::placeholder {
+  @apply text-main-active;
 }
-.commands_category_btn:hover svg {
-  @apply fill-lt-svg-hover dark:fill-dt-svg-hover;
-}
-.commands_category_btn.current {
-  @apply text-main-active hover:text-main-active-hover hover:bg-main-active-hover-bg;
-}
-.commands_category_btn.current svg {
-  @apply fill-main-active;
-}
-.commands_category_btn.current:hover svg {
+.commands_category_btn.current:hover path,
+.commands_sidebar_info.opened:hover path {
   @apply fill-main-active-hover;
 }
 .commands_sidebar_info {
@@ -36,9 +27,7 @@
 .commands_sidebar_info.opened svg {
   @apply fill-main-active rotate-180;
 }
-.commands_sidebar_info.opened:hover path {
-  @apply fill-main-active-hover;
-}
+
 .commands_sidebar_info.opened > .commands_sidebar_info_title {
   @apply text-main-active fill-main-active duration-200 ease-in-out;
 }
@@ -61,7 +50,7 @@
   @apply pt-0 grid grid-rows-[0fr] overflow-hidden transition-all duration-200 ease-out-max;
 }
 .command {
-  @apply bg-lt-main dark:bg-dt-main overflow-hidden rounded-2xl	py-4 pl-5 grid grid-cols-[1fr_auto] pr-5 2xl:pr-0 max-w-[calc(100vw-48px)];
+  @apply bg-lt-main dark:bg-dt-main overflow-hidden rounded-2xl	py-4 pl-5 grid grid-cols-[1fr_auto] pr-5 2xl:pr-0;
 }
 .command.opened > div {
   @apply ease-in-out;

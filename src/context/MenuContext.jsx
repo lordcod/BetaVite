@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 
 export const MenuContext = createContext({
   isPhoneMenu: false,
@@ -12,9 +12,13 @@ export const MenuState = props => {
   const [isPhoneMenu, setIsPhoneMenu] = useState(false);
   const [isProfileMenu, setIsProfileMenu] = useState(false);
 
-  const changePhomeMenu = () => {
-    setIsPhoneMenu(!isPhoneMenu);
-  };
+  useEffect(() => {
+    // const profileMenu = document.getElementById('phone-menu');
+    // const disableProfileMenu = profileMenu.childNodes;
+    // console.log(profileMenu);
+  }, []);
+
+  const changePhomeMenu = () => setIsPhoneMenu(!isPhoneMenu);
   const changeProfileMenu = () => setIsProfileMenu(!isProfileMenu);
   const closeMenu = () => {
     setIsPhoneMenu(false);

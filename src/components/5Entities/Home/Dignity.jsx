@@ -31,7 +31,7 @@ export default function Dignity(props) {
           <SVGDiscord
             height='18px'
             width='18px'
-            className='fill-dt-svg dark:fill-lt-svg h-6 w-6 2xl:w-3.5 2xl:h-3.5'
+            className='fill-dt-svg dark:fill-lt-svg h-6 w-6 2xl:w-3.5 2xl:h-3.5 select-none'
           />
           {t('main.addToDiscord')}
         </a>
