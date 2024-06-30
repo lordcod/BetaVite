@@ -9,7 +9,7 @@ export default function HomeTitleBlock() {
   const { t } = useContext(LangChangingContext);
 
   return (
-    <div className='w-full bg-main-purple z-10 mt-[-64px] pt-16 min-h-[560px] flex items-center'>
+    <div className='home-title'>
       <div className='size-limit mx-auto flex flex-col items-center 2md:grid 2md:grid-cols-2 lg:gap-10'>
         <div className='flex justify-center p-2.5 animate-anti-entry1 lg:justify-end'>
           <SVGCrown className='fill-dt-svg w-60 h-60  2md:w-80 2md:h-80' />
@@ -29,7 +29,7 @@ export default function HomeTitleBlock() {
               <SVGDiscord
                 height='18px'
                 width='18px'
-                className='fill-dt-svg dark:fill-lt-svg'
+                className='fill-dt-svg dark:fill-lt-svg h-6 w-6 2xl:w-3.5 2xl:h-3.5 select-none'
               />
               {t('main.addToDiscord')}
             </a>

@@ -6,6 +6,7 @@ import react from '@vitejs/plugin-react';
 export default args => {
   const generateScopedName =
     args.mode == 'production' ? '[hash:base64:4]' : '[hash:base64:4]';
+
   return defineConfig({
     plugins: [react()],
     resolve: {
@@ -15,6 +16,7 @@ export default args => {
         '@data': resolve(__dirname, './src/components/6Shared'),
         '@context': resolve(__dirname, './src/context'),
         '@styles': resolve(__dirname, './src/styles'),
+        '@assets': resolve(__dirname, './src/Assets'),
       },
     },
     css: {

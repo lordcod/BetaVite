@@ -1,11 +1,11 @@
 import React from 'react';
-import MainLoaderBasic from '@components/5Entities/Loaders/MainLoaderBasic';
 import { Link } from 'react-router-dom';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
 
 export default function Error404() {
   const { t } = useContext(LangChangingContext);
+  document.title = `LordCord – 404`;
 
   return (
     <div className='page flex items-center justify-center flex-col gap-2'>
@@ -13,7 +13,7 @@ export default function Error404() {
         className='flex gap-5 flex-col'
         aria-label='404'>
         <div className='flex items-center gap-8 text-8xl justify-center'>
-          4<MainLoaderBasic />4
+          404
         </div>
         <span
           className='text-2xl font-bold text-center'

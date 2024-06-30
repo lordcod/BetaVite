@@ -8,6 +8,8 @@ import { useContext } from 'react';
 export default function CommandsPage() {
   const { t } = useContext(LangChangingContext);
 
+  document.title = `LordCord – ${t('header.commandsSmall')}`;
+
   return (
     <div className='page'>
       <div className='pt-10 px-6 size-limit mx-auto'>

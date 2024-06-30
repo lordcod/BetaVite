@@ -8,12 +8,12 @@ export default function HeaderProfileBtn() {
   const { changeProfileMenu } = useContext(MenuContext);
 
   return (
-    <div
-      className='animate-entry6 header-btn p-1.5'
+    <button
+      className='animate-entry6 header-btn round'
       tabIndex='0'
       aria-label={t('header.settings')}
       onClick={changeProfileMenu}>
       <SVGSettings />
-    </div>
+    </button>
   );
 }

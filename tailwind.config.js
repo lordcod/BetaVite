@@ -212,6 +212,7 @@ export default {
       'dt-ping': '#d9ddf2',
       'dt-selection': '#789dac',
       'dt-reaction-bg': '#2b2d31',
+      'dt-reaction-stroke': '#4b4d51',
 
       'lt-main': '#fcfcff',
       'lt-main-hover': '#f4f4f8',
@@ -224,6 +225,7 @@ export default {
       'lt-ping': '#5865f2',
       'lt-selection': '#8888fc',
       'lt-reaction-bg': '#f2f3f5',
+      'lt-reaction-stroke': '#d2d3d5',
 
       'reaction-active': '#5865f2',
       'reaction-active-trans': '#5865f240',

@@ -28,7 +28,7 @@ export default function SettingsMenu() {
   useEffect(() => {
     setRight(
       (window.innerWidth -
-        document.getElementsByClassName('header__nav')[0].offsetWidth) /
+        document.querySelectorAll('header>nav')[0].offsetWidth) /
         2 +
         16,
     );

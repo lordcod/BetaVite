@@ -2,7 +2,9 @@
   "language": "en",
   "header": {
     "main": "MAIN",
+    "mainSmall": "Main",
     "commands": "COMMANDS",
+    "commandsSmall": "Commands",
     "documentation": "DOCUMENTATION",
     "supportUs": "SUPPORT SERVER",
     "onTop": "On top",

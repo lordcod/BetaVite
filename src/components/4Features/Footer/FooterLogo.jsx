@@ -5,8 +5,8 @@ export default function FooterLogo() {
     <div className='flex items-center justify-center pt-2'>
       <div className='flex gap-1.5 items-center'>
         <SVGCrown
-          height='40px'
-          width='40px'
+          height='60px'
+          width='60px'
         />
         <h1 className='text-4xl'>
           <span className='font-bold'>Lord</span>

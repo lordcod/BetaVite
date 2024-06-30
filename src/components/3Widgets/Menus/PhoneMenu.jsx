@@ -12,11 +12,14 @@ export default function PhoneMenu() {
   const { t } = useContext(LangChangingContext);
 
   return (
-    <nav className={`phone-menu ${isPhoneMenu ? 'show' : ''}`}>
+    <nav className={`phone-menu${isPhoneMenu ? ' show' : ''}`}>
       <NavLink
         to='/'
         className='phone-btn'>
-        <SVGCrown />
+        <SVGCrown
+          width='24px'
+          className='-translate-y-0.5'
+        />
         {t('header.main')}
       </NavLink>
       <a
@@ -34,7 +37,6 @@ export default function PhoneMenu() {
       <a
         href='https://discord.gg/us7feXU4xS'
         className='phone-btn'>
-        {' '}
         <SVGHeart />
         {t('header.supportUs')}
       </a>

@@ -11,9 +11,11 @@ export default function Header() {
   const { t } = useContext(LangChangingContext);
 
   const btn = useRef(null);
+  const hdr = useRef(null);
 
   useEffect(() => {
     const btnEl = btn.current;
+    const hdtEl = hdr.current;
 
     window.addEventListener('scroll', e => {
       e.preventDefault();
@@ -23,8 +25,10 @@ export default function Header() {
       scrollY > 64;
       if (scrollY > 64) {
         btnEl.classList.add('show');
+        hdtEl.classList.add('show');
       } else {
         btnEl.classList.remove('show');
+        hdtEl.classList.remove('show');
       }
     });
   });
@@ -47,8 +51,8 @@ export default function Header() {
         aria-label={t('header.onTop')}>
         <SVGOnTop />
       </button>
-      <header>
-        <nav className='header__nav'>
+      <header ref={hdr}>
+        <nav>
           <PhoneMenuButton />
           <LeftButtons />
           <RightButtons />

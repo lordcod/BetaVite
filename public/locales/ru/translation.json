@@ -2,7 +2,9 @@
   "language": "ru",
   "header": {
     "main": "ГЛАВНАЯ",
+    "mainSmall": "Главная",
     "commands": "КОМАНДЫ",
+    "commandsSmall": "Команды",
     "documentation": "ДОКУМЕНТАЦИЯ",
     "supportUs": "СЕРВЕР ПОДДЕРЖКИ",
     "onTop": "На верх",
