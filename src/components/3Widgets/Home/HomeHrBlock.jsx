@@ -14,7 +14,7 @@ export default function CHomeHrBlock() {
         Date.now() - 60000 > Number(localStorage.servsReqTime) ||
         isNaN(Number(localStorage.servsReqTime))
       ) {
-        fetch('https://discord.bots.gg/api/v1/bots/1095713975532007434')
+        fetch('https://api.lordcord.fun/guild_count')
           .then(res => {
             return res.json();
           })

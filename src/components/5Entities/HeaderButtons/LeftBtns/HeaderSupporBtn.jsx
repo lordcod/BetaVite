@@ -8,7 +8,7 @@ export default function HeaderSupporBtn() {
 
   return (
     <a
-      href='https://discord.gg/us7feXU4xS'
+      href='https://support.lordcord.fun/'
       className='animate-entry4 header-btn hidden lg:flex'
       target='blank'>
       <SVGHeart />

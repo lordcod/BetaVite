@@ -25,7 +25,7 @@ export default function Dignity(props) {
         <h1 className='text-4xl font-bold text-center'>{props.title}</h1>
         <p>{props.body}</p>
         <a
-          href='https://discord.com/oauth2/authorize?client_id=1095713975532007434&scope=bot+applications.commands&permissions=-1&response_type=code&redirect_uri=https%3A%2F%2Flordcord.fun%2Flink-role-callback'
+          href='https://invite.lordcord.fun/'
           target='blank'
           className='flex items-center gap-4 py-3 px-6 rounded-3xl font-bold text-dt-font bg-dt-main hover:bg-dt-main-hover  dark:text-lt-font dark:bg-lt-main dark:hover:bg-lt-main-hover'>
           <SVGDiscord

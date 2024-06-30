@@ -7,7 +7,7 @@ export default function HeaderDocsBtn() {
 
   return (
     <a
-      href='https://lordcord.gitbook.io'
+      href='https://docs.lordcord.fun/'
       className='animate-entry2 header-btn hidden 2md:flex'
       target='blank'>
       <SVGDocumentation />
