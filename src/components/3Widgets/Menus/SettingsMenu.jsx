@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { MenuContext } from '@context/MenuContext';
 import { LangChangingContext } from '@context/LangContext';
 import { ThemeChangingContext } from '@context/ThemeChanging';
@@ -25,38 +25,44 @@ export default function SettingsMenu() {
   const [showLang, setShowLang] = useState(false);
 
   const [right, setRight] = useState();
+
+  const menu = useRef(null);
+
   useEffect(() => {
+    const menuEl = menu.current;
+    document.querySelectorAll('div.settings-btn').forEach(el => {
+      el.addEventListener('click', e => {
+        if (!e.target.classList.contains('active')) {
+          menuEl.classList.add('overflow-y-hidden');
+          setTimeout(() => {
+            menuEl.classList.remove('overflow-y-hidden');
+          }, 120);
+        }
+      });
+    });
+
     setRight(
       (window.innerWidth -
         document.querySelectorAll('header>nav')[0].offsetWidth) /
         2 +
         16,
     );
-
-    let foo = function () {
-      console.log('\n 1 here');
-    };
-
-    foo = (old =>
-      function () {
-        const result = old.apply(this, arguments);
-        console.log('\n 2 here');
-        return result;
-      })(foo);
   }, [setRight]);
 
   return (
     <div
+      ref={menu}
       style={{ right: `${right}px` }}
       className={`settings-menu ${isProfileMenu ? 'show' : ''}`}>
       <div
         onClick={() => {
           setShowTheme(!showTheme);
         }}
-        className={`settings-btn mb-2 ${showTheme ? 'active mb-0' : ''}`}>
+        className={`settings-btn ${showTheme ? 'active' : ''}`}>
         <SVGTheme />
         {t('menu.theme')}
       </div>
+
       <div className={`settings-block ${showTheme ? 'active' : ''}`}>
         <button
           className={`settings-btn ${theme && !themeIsAuto ? 'active' : ''}`}

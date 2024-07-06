@@ -1,5 +1,23 @@
+// import { useEffect, useState } from 'react';
+
 export default function SVGCustomization(props) {
   const { ...rest } = props;
+  // const [draw, setDraw] = useState(false);
+
+  // const drawing = e => {
+  //   console.log(e.target);
+  // };
+
+  // useEffect(() => {
+  //   if (draw) {
+  //     //draw
+  //     document.addEventListener('click', drawing);
+  //   } else {
+  //     //no draw
+  //     document.removeEventListener('click', drawing, true);
+  //   }
+  // }, [draw]);
+
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -10,6 +28,10 @@ export default function SVGCustomization(props) {
       {...rest}>
       <g className='translate-x-7 translate-y-[22px] -rotate-[135deg]'>
         <path
+          // className={`brush ${draw ? 'cursor-no-drop' : 'cursor-pointer'}`}
+          // onClick={() => {
+          //   setDraw(!draw);
+          // }}
           fill='#D0B08A'
           d='M16 2c-2-2-6-2-9-1-6 2-8 7-6 11 2 4 9 5 13 3 4-2 6-4 5-6-1-2-3 1-4-1-1-2 3-4 1-6M11 4A1 1 0 018 9 1 1 0 0111 4zM14 11a1 1 0 00-1 3 1 1 0 001-3zm-10-6a1 1 0 00-1 3 1 1 0 001-3zm-2 6a1 1 0 003 1 1 1 0 00-3-1zm5 2a1 1 0 003 1 1 1 0 00-3-1z'
         />
@@ -34,7 +56,12 @@ export default function SVGCustomization(props) {
           d='m12 13A1 1 0 0015 12 1 1 0 0012 13Z'
         />
       </g>
-      <g className='-translate-x-0.5 scale-75'>
+      <g
+        className={`-translate-x-0.5 scale-75`}
+        // onClick={() => {
+        //   setDraw(!draw);
+        // }}
+      >
         <path
           fill='#313338'
           d='M-5 7h39c1 0 2 1 2 2v14c0 1-1 2-2 2h-39c-1 0-2-1-2-2v-14c0-1 1-2 2-2z'
@@ -80,7 +107,12 @@ export default function SVGCustomization(props) {
           d='M-4 10c-2 0-1-1-3-1 0-1 1-2 2-2h1v3z'
         />
       </g>
-      <g className='-rotate-[75deg] translate-y-6 -translate-x-6'>
+      <g
+        className={`-rotate-[75deg] translate-y-6 -translate-x-6`}
+        // onClick={() => {
+        //   setDraw(!draw);
+        // }}
+      >
         <path
           fill='#a44c3e'
           d='m19.5 5.5c.5.5.5.5-1.5 3.5-2 3-3 4-4 5-1 0-3-2-3-3 1-1 2-2 5-4 3-2 3-2 3.5-1.5z'
@@ -93,6 +125,10 @@ export default function SVGCustomization(props) {
           fill='#f6b87b'
           d='m10 13c1 0 2 1 2 2 0 1-1 2-2 2h-2c0-3 1-4 2-4z'
         />
+        {/* <path
+          fill='#f00'
+          d='m8 17c0-3 1-4 2-4 1 0-1 1 0 1 1 0 1 0 1 1 0 1 0 1-1 2h-2'
+        /> */}
       </g>
     </svg>
   );

@@ -12,61 +12,194 @@
     <meta
       name="description"
       content="LordCord - многофункциональный бот для Discord, который предоставляет широкий спектр возможностей для управления сервером и обеспечения комфортного общения участников." />
-    <title>LordBot</title>
+    <title>LordCord</title>
     <link
       rel="preconnect"
       href="https://fonts.gstatic.com" />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com" />
-  </head>
-  <body style="margin: 0">
-    <div
-      id="loader"
-      class="delete"
-      style="
+
+    <style id="loader_style">
+      html.dark #circ,
+      html.dark #circ2 {
+        border-color: #fcfcff;
+      }
+
+      html.dark #loader_container {
+        background-color: #18181b;
+      }
+
+      html.dark #loader_logo {
+        fill: #fcfcff;
+      }
+      #loader_container {
         width: 100vw;
         height: 100vh;
-        background-color: #ececef;
-        position: absolute;
-      ">
-      <span style="color: #0000">Made by shashlychok</span>
-    </div>
-
-    <script
-      class="delete"
-      async>
-      if (
-        { true: true, false: false }[localStorage.themeIsDark] ??
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      ) {
-        document.documentElement.classList.add('dark');
-        document.getElementById('loader').style.backgroundColor = '#181820';
+        background-color: #fcfcff;
+        position: fixed;
+        top: 0;
+        color: black;
+        z-index: 583;
+        opacity: 1;
+        transition: opacity 300ms linear;
       }
-    </script>
+      #circ,
+      #circ2 {
+        border: 4px #8b00ff solid;
+        border-radius: 50%;
+        max-width: 240px;
+        max-height: 240px;
+        opacity: 0;
+      }
+      #circ {
+        animation: pulse 1.75s linear infinite 0.5s;
+      }
+      #circ2 {
+        animation: pulse 1.75s linear infinite 1375ms;
+      }
 
-    <script
-      class="delete"
-      async>
-      window.onload = () => {
-        Array.from(document.getElementsByClassName('delete')).forEach(el =>
-          el.remove(),
-        );
-        document.documentElement.lastChild.removeAttribute('style');
-        window.onload = null;
-      };
-    </script>
+      svg#loader_logo {
+        fill: #8b00ff;
+        max-width: 192px;
+        max-height: 192px;
+        transform: translate(-50%, -55%);
+      }
 
+      noscript {
+        width: 100vw;
+        text-align: center;
+        display: block;
+      }
+      #loader_logo,
+      #circ,
+      #circ2 {
+        width: 100vw;
+        height: 100vw;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+      }
+      @keyframes pulse {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(1);
+        }
+        20% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+        80% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(1.4);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(1.5);
+        }
+      }
+    </style>
+  </head>
+  <body style="margin: 0; overflow: hidden">
     <div id="root"></div>
-
-    <noscript>You need to enable Javascript for this site</noscript>
 
     <script
       type="module"
-      src="/src/main.jsx"></script>
+      src="/src/main.jsx"
+      async></script>
+
+    <div id="loader_container">
+      <div id="circ"></div>
+      <div id="circ2"></div>
+      <svg
+        viewBox="0 0 36 36"
+        xmlns="http://www.w3.org/2000/svg"
+        id="loader_logo">
+        <path
+          fill="#fee028"
+          d="M7.5 16.375C11.5 10.375 24.5 10.375 28.5 16.375V6.375L23.25 11.625 18 1.875 12.75 11.625 7.5 6.375V16.375Z" />
+        <path
+          d="M5.5 20.375C10.5 10.375 25.5 10.375 30.5 20.375 31.5 22.375 31.5 28.375 30.5 30.375 25.5 35.375 10.5 35.375 5.5 30.375 4.5 28.375 4.5 22.375 5.5 20.375ZM15.5 23.375A1 1 0 009.5 23.375 1 1 0 0015.5 23.375ZM20.5 23.375A1 1 0 0026.5 23.375 1 1 0 0020.5 23.375ZM4.5 20.375C-1.5 21.375-1.5 29.375 4.5 30.375 3.5 28.375 3.5 22.375 4.5 20.375ZM31.5 20.375C37.5 21.375 37.5 29.375 31.5 30.375 32.5 28.375 32.5 22.375 31.5 20.375Z" />
+      </svg>
+      <noscript
+        >You need to enable Javascript for this site<br />
+        Вам необходимо включить Javascript для этого сайта
+      </noscript>
+    </div>
+
+    <script
+      id="start_config"
+      async>
+      console.log(
+        `
+C:\\Users\\shashlychok>cd \\bestbots\\LordCord\\
+C:\\Users\\shashlychok\\bestbots\\LordCord>lordcord --info
+
+Version: 1.0.0
+Build: 30.06.2024, 21:50:40
+Author: shashlychok
+
+C:\\Users\\shashlychok\\bestbots\\LordCord>lordcord init
+` +
+          `
+%cLordCord starts the magic...
+
+██╗       █████╗  ██████╗  ██████╗   █████╗   █████╗  ██████╗  ██████╗
+██║      ██╔══██╗ ██╔══██╗ ██╔══██╗ ██╔══██╗ ██╔══██╗ ██╔══██╗ ██╔══██
+██║      ██║  ██║ ██████╔╝ ██║  ██║ ██║  ╚═╝ ██║  ██║ ██████╔╝ ██║  ██║
+██║      ██║  ██║ ██╔══██╗ ██║  ██║ ██║  ██╗ ██║  ██║ ██╔══██╗ ██║  ██║
+███████╗ ╚█████╔╝ ██║  ██║ ██████╔╝ ╚█████╔╝ ╚█████╔╝ ██║  ██║ ██████╔╝
+╚══════╝  ╚════╝  ╚═╝  ╚═╝ ╚═════╝   ╚════╝   ╚════╝  ╚═╝  ╚═╝ ╚═════╝`,
+        'color: #D902FF; font-weight: 1000',
+      );
+
+      const loader = document.getElementById('loader_container');
+
+      if (
+        { true: true, false: false }[localStorage.themeIsDark] ??
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      )
+        document.documentElement.classList.add('dark');
+    </script>
 
     <script
       src="/src/js/wow.min.js"
       async></script>
+
+    <script
+      id="loader_config"
+      async>
+      document.getElementById('start_config').remove();
+
+      function waitForElm(selector) {
+        return new Promise(resolve => {
+          if (document.querySelector(selector)) {
+            return resolve(document.querySelector(selector));
+          }
+          const observer = new MutationObserver(mutations => {
+            if (document.querySelector(selector)) {
+              observer.disconnect();
+              resolve(document.querySelector(selector));
+            }
+          });
+
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+          });
+        });
+      }
+
+      waitForElm('.page').then(elm => {
+        console.log(
+          `%cThe magic has begun`,
+          'color: #D902FF; font-weight: 1000',
+        );
+        loader.style.opacity = 0;
+        document.documentElement.lastChild.removeAttribute('style');
+        setTimeout(() => {
+          loader.remove();
+          document.getElementById('loader_style').remove();
+          document.getElementById('loader_config').remove();
+        }, 300);
+      });
+    </script>
   </body>
 </html>

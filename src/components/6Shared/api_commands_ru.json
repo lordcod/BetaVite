@@ -1,0 +1,488 @@
+[
+  {
+    "aliases": ["bal"],
+    "allowed_disabled": true,
+    "arguments": ["[member]"],
+    "brief_descriptrion": "Баланс участника",
+    "category": "economy",
+    "descriptrion": "Отображает баланс участника, а также возможные вознаграждения, которые можно получить\n\nЕсли участник не указан, значение принимает тот, кто запустил команду",
+    "examples": [
+      ["balance", "Отображает ваш баланс"],
+      ["balance @lordcode", "Отображает баланс участника лордкода"],
+      [
+        "balance 636824998123798531",
+        "Отображает баланс участника с id 636824998123798531"
+      ]
+    ],
+    "name": "balance"
+  },
+  {
+    "aliases": ["lb", "leaders", "top"],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Лучшие участники сервера по балансу",
+    "category": "economy",
+    "descriptrion": "Показывает статистику по 10 лучшим участникам сервера по балансу",
+    "examples": [],
+    "name": "leaderboard"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["\u003Cmember\u003E", "\u003Camount\u003E"],
+    "brief_descriptrion": "Переводит деньги",
+    "category": "economy",
+    "descriptrion": "Переводит указанную сумму выбранному участнику",
+    "examples": [
+      ["pay @lordcode 100", "Переводит 100 монет на счет участника лордкода"],
+      [
+        "pay 636824998123798531 100",
+        "Переводит 100 монет на счет участника с ID 636824998123798531"
+      ]
+    ],
+    "name": "pay"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Ежедневные денежные вознаграждения",
+    "category": "economy",
+    "descriptrion": "Выдает денежное вознаграждение один раз в день",
+    "examples": [],
+    "name": "daily"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Еженедельные денежные вознаграждения",
+    "category": "economy",
+    "descriptrion": "Выдает денежное вознаграждение раз в неделю",
+    "examples": [],
+    "name": "weekly"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Ежемесячное денежное вознаграждение",
+    "category": "economy",
+    "descriptrion": "Выдает денежное вознаграждение раз в месяц",
+    "examples": [],
+    "name": "monthly"
+  },
+  {
+    "aliases": ["dep"],
+    "allowed_disabled": true,
+    "arguments": ["\u003Camount\u003E"],
+    "brief_descriptrion": "Переводит введенную сумму денег в банк",
+    "category": "economy",
+    "descriptrion": "Переводит введенную сумму денег в банк, защищая ваши средства от ограбления",
+    "examples": [
+      ["deposit 100", "Переводит 100 монет в банк"],
+      ["deposit all", "Переносит все монеты в банк"]
+    ],
+    "name": "deposit"
+  },
+  {
+    "aliases": ["wd"],
+    "allowed_disabled": true,
+    "arguments": ["\u003Camount\u003E"],
+    "brief_descriptrion": "Переводит сумму обратно на счет",
+    "category": "economy",
+    "descriptrion": "Перенаправляет ваши средства из банка обратно на ваш счет\n\nПожалуйста, обратите внимание, что если вы потеряете свои средства, вернуть их будет невозможно",
+    "examples": [
+      ["withdraw 100", "Переводит 100 монет из банка обратно на ваш счет"],
+      ["withdraw all", "Переводит все монеты из банка обратно на ваш счет"]
+    ],
+    "name": "withdraw"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["[member]", "\u003Camount\u003E"],
+    "brief_descriptrion": "Добавляет сумму участнику",
+    "category": "economy",
+    "descriptrion": "Добавляет определенную сумму выбранному участнику\nЕсли участник не выбран, вместо него действует исполнитель команды",
+    "examples": [
+      ["gift 100", "Дает вам 100 монет."],
+      ["gift @lordcode 100", "Дает участнику лорд-код 100 монет."]
+    ],
+    "name": "gift"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["[member]", "\u003Camount\u003E"],
+    "brief_descriptrion": "Забирает сумму у участнику",
+    "category": "economy",
+    "descriptrion": "Выплачивает определенную сумму выбранному участнику\nЕсли участник не выбран, вместо него действует исполнитель команды",
+    "examples": [
+      ["take 100", "Берет с вас 100 монет."],
+      ["take @lordcode 100", "Берет члена лорд-кода 100 монет."]
+    ],
+    "name": "take"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": false,
+    "arguments": ["[command]"],
+    "brief_descriptrion": "Текущая команда",
+    "category": "major",
+    "descriptrion": "Команда, описывающая функции бота",
+    "examples": [["help ping", "Показывает справку о команде ping."]],
+    "name": "help"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": false,
+    "arguments": [],
+    "brief_descriptrion": "Текущая задержка бота",
+    "category": "major",
+    "descriptrion": "Показывает производительность и текущее состояние бота",
+    "examples": [],
+    "name": "ping"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": false,
+    "arguments": [],
+    "brief_descriptrion": "Ссылка на приглашение бота",
+    "category": "major",
+    "descriptrion": "Выдает ссылку, приглашающую бота на сервер",
+    "examples": [],
+    "name": "invite"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Тестовая команда",
+    "category": "major",
+    "descriptrion": "Показывает картинку, на которой зашифрован текст, в течение 30 секунд пользователь должен разгадать капчу",
+    "examples": [],
+    "name": "captcha"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Входит в канал",
+    "category": "voice",
+    "descriptrion": "Входит в канал с пользователем, который вызвал команду",
+    "examples": [],
+    "name": "join"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Выходит из канала",
+    "category": "voice",
+    "descriptrion": "Выходит канал с пользователем, который вызвал команду",
+    "examples": [],
+    "name": "leave"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["\u003Ctitle/url\u003E"],
+    "brief_descriptrion": "Начинает воспроизводиться музыка",
+    "category": "voice",
+    "descriptrion": "Начинает воспроизводиться музыка, установленная пользователем\nВ качестве облака с музыкой используется [**Яндекс Музыка**](\u003Chttps://music.yandex.ru\u003E)",
+    "examples": [
+      [
+        "play A Sky Full of Stars",
+        "Запустите поиск по песне `A Sky Full of Stars` и он предложит вам выбрать нужного автора."
+      ],
+      [
+        "play https://music.yandex.ru/album/2207193/track/17646450",
+        "Запустите песню по указанной ссылке."
+      ]
+    ],
+    "name": "play"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Останавливает музыку",
+    "category": "voice",
+    "descriptrion": "Останавливает текущий музыкальный поток",
+    "examples": [],
+    "name": "stop"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Назначает музыкальную паузу",
+    "category": "voice",
+    "descriptrion": "Останавливает текущий музыкальный поток в будущем, который может быть продолжен",
+    "examples": [],
+    "name": "pause"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Возобновляет воспроизведение музыки",
+    "category": "voice",
+    "descriptrion": "Возобновляет музыкальный поток, который был завершен необходимыми средствами для продолжения в будущем",
+    "examples": [],
+    "name": "resume"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["\u003Cvolume\u003E"],
+    "brief_descriptrion": "Устанавливает громкость",
+    "category": "voice",
+    "descriptrion": "Установите громкость текущего музыкального потока в диапазоне от 1 до 100",
+    "examples": [
+      ["volume 100", "Устанавливает максимальную громкость музыки."]
+    ],
+    "name": "volume"
+  },
+  {
+    "aliases": ["clear", "clean"],
+    "allowed_disabled": true,
+    "arguments": ["\u003Climit\u003E"],
+    "brief_descriptrion": "Очищает чат указанное количество раз",
+    "category": "moderation",
+    "descriptrion": "Очищает чат указанное количество раз",
+    "examples": [["purge 10", "Очистить последние 10 сообщений в канале"]],
+    "name": "purge"
+  },
+  {
+    "aliases": ["clear user", "clean user"],
+    "allowed_disabled": true,
+    "arguments": ["\u003Cmember\u003E", "\u003Climit\u003E"],
+    "brief_descriptrion": "Очищает чат указанное количество раз после того, как указанный пользователь отправит сообщение.",
+    "category": "moderation",
+    "descriptrion": "Очищает чат указанное количество раз после того, как указанный пользователь отправит сообщение.",
+    "examples": [
+      [
+        "purge user @lordcode 10",
+        "Очистить последние 10 сообщений, отправленных участником лордкода на канале."
+      ]
+    ],
+    "name": "purge user"
+  },
+  {
+    "aliases": ["clear between", "clean between"],
+    "allowed_disabled": true,
+    "arguments": ["\u003Cmessage_start\u003E", "[message_stop]"],
+    "brief_descriptrion": "Очищает чат между сообщениями",
+    "category": "moderation",
+    "descriptrion": "Очищает чат между сообщениями",
+    "examples": [
+      [
+        "purge between 1214583337776320524 1214584228889497610",
+        "Очищает чат между сообщениями 1214583337776320524 и 1214584228889497610."
+      ],
+      [
+        "purge between 1214583337776320524",
+        "Очищает чат от сообщения 1214583337776320524 до текущего."
+      ]
+    ],
+    "name": "purge between"
+  },
+  {
+    "aliases": ["tempban"],
+    "allowed_disabled": true,
+    "arguments": ["\u003Cmember\u003E", "\u003Ctime\u003E", "[reason]"],
+    "brief_descriptrion": "Полностью ограничивает доступ пользователя к серверу",
+    "category": "moderation",
+    "descriptrion": "Полностью ограничивает доступ пользователя к серверу",
+    "examples": [
+      [
+        "ban @lordocde 10m advertising",
+        "Забанят лордкодера на 10 минут из-за рекламы"
+      ],
+      [
+        "ban 636824998123798531 1h",
+        "Забанить участника с ID 636824998123798531 на 1 час без причины"
+      ]
+    ],
+    "name": "ban"
+  },
+  {
+    "aliases": ["tempban list"],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Выдает лист со всеми временными банами, которые были выданы ботом",
+    "category": "moderation",
+    "descriptrion": "Выдает лист со всеми временными банами, которые были выданы ботом",
+    "examples": [],
+    "name": "ban list"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["\u003Cmember\u003E", "\u003Crole\u003E", "\u003Ctime\u003E"],
+    "brief_descriptrion": "Добавляет роли определенному участнику на некоторое время или навсегда",
+    "category": "moderation",
+    "descriptrion": "Добавляет роли определенному участнику на некоторое время или навсегда\nВы можете суммировать роли\nВремя указано в формате `1d1h1m1s` значения могут комбинироваться, а также дублироваться, например `1d2h1d`",
+    "examples": [
+      [
+        "temp-role @lordcode @role 12h",
+        "Выдает участнику лордкод роль на 12 часов."
+      ]
+    ],
+    "name": "temp-role"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["[member]"],
+    "brief_descriptrion": "Предоставляет список временных ролей для сервера или участника",
+    "category": "moderation",
+    "descriptrion": "Предоставляет список временных ролей для сервера или участника.\nЕсли `member` не указан, то отображается список всех временных ролей на сервере.\nЕсли указано, то отображаются только те роли, которые принадлежат участнику.\nРоли назначенные на всегда не отображаются в списке.",
+    "examples": [
+      ["temp-role list", "Показывает все временные роли"],
+      [
+        "temp-role list @lordcode",
+        "Показывает все временные роли, назначенные участнику лордкода."
+      ]
+    ],
+    "name": "temp-role list"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["\u003Ctext/json\u003E"],
+    "brief_descriptrion": "Отправляет сообщение",
+    "category": "moderation",
+    "descriptrion": "Отправляет сообщение от имени бота, используя уникальный [**embed конструктор**](\u003Chttps://lordcord.fun/embed-builder\u003E) или обычный текст",
+    "examples": [
+      ["say Hello", "Отправьте «Привет» в текущий чат."],
+      [
+        "say {\"title\": \"Hello\"}",
+        "Отправьте вставку с заголовком «Привет» в текущий чат."
+      ]
+    ],
+    "name": "say"
+  },
+  {
+    "aliases": ["set", "setting"],
+    "allowed_disabled": false,
+    "arguments": [],
+    "brief_descriptrion": "Открывает настройки бота",
+    "category": "moderation",
+    "descriptrion": "Открывает специальные настройки управления ботом, а также его расширения",
+    "examples": [],
+    "name": "settings"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Открывает меню для создания раздачи!",
+    "category": "major",
+    "descriptrion": "Открывает меню для создания раздачи!",
+    "examples": [],
+    "name": "giveaway"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Прекращает играть в текущую песню и начинает играть следующую.",
+    "category": "voice",
+    "descriptrion": "Прекращает играть в текущую песню и начинает играть следующую.",
+    "examples": [],
+    "name": "skip"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Открывает хранилище ролей сервера",
+    "category": "economy",
+    "descriptrion": "Открывает хранилище ролей сервера",
+    "examples": [],
+    "name": "shop"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["[участник]"],
+    "brief_descriptrion": "Показывает аватар участника!",
+    "category": "major",
+    "descriptrion": "Показывает аватар участника!",
+    "examples": [
+      [
+        "avatar @lordcode",
+        "Он покажет аватар участника с именем пользователя LordCode"
+      ],
+      [
+        "avatar 636824998123798531",
+        "Он покажет аватар участника с ID 636824998123798531"
+      ]
+    ],
+    "name": "avatar"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["[участник]"],
+    "brief_descriptrion": "Показывает аватар участника!",
+    "category": "major",
+    "descriptrion": "Показывает аватар участника!",
+    "examples": [
+      ["invites", "Показывает последние приглашения с всего сервера"],
+      [
+        "invites @lordcode",
+        "Он покажет последние приглашения участника с прозвищем @lordcode"
+      ],
+      [
+        "invites 636824998123798531",
+        "Он покажет последние приглашения участника с ID 636824998123798531"
+      ]
+    ],
+    "name": "invites"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["\u003Cиндекс\u003E"],
+    "brief_descriptrion": "Переключится на дорожку в очереди",
+    "category": "voice",
+    "descriptrion": "Переключится на дорожку в очереди",
+    "examples": [["move 5", "Начнет производить 5 треков в очереди"]],
+    "name": "move"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["\u003Cвремя\u003E", "\u003CТекст\u003E"],
+    "brief_descriptrion": "Это напоминает вам указанный текст в определенное время",
+    "category": "major",
+    "descriptrion": "Это напоминает вам указанный текст в определенное время",
+    "examples": [
+      [
+        "reminder 14d daily reward",
+        "Чтобы напомнить вам после 14 дней о ежедневной награде"
+      ]
+    ],
+    "name": "reminder"
+  },
+  {
+    "aliases": ["reacts"],
+    "allowed_disabled": true,
+    "arguments": ["\u003Cтип_реакции\u003E", "[пользователь]", "[комментарий]"],
+    "brief_descriptrion": "Команда 'reactions' - широкий выбор эмоциональных реакций для обогащения вашего общения. Выразите свои чувства от радости до гнева с помощью разнообразных жестов и выражений лица.",
+    "category": "reactions",
+    "descriptrion": "Команда 'reactions' позволяет использовать разнообразные реакции для выражения эмоций и реакций персонажей. Здесь вы найдете широкий спектр действий, от обычных улыбок и обнимашек до более экспрессивных реакций, таких как крик, укус или даже смешной чих. Используйте эти реакции, чтобы добавить глубину и живость в ваши ролевые сцены или общение с другими участниками чата. Погрузитесь в мир эмоций и выражений, доступных с помощью команды 'reactions'.",
+    "examples": [
+      [
+        "reactions kiss @lordcode",
+        "Отправляет сообщение о поцелуях участника @lordcode"
+      ],
+      ["reactions blush", "Это покажет, что вы краснеете"]
+    ],
+    "name": "reactions"
+  }
+]

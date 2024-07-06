@@ -60,7 +60,9 @@ export default function CommandsList(category) {
                             <div
                               className='flex flex-col'
                               key={comName + index}>
-                              <div className='usage self-start'>{ex.usage}</div>
+                              <span className='usage self-start'>
+                                {ex.usage}
+                              </span>
                               {ex.description}
                             </div>
                           );

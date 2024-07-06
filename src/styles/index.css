@@ -26,6 +26,10 @@
       @apply bg-dt-third hover:bg-dt-third-hover border-dt-main;
     }
   }
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
 @layer base {
@@ -35,7 +39,7 @@
   html,
   body,
   #root {
-    @apply min-h-[100vh] w-full tracking-wider text-lt-font dark:text-dt-font font-main;
+    @apply min-h-screen w-full tracking-wider text-lt-font dark:text-dt-font font-main;
   }
   ::selection {
     @apply bg-lt-selection;
@@ -92,7 +96,7 @@
     @apply flex justify-center items-center;
   }
   .loader {
-    @apply w-24 h-24 text-dt-third dark:text-lt-third rotate-45;
+    @apply w-24 h-24 text-dt-second dark:text-lt-second rotate-45;
     &:before,
     &:after {
       @apply block content-[''] absolute top-0 left-0 w-24 h-24 rounded-[35%];
@@ -154,12 +158,12 @@
 
   .phone-menu,
   .settings-menu {
-    @apply rounded-xl gap-0 top-20 max-h-[calc(100vh-80px)] translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 p-2 flex flex-col shadow-white/50 dark:shadow-black/50 transition-all duration-200 ease-out bg-lt-main dark:bg-dt-main fixed z-30 overflow-x-hidden pb-2 overflow-y-visible;
+    @apply rounded-xl gap-0 top-20 max-h-[calc(100vh-80px)] translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 p-2 flex flex-col shadow-white/50 dark:shadow-black/50 transition-all duration-200 ease-out bg-lt-main dark:bg-dt-main fixed z-30 overflow-y-auto;
     &.show {
       @apply opacity-100 translate-x-0 -translate-y-0 scale-100;
     }
     > hr {
-      @apply border-dt-third-hover dark:border-lt-third-hover py-1;
+      @apply border-dt-third-hover dark:border-lt-third-hover my-2;
     }
   }
   .phone-menu {

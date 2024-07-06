@@ -5,7 +5,6 @@ import SVGOnTop from '@components/5Entities/SVG/SVGOnTop';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
 import PhoneMenuButton from '@components/4Features/Header/PhoneMenuButton';
-import { MenuContext } from '@context/MenuContext';
 
 export default function Header() {
   const { t } = useContext(LangChangingContext);

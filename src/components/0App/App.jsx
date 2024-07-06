@@ -20,30 +20,30 @@ import SettingsMenu from '@components/3Widgets/Menus/SettingsMenu';
 
 export default function App() {
   return (
-    <Suspense fallback={<SiteLoader />}>
-      <LangChangingState>
-        <BrowserRouter>
-          <ThemeChangingState>
-            <MenuState>
-              <CloseMenu />
-              <PhoneMenu />
-              <SettingsMenu />
-              <Header />
-              {/* <Admin /> */}
-            </MenuState>
-          </ThemeChangingState>
+    // <Suspense fallback={<SiteLoader />}>
+    <LangChangingState>
+      <BrowserRouter>
+        <ThemeChangingState>
+          <MenuState>
+            <CloseMenu />
+            <PhoneMenu />
+            <SettingsMenu />
+            <Header />
+            {/* <Admin /> */}
+          </MenuState>
+        </ThemeChangingState>
 
-          <Suspense fallback={<MainLoader />}>
-            <Routes>
-              <Route
-                path='/'
-                element={<Main />}
-              />
-              <Route
-                path='/commands'
-                element={<Commands />}
-              />
-              {/* 
+        <Suspense fallback={<MainLoader />}>
+          <Routes>
+            <Route
+              path='/'
+              element={<Main />}
+            />
+            <Route
+              path='/commands'
+              element={<Commands />}
+            />
+            {/* 
               <Route
                 path='/support'
                 element={<NoSiteTemporarily />}
@@ -61,20 +61,20 @@ export default function App() {
                 element={<Results />}
               /> */}
 
-              <Route
-                path=''
-                element={<Error404 />}
-              />
-              <Route
-                path='*'
-                element={<Error404 />}
-              />
-              <Route element={<Error404 />} />
-            </Routes>
-          </Suspense>
-          <Footer />
-        </BrowserRouter>
-      </LangChangingState>
-    </Suspense>
+            <Route
+              path=''
+              element={<Error404 />}
+            />
+            <Route
+              path='*'
+              element={<Error404 />}
+            />
+            <Route element={<Error404 />} />
+          </Routes>
+        </Suspense>
+        <Footer />
+      </BrowserRouter>
+    </LangChangingState>
+    // </Suspense>
   );
 }

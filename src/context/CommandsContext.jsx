@@ -40,15 +40,15 @@ export const CommandsState = props => {
   ); //Экономика
   const commandsMajor = CommandCategoryList(
     commandsCategories.major,
-    localStorage.i18nextLng,
+    i18n.language,
   ); //Главные
   const commandsModeration = CommandCategoryList(
     commandsCategories.moderation,
-    localStorage.i18nextLng,
+    i18n.language,
   ); //Модерация
   const commandsVoice = CommandCategoryList(
     commandsCategories.voice,
-    localStorage.i18nextLng,
+    i18n.language,
   ); //Голосовые
 
   const commandsAll = [

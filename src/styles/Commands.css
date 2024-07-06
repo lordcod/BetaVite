@@ -83,5 +83,5 @@
   @apply text-link;
 }
 .usage {
-  @apply py-1 px-4 rounded-lg bg-lt-third dark:bg-dt-third font-inconsolata flex items-center gap-2;
+  @apply py-1 px-4 rounded-lg bg-lt-third dark:bg-dt-third font-inconsolata flex items-center gap-2 break-words break-all;
 }

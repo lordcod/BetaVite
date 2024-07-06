@@ -29,8 +29,7 @@ export const LangChangingState = props => {
   };
 
   const lngToDefault = () => {
-    let browserLanguage = navigator.language || navigator.userLanguage;
-    changeLng(browserLanguage);
+    changeLng(browserLng);
     setLngIsAuto(true);
     localStorage.lngIsAuto = true;
   };
@@ -57,7 +56,7 @@ export const LangChangingState = props => {
   ];
 
   const [lng, setLng] = useState(
-    !!{ true: true }[localStorage.lngIsAuto]
+    { true: true, false: false, undefined: true }[localStorage.lngIsAuto]
       ? supportedLngs.includes(browserLng)
         ? browserLng
         : postSvoietLngs.includes(browserLng)
