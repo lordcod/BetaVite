@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const url = `https://api.lordcord.fun/command_data/ru`;
+
+      fetch('https://588f-81-177-135-207.ngrok-free.app/', {
+        mode: 'no-cors',
+        headers: {
+          Authorization: 'aaff2AAfbec0Fbe25CC82cCdE',
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+
+        body: JSON.stringify({
+          endpoint: 'get_guilds_count',
+          data: {},
+        }),
+      }).then(res => {
+        if (res == undefined) return;
+        console.log(res);
+      });
+      // fetch('https://api.lordcord.fun/command_data/ru', {
+      // mode: 'no-cors',
+      //   method: 'GET',
+      //   headers: {
+      //     Accept: 'application/json',
+      //   },
+      // })
+      //   .then(response => {
+      //     console.log(response); // null
+      //     return dispatch({
+      //       type: 'GET_CALL',
+      //       response: response,
+      //     });
+      //   })
+      //   .catch(error => {
+      //     console.log(error);
+      //   });
+
+      // fetch(url)
+      //   .then(response => response.json())
+      //   .then(json => {
+      //     console.log('parsed json', json); // access json.body here
+      //   });
+    </script>
+  </body>
+</html>
