@@ -1,0 +1,492 @@
+[
+  {
+    "aliases": ["bal"],
+    "allowed_disabled": true,
+    "arguments": ["[member]"],
+    "brief_descriptrion": "Participant's balance",
+    "category": "economy",
+    "descriptrion": "Displays the participant's balance as well as possible rewards that can be collected\n\nIf no participant is specified, the value is taken by the one who started the command",
+    "examples": [
+      ["balance", "Displays your balance"],
+      ["balance @lordcode", "Displays the balance of the lordcode participant"],
+      [
+        "balance 636824998123798531",
+        "Displays the balance of the participant with id 636824998123798531"
+      ]
+    ],
+    "name": "balance"
+  },
+  {
+    "aliases": ["lb", "leaders", "top"],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Top server participants by balance",
+    "category": "economy",
+    "descriptrion": "Shows statistics of the top 10 server participants by balance",
+    "examples": [],
+    "name": "leaderboard"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["<member>", "<amount>"],
+    "brief_descriptrion": "Transfers money",
+    "category": "economy",
+    "descriptrion": "Transfers the specified amount to the selected participant",
+    "examples": [
+      [
+        "pay @lordcode 100",
+        "Transfers 100 coins to the account of the lordcode participant"
+      ],
+      [
+        "pay 636824998123798531 100",
+        "Transfers 100 coins to the participant's account from ID 636824998123798531"
+      ]
+    ],
+    "name": "pay"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Daily cash rewards",
+    "category": "economy",
+    "descriptrion": "Issues a cash reward once a day",
+    "examples": [],
+    "name": "daily"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Weekly cash rewards",
+    "category": "economy",
+    "descriptrion": "Issues a cash reward once a week",
+    "examples": [],
+    "name": "weekly"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Monthly cash rewards",
+    "category": "economy",
+    "descriptrion": "Issues a cash reward once a month",
+    "examples": [],
+    "name": "monthly"
+  },
+  {
+    "aliases": ["dep"],
+    "allowed_disabled": true,
+    "arguments": ["<amount>"],
+    "brief_descriptrion": "Transfers the entered amount of money to the bank",
+    "category": "economy",
+    "descriptrion": "Transfers the entered amount of money to the bank protecting your funds from robbery",
+    "examples": [
+      ["deposit 100", "Transfers 100 coins to the bank"],
+      ["deposit all", "Transfers all coins to the bank"]
+    ],
+    "name": "deposit"
+  },
+  {
+    "aliases": ["wd"],
+    "allowed_disabled": true,
+    "arguments": ["<amount>"],
+    "brief_descriptrion": "Transfers the amount back to the account",
+    "category": "economy",
+    "descriptrion": "Redirects your funds from the bank back to your account\n\nPlease note that if you lose your funds, it is not possible to return them",
+    "examples": [
+      [
+        "withdraw 100",
+        "Transfers 100 coins from the bank back to your account"
+      ],
+      ["withdraw all", "Transfers all coins from the bank back to your account"]
+    ],
+    "name": "withdraw"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["[member]", "<amount>"],
+    "brief_descriptrion": "Adds the amount to the participant",
+    "category": "economy",
+    "descriptrion": "Adds a certain amount to the selected participant\nIf the participant is not selected, the team performer acts instead",
+    "examples": [
+      ["gift 100", "Gives you 100 coins."],
+      ["gift @lordcode 100", "Gives member lordcode 100 coins."]
+    ],
+    "name": "gift"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["[member]", "<amount>"],
+    "brief_descriptrion": "Takes the amount to the participant",
+    "category": "economy",
+    "descriptrion": "Takes a certain amount to the selected participant\nIf the participant is not selected, the team performer acts instead",
+    "examples": [
+      ["take 100", "Takes you 100 coins."],
+      ["take @lordcode 100", "Takes member lordcode 100 coins."]
+    ],
+    "name": "take"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": false,
+    "arguments": ["[command]"],
+    "brief_descriptrion": "Current command",
+    "category": "major",
+    "descriptrion": "A command describing the bot's functions",
+    "examples": [["help ping", "Shows help about the `ping` command"]],
+    "name": "help"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": false,
+    "arguments": [],
+    "brief_descriptrion": "Current bot delay",
+    "category": "major",
+    "descriptrion": "Shows the performance and current status of the bot",
+    "examples": [],
+    "name": "ping"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": false,
+    "arguments": [],
+    "brief_descriptrion": "Bot invitation link",
+    "category": "major",
+    "descriptrion": "Issues a link inviting the bot to the server",
+    "examples": [],
+    "name": "invite"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Test command",
+    "category": "major",
+    "descriptrion": "Shows a picture on which the text is encrypted within 30 seconds the user must solve the captcha",
+    "examples": [],
+    "name": "captcha"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Enters the channel",
+    "category": "voice",
+    "descriptrion": "Enters the channel with the user who called the command",
+    "examples": [],
+    "name": "join"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Comes out the channel",
+    "category": "voice",
+    "descriptrion": "Comes out the channel with the user who called the command",
+    "examples": [],
+    "name": "leave"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["<title/url>"],
+    "brief_descriptrion": "Starts playing music",
+    "category": "voice",
+    "descriptrion": "Starts playing the music set by the user\nAs a cloud with music is [**Yandex Music**](<https://music.yandex.ru>)",
+    "examples": [
+      [
+        "play A Sky Full of Stars",
+        "Run a search for the song `A Sky Full of Stars` and it will prompt you to choose the desired author."
+      ],
+      [
+        "play https://music.yandex.ru/album/2207193/track/17646450",
+        "Launch the song from the specified link."
+      ]
+    ],
+    "name": "play"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Stops the music",
+    "category": "voice",
+    "descriptrion": "Stops the current music stream",
+    "examples": [],
+    "name": "stop"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Assigns a pause for music",
+    "category": "voice",
+    "descriptrion": "Stops the current music stream in the future which can be continued",
+    "examples": [],
+    "name": "pause"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Resumes music",
+    "category": "voice",
+    "descriptrion": "Resumes the music stream that was completed by the necessary means in order to continue in the future",
+    "examples": [],
+    "name": "resume"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["<volume>"],
+    "brief_descriptrion": "Sets the volume",
+    "category": "voice",
+    "descriptrion": "Set the volume to the current music stream from 1 to 100",
+    "examples": [["volume 100", "Sets the maximum volume for music."]],
+    "name": "volume"
+  },
+  {
+    "aliases": ["clear", "clean"],
+    "allowed_disabled": true,
+    "arguments": ["<limit>"],
+    "brief_descriptrion": "Clears the chat the specified number of times",
+    "category": "moderation",
+    "descriptrion": "Clears the chat the specified number of times",
+    "examples": [["purge 10", "Clear the last 10 messages in the channel"]],
+    "name": "purge"
+  },
+  {
+    "aliases": ["clear user", "clean user"],
+    "allowed_disabled": true,
+    "arguments": ["<member>", "<limit>"],
+    "brief_descriptrion": "Clears the chat a specified number of times after the specified user sends a message.",
+    "category": "moderation",
+    "descriptrion": "Clears the chat a specified number of times after the specified user sends a message.",
+    "examples": [
+      [
+        "purge user @lordcode 10",
+        "Clear the last 10 messages sent by the lordcode member in the channel"
+      ]
+    ],
+    "name": "purge user"
+  },
+  {
+    "aliases": ["clear between", "clean between"],
+    "allowed_disabled": true,
+    "arguments": ["<message_start>", "[message_stop]"],
+    "brief_descriptrion": "Clears the chat between messages",
+    "category": "moderation",
+    "descriptrion": "Clears the chat between messages",
+    "examples": [
+      [
+        "purge between 1214583337776320524 1214584228889497610",
+        "Clears the chat between message 1214583337776320524 and 1214584228889497610"
+      ],
+      [
+        "purge between 1214583337776320524",
+        "Clears the chat from message 1214583337776320524 to the current one"
+      ]
+    ],
+    "name": "purge between"
+  },
+  {
+    "aliases": ["tempban"],
+    "allowed_disabled": true,
+    "arguments": ["<member>", "<time>", "[reason]"],
+    "brief_descriptrion": "Restricts the user's access to the server completely",
+    "category": "moderation",
+    "descriptrion": "Restricts the user's access to the server completely",
+    "examples": [
+      [
+        "ban @lordocde 10m advertising",
+        "Will ban lordcode for 10 minutes due to advertising"
+      ],
+      [
+        "ban 636824998123798531 1h",
+        "Ban a participant with ID 636824998123798531 for 1 hour for no reason"
+      ]
+    ],
+    "name": "ban"
+  },
+  {
+    "aliases": ["tempban list"],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Issues a sheet with all temporary bans that were issued by the bot",
+    "category": "moderation",
+    "descriptrion": "Issues a sheet with all temporary bans that were issued by the bot",
+    "examples": [],
+    "name": "ban list"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["<member>", "<role>", "<time>"],
+    "brief_descriptrion": "Adds roles to a certain participant for a while or forever",
+    "category": "moderation",
+    "descriptrion": "Adds roles to a certain participant for a while or forever\nYou can summarize the roles\nThe time is indicated in the format `1d1h1m1s` the values can be combined and also duplicated, for example `1d2h1d`",
+    "examples": [
+      [
+        "temp-role @lordcode @role 12h",
+        "Issues the role of role for 12 hours to the participant lordcode."
+      ]
+    ],
+    "name": "temp-role"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["[member]"],
+    "brief_descriptrion": "Provides a list of temporary roles for the server or member",
+    "category": "moderation",
+    "descriptrion": "Provides a list of temporary roles for the server or member.\nIf `member` is not specified, it shows a list of all temporary roles on the server.\nIf specified, it shows only those roles that belong to the participant.\nThe roles assigned to are always not shown in the list.",
+    "examples": [
+      ["temp-role list", "Shows all temporary roles"],
+      [
+        "temp-role list @lordcode",
+        "Shows all temporary roles assigned to the lordcode member"
+      ]
+    ],
+    "name": "temp-role list"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["<text/json>"],
+    "brief_descriptrion": "Sends a message",
+    "category": "moderation",
+    "descriptrion": "Sends a message on behalf of the bot using a unique [**embed builder**](<https://lordcord.fun/embed-builder>) or plain text",
+    "examples": [
+      ["say Hello", "Send `Hello` to the current chat."],
+      [
+        "say {\"title\": \"Hello\"}",
+        "Send embed with title `Hello` to the current chat."
+      ]
+    ],
+    "name": "say"
+  },
+  {
+    "aliases": ["set", "setting"],
+    "allowed_disabled": false,
+    "arguments": [],
+    "brief_descriptrion": "Opens the bot settings",
+    "category": "moderation",
+    "descriptrion": "Opens special bot management settings as well as its extensions",
+    "examples": [],
+    "name": "settings"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Opens the menu for creating a giveaway!",
+    "category": "major",
+    "descriptrion": "Opens the menu for creating a giveaway!",
+    "examples": [],
+    "name": "giveaway"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Stops playing the current song and starts playing the next one.",
+    "category": "voice",
+    "descriptrion": "Stops playing the current song and starts playing the next one.",
+    "examples": [],
+    "name": "skip"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": [],
+    "brief_descriptrion": "Opens the Server Role Store",
+    "category": "economy",
+    "descriptrion": "Opens the Server Role Store",
+    "examples": [],
+    "name": "shop"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["[member]"],
+    "brief_descriptrion": "Shows the participant's avatar!",
+    "category": "major",
+    "descriptrion": "Shows the participant's avatar!",
+    "examples": [
+      [
+        "avatar @lordcode",
+        "It will show the avatar of the participant with the username lordcode"
+      ],
+      [
+        "avatar 636824998123798531",
+        "It will show the avatar of the participant with the id 636824998123798531"
+      ]
+    ],
+    "name": "avatar"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["[member]"],
+    "brief_descriptrion": "Shows the participant's avatar!",
+    "category": "major",
+    "descriptrion": "Shows the participant's avatar!",
+    "examples": [
+      ["invites", "Shows the latest invitations from the entire server"],
+      [
+        "invites @lordcode",
+        "It will show the latest invitations of the participant with the nickname @lordcode"
+      ],
+      [
+        "invites 636824998123798531",
+        "It will show the latest invitations of the participant with the id 636824998123798531"
+      ]
+    ],
+    "name": "invites"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["<index>"],
+    "brief_descriptrion": "Will switch to the track in the queue",
+    "category": "voice",
+    "descriptrion": "Will switch to the track in the queue",
+    "examples": [["move 5", "Will start producing 5 tracks in the queue"]],
+    "name": "move"
+  },
+  {
+    "aliases": [],
+    "allowed_disabled": true,
+    "arguments": ["<time>", "<text>"],
+    "brief_descriptrion": "It reminds you of the specified text at a certain time",
+    "category": "major",
+    "descriptrion": "It reminds you of the specified text at a certain time",
+    "examples": [
+      [
+        "reminder 14d daily reward",
+        "To remind you after 14 days about the daily reward"
+      ]
+    ],
+    "name": "reminder"
+  },
+  {
+    "aliases": ["reacts"],
+    "allowed_disabled": true,
+    "arguments": ["<reaction_type>", "[user]", "[comment]"],
+    "brief_descriptrion": "The 'reactions' command offers a wide range of emotional reactions to enrich your communication. Express your feelings from joy to anger with various gestures and facial expressions.",
+    "category": "reactions",
+    "descriptrion": "The 'reactions' command allows you to use various reactions to express emotions and character responses. Here you will find a wide range of actions, from simple smiles and hugs to more expressive reactions such as shouting, biting, or even a funny sneeze. Use these reactions to add depth and liveliness to your role-playing scenes or communication with other chat participants. Immerse yourself in the world of emotions and expressions available through the 'reactions' command.",
+    "examples": [
+      [
+        "reactions kiss @lordcode",
+        "Sends a message about the kisses of the participant @lordcode"
+      ],
+      ["reactions blush", "It will show that you are blushing"]
+    ],
+    "name": "reactions"
+  }
+]

@@ -18,19 +18,19 @@
       href="https://fonts.gstatic.com" />
 
     <style id="loader_style">
-      html.dark #circ,
-      html.dark #circ2 {
+      html.dark #mcirc,
+      html.dark #mcirc2 {
         border-color: #fcfcff;
       }
 
-      html.dark #loader_container {
+      html.dark #main_loader {
         background-color: #18181b;
       }
 
       html.dark #loader_logo {
         fill: #fcfcff;
       }
-      #loader_container {
+      #main_loader {
         width: 100vw;
         height: 100vh;
         background-color: #fcfcff;
@@ -41,25 +41,27 @@
         opacity: 1;
         transition: opacity 300ms linear;
       }
-      #circ,
-      #circ2 {
-        border: 4px #8b00ff solid;
+      #mcirc,
+      #mcirc2 {
+        border: #8b00ff solid;
+        border-width: 4px;
         border-radius: 50%;
-        max-width: 240px;
-        max-height: 240px;
+        max-width: min(240px, calc(100vw - 60px), calc(100vh - 60px));
+        max-height: min(240px, calc(100vw - 60px), calc(100vh - 60px));
         opacity: 0;
       }
-      #circ {
+
+      #mcirc {
         animation: pulse 1.75s linear infinite 0.5s;
       }
-      #circ2 {
+      #mcirc2 {
         animation: pulse 1.75s linear infinite 1375ms;
       }
 
       svg#loader_logo {
         fill: #8b00ff;
-        max-width: 192px;
-        max-height: 192px;
+        max-width: min(192px, calc(100vw - 96px), calc(100vh - 96px));
+        max-height: min(192px, calc(100vw - 96px), calc(100vh - 96px));
         transform: translate(-50%, -55%);
       }
 
@@ -69,8 +71,8 @@
         display: block;
       }
       #loader_logo,
-      #circ,
-      #circ2 {
+      #mcirc,
+      #mcirc2 {
         width: 100vw;
         height: 100vw;
         left: 50%;
@@ -105,9 +107,9 @@
       src="/src/main.jsx"
       async></script>
 
-    <div id="loader_container">
-      <div id="circ"></div>
-      <div id="circ2"></div>
+    <div id="main_loader">
+      <div id="mcirc"></div>
+      <div id="mcirc2"></div>
       <svg
         viewBox="0 0 36 36"
         xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +134,7 @@
 C:\\Users\\shashlychok>cd \\bestbots\\LordCord\\
 C:\\Users\\shashlychok\\bestbots\\LordCord>lordcord --info
 
-Version: 1.0.0
+Version: 1.0.1
 Build: 30.06.2024, 21:50:40
 Author: shashlychok
 
@@ -150,7 +152,7 @@ C:\\Users\\shashlychok\\bestbots\\LordCord>lordcord init
         'color: #D902FF; font-weight: 1000',
       );
 
-      const loader = document.getElementById('loader_container');
+      const loader = document.getElementById('main_loader');
 
       if (
         { true: true, false: false }[localStorage.themeIsDark] ??

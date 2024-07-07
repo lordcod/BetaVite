@@ -2,8 +2,8 @@ import { Suspense } from 'react';
 import { Main } from '@components/2Pages/Main/Main.lazy';
 import { Commands } from '@components/2Pages/Commands/Commands.lazy';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from '@components/3Widgets/Header';
-import Footer from '@components/3Widgets/Footer';
+import Header from '@components/1Proceses/Header';
+import Footer from '@components/1Proceses/Footer';
 import MainLoader from '@components/5Entities/Loaders/MainLoader';
 // import Admin from '@components/3Widgets/Menus/Admin';
 import { ThemeChangingState } from '@context/ThemeChanging';
@@ -12,11 +12,11 @@ import { ThemeChangingState } from '@context/ThemeChanging';
 import { Error404 } from '@components/2Pages/Errors/Error 404/Error404.lazy';
 // import { Results } from '@components/2Pages/Results/Results.lazy';
 import { LangChangingState } from '@context/LangContext';
-import SiteLoader from '@components/5Entities/Loaders/SiteLoader';
+// import SiteLoader from '@components/5Entities/Loaders/SiteLoader';
 import { MenuState } from '@context/MenuContext';
-import PhoneMenu from '@components/3Widgets/Menus/PhoneMenu';
-import CloseMenu from '@components/3Widgets/Menus/CloseMenu';
-import SettingsMenu from '@components/3Widgets/Menus/SettingsMenu';
+import PhoneMenu from '@components/1Proceses/Menus/PhoneMenu';
+import CloseMenu from '@components/1Proceses/Menus/CloseMenu';
+import SettingsMenu from '@components/1Proceses/Menus/SettingsMenu';
 
 export default function App() {
   return (
@@ -55,11 +55,11 @@ export default function App() {
               <Route
                 path='/servers'
                 element={<NoSiteTemporarily />}
-              />
-              <Route
-                path='/results'
-                element={<Results />}
               /> */}
+            {/* <Route
+              path='/loader'
+              element={<MainLoader />}
+            /> */}
 
             <Route
               path=''

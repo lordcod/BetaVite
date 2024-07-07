@@ -1,6 +1,6 @@
 import SVGCrown from '@components/5Entities/SVG/SVGCrown.jsx';
 // import { Link } from 'react-router-dom';
-import SVGDiscord from '@components/5Entities/SVG/SVGDiscord';
+import SVGDiscord from '@components/5Entities/SVG/Socials/SVGDiscord';
 // import SVGServers from '../../5Entities/SVG/SVGServers';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';

@@ -1,4 +1,4 @@
-import SVGDiscord from '@components/5Entities/SVG/SVGDiscord';
+import SVGDiscord from '@components/5Entities/SVG/Socials/SVGDiscord';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
 

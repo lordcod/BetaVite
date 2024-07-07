@@ -12,7 +12,8 @@ export default {
       none: 'none',
       spin: 'spin 1s linear infinite',
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
-      pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      pulse: 'pulse 1.75s linear infinite 0.5s',
+      'pulse-delay': 'pulse 1.75s linear infinite 1375ms',
       bounce: 'bounce 1s infinite',
       entry6: 'entry 1.5s forwards',
       entry5: 'entry 1.3s forwards',
@@ -679,11 +680,6 @@ export default {
           opacity: '0',
         },
       },
-      pulse: {
-        '50%': {
-          opacity: '.5',
-        },
-      },
       bounce: {
         '0%, 100%': {
           transform: 'translateY(-25%)',
@@ -776,6 +772,24 @@ export default {
           transform: 'translateZ(0)',
         },
       },
+      pulse: {
+        '0%': {
+          opacity: 0,
+          transform: 'translate(-50%, -50%) scale(1)'
+        },
+        "20%": {
+          opacity: 1,
+          transform: 'translate(-50%, -50%) scale(1.1)'
+        },
+        '80%': {
+          opacity: 0,
+          transform: 'translate(-50%, -50%) scale(1.4)'
+        },
+        '100%': {
+          opacity: 0,
+          transform: 'translate(-50%, -50%) scale(1.5)'
+        }
+      }
     },
     letterSpacing: {
       tighter: '-0.05em',
