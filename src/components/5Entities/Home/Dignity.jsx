@@ -1,10 +1,6 @@
-import SVGDiscord from '@components/5Entities/SVG/Socials/SVGDiscord';
-import { LangChangingContext } from '@context/LangContext';
-import { useContext } from 'react';
+import Invite from '../UI/Invite';
 
 export default function Dignity(props) {
-  const { t } = useContext(LangChangingContext);
-
   return (
     <div
       className={`dignity wow animate__animated animate__${
@@ -24,17 +20,7 @@ export default function Dignity(props) {
       <div className='flex flex-col justify-center gap-4'>
         <h1 className='text-4xl font-bold text-center'>{props.title}</h1>
         <p>{props.body}</p>
-        <a
-          href='https://invite.lordcord.fun/'
-          target='blank'
-          className='flex items-center gap-4 py-3 px-6 rounded-3xl font-bold text-dt-font bg-dt-main hover:bg-dt-main-hover  dark:text-lt-font dark:bg-lt-main dark:hover:bg-lt-main-hover'>
-          <SVGDiscord
-            height='18px'
-            width='18px'
-            className='fill-dt-svg dark:fill-lt-svg h-6 w-6 2xl:w-3.5 2xl:h-3.5 select-none'
-          />
-          {t('main.addToDiscord')}
-        </a>
+        <Invite />
       </div>
     </div>
   );
