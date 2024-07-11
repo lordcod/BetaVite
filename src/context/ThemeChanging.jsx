@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 
 export const ThemeChangingContext = createContext({
-  isChanging: false,
   change: () => {},
   theme: '',
   themeToDefault: () => {},
@@ -9,7 +8,6 @@ export const ThemeChangingContext = createContext({
 });
 
 export const ThemeChangingState = props => {
-  const [isChanging, setIsChanging] = useState(false);
   const [themeIsAuto, setThemeIsAuto] = useState(
     { true: true, false: false }[localStorage.themeIsAuto] ?? true,
   );
@@ -21,17 +19,20 @@ export const ThemeChangingState = props => {
 
   if (theme) document.documentElement.classList.add('dark');
 
+  const meta = document.querySelector("meta[name='theme-color']");
+
   const themeChanging = isDark => {
     localStorage.themeIsDark = isDark;
-    setIsChanging(true);
-    setTimeout(() => {
-      setTheme(isDark);
-      isDark
-        ? document.documentElement.classList.add('dark')
-        : document.documentElement.classList.remove('dark');
-    }, 200);
-
-    setTimeout(() => setIsChanging(false), 1000);
+    setTheme(isDark);
+    isDark;
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      meta.content = '#18181b';
+      themeCiki;
+    } else {
+      document.documentElement.classList.remove('dark');
+      meta.content = '#fcfcff';
+    }
   };
 
   useEffect(() => {
@@ -67,7 +68,6 @@ export const ThemeChangingState = props => {
         theme,
         themeToDefault,
         themeIsAuto,
-        isChanging,
       }}>
       {props.children}
     </ThemeChangingContext.Provider>

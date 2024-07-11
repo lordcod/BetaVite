@@ -47,7 +47,7 @@ export default function SettingsMenu() {
         2 +
         16,
     );
-  }, [setRight]);
+  }, []);
 
   return (
     <div

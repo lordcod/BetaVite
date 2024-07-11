@@ -8,6 +8,9 @@ export default args => {
     args.mode == 'production' ? '[hash:base64:4]' : '[hash:base64:4]';
 
   return defineConfig({
+    server: {
+      host: true
+    },
     plugins: [react()],
     resolve: {
       alias: {

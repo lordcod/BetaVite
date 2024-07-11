@@ -2,14 +2,6 @@ import stringToElement from './parseStringToElement';
 import markDown from './parseMarkDown';
 
 export default function sortCommand(command, prefLang) {
-  const translateList = list => {
-    let translatedList = [];
-    list.forEach(el => {
-      translatedList.push(el[prefLang]);
-    });
-    return translatedList;
-  };
-
   const examplesList = list => {
     let examples = [];
 

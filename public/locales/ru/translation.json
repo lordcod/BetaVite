@@ -62,6 +62,7 @@
     "moderation": "Модерация",
     "economy": "Экономика",
     "voice": "Голосовые",
+    "reactions": "Взаимодействия",
     "info": "Справка",
     "standardPrefix": "Стандартный префикс",
     "canChange": "Вы можете поменять его в панели управления",
@@ -75,7 +76,8 @@
     "examples": "Примеры",
     "can": "Можно",
     "cant": "Нельзя",
-    "beTurnedOff": "выключить"
+    "beTurnedOff": "выключить",
+    "usage": "Использование"
   },
   "notFound": {
     "temporarilyUnavailable": "Страница временно отсутствует",

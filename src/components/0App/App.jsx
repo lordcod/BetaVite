@@ -23,15 +23,15 @@ export default function App() {
     // <Suspense fallback={<SiteLoader />}>
     <LangChangingState>
       <BrowserRouter>
-        <ThemeChangingState>
-          <MenuState>
-            <CloseMenu />
-            <PhoneMenu />
+        <MenuState>
+          <CloseMenu />
+          <PhoneMenu />
+          <ThemeChangingState>
             <SettingsMenu />
-            <Header />
-            {/* <Admin /> */}
-          </MenuState>
-        </ThemeChangingState>
+          </ThemeChangingState>
+          <Header />
+          {/* <Admin /> */}
+        </MenuState>
 
         <Suspense fallback={<MainLoader />}>
           <Routes>

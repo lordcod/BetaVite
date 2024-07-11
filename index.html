@@ -1,21 +1,151 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    <!-- doc congif start -->
+
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/icon.svg" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
+
+    <!-- doc congif end & main start -->
+
+    <meta
+      name="title"
+      content="LordCord" />
     <meta
       name="description"
-      content="LordCord - многофункциональный бот для Discord, который предоставляет широкий спектр возможностей для управления сервером и обеспечения комфортного общения участников." />
-    <title>LordCord</title>
+      content="LordCord is a multifunctional Discord bot that provides server management features and tools for improving communication experience." />
+    <meta
+      name="msapplication-config"
+      content="./browserconfig.xml" />
+    <!-- <meta
+    name="google"
+    content="notranslate" /> -->
+
+    <!-- main end & icons start -->
+
+    <link
+      rel="manifest"
+      href="/manifest.webmanifest" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      sizes="48x48"
+      href="favicon.ico" />
+    <link
+      rel="icon"
+      sizes="48x48"
+      href="favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="/icon-64.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      sizes="any"
+      href="/
+      -180.png" />
+    <link
+      rel="icon"
+      href="icon.svg"
+      type="image/svg+xml" />
+    <meta
+      name="msapplication-square70x70logo"
+      content="/icon-70.png" />
+    <meta
+      name="msapplication-square150x150logo"
+      content="icon-150.png" />
+    <meta
+      name="msapplication-wide310x150logo"
+      content="icon-310.png" />
+    <meta
+      name="msapplication-square310x310logo"
+      content="icon-rect-310.png" />
+    <meta
+      name="msapplication-TileColor"
+      content="#8b00ff" />
+    <!-- icons end & phone congif start -->
+
+    <meta
+      name="mobile-web-app-capable"
+      content="yes" />
+    <meta
+      name="mobile-web-app-title"
+      content="LordCord" />
+    <meta
+      name="apple-mobile-web-app-capable"
+      content="yes" />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="LordCord" />
+    <meta
+      name="application-name"
+      content="LordCord" />
+
+    <!-- phone config end & og start -->
+    <meta
+      property="og:type"
+      content="website" />
+    <meta
+      property="og:url"
+      content="https://lordcord.fun/" />
+    <meta
+      property="og:title"
+      content="LordCord" />
+    <meta
+      property="og:description"
+      content="LordCord is a multifunctional Discord bot that provides server management features and tools for improving communication experience." />
+    <meta
+      property="og:image"
+      content="/icon-192.png" />
+    <meta
+      property="og:image:width"
+      content="192" />
+    <meta
+      property="og:image:height"
+      content="192" />
+    <meta
+      property="og:locale"
+      content="/icon-192.png" />
+    <meta
+      property="og:locale"
+      content="ru_RU" />
+    <meta
+      property="og:locale:alternate"
+      content="en_US" />
+    <meta
+      property="og:locale:alternate"
+      content="en_GB" />
+
+    <!--og end & twitter start -->
+
+    <meta
+      property="twitter:card"
+      content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://lordcord.fun/" />
+    <meta
+      property="twitter:title"
+      content="LordCord" />
+    <meta
+      property="twitter:description"
+      content="LordCord is a multifunctional Discord bot that provides server management features and tools for improving communication experience.
+      " />
+    <meta
+      property="twitter:image"
+      content="./icon-192.png" />
+
+    <!--twitter end & connections start -->
+
     <link
       rel="preconnect"
       href="https://fonts.gstatic.com" />
+
+    <!-- connections end & styles start -->
 
     <style id="loader_style">
       html.dark #mcirc,
@@ -157,8 +287,10 @@ C:\\Users\\shashlychok\\bestbots\\LordCord>lordcord init
       if (
         { true: true, false: false }[localStorage.themeIsDark] ??
         window.matchMedia('(prefers-color-scheme: dark)').matches
-      )
+      ) {
         document.documentElement.classList.add('dark');
+        document.querySelector("meta[name='theme-color']").content = '#18181b';
+      }
     </script>
 
     <script

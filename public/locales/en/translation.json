@@ -62,6 +62,7 @@
     "moderation": "Moderation",
     "economy": "Economy",
     "voice": "Voice",
+    "reactions": "Interactions",
     "info": "Help",
     "standardPrefix": "Standard prefix",
     "canChange": "You can change it in the control panel",
@@ -75,7 +76,8 @@
     "examples": "Examples",
     "can": "Can",
     "cant": "Can't",
-    "beTurnedOff": "be turned off"
+    "beTurnedOff": "be turned off",
+    "usage": "Usage"
   },
   "notFound": {
     "temporarilyUnavailable": "Page is temporarily unavailable",

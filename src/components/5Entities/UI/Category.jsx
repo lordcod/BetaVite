@@ -1,20 +1,19 @@
 import { useContext } from 'react';
 import { CommandsContext } from '@/context/CommandsContext';
-import SVGCommandsAll from '@/components/5Entities/SVG/SVGCommandsAll';
 import { LangChangingContext } from '@context/LangContext';
 
-export default function CategoriesAllBtn() {
+export default function Category({ id, SVG, active }) {
   const { t } = useContext(LangChangingContext);
 
   const { toggleCategory } = useContext(CommandsContext);
 
   return (
     <button
-      id='all'
-      className='commands_category_btn current'
-      onClick={() => toggleCategory('all')}>
-      <SVGCommandsAll />
-      {t('commands.all')}
+      id={id}
+      className={`commands_category_btn ${active ? 'current' : ''}`}
+      onClick={e => toggleCategory(e.target)}>
+      <SVG />
+      {t(`commands.${id}`)}
     </button>
   );
 }

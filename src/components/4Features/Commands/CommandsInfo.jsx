@@ -5,7 +5,7 @@ import InfoPrefix from '@/components/5Entities/Commands/InfoPrefix';
 import InfoParams from '@/components/5Entities/Commands/InfoParams';
 import { LangChangingContext } from '@context/LangContext';
 import { useContext } from 'react';
-import InfoLang from '@/components/5Entities/Commands/InfoLang';
+// import InfoLang from '@/components/5Entities/Commands/InfoLang';
 
 export default function CommandsInfo() {
   const [opened, setOpened] = useState(false);
@@ -29,8 +29,8 @@ export default function CommandsInfo() {
             <InfoPrefix />
             <hr className='mb-2 border-main-purple' />
             <InfoParams />
-            <hr className='mb-2 border-main-purple' />
-            <InfoLang />
+            {/* <hr className='mb-2 border-main-purple' />
+            <InfoLang /> */}
           </div>
         </div>
       </div>

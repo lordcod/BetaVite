@@ -17,6 +17,7 @@ export const LangChangingState = props => {
   );
 
   const toggleLng = lang => {
+    setLng(lang);
     i18n.changeLanguage(lang);
     document.documentElement.lang = lang;
     localStorage.lng = lang;

@@ -1,8 +1,9 @@
-import CategoriesAllBtn from '@/components/5Entities/Commands/CategoriesAllBtn';
-import CategoriesMajorBtn from '@/components/5Entities/Commands/CategoriesMajorBtn';
-import CategoriesModeraionBtn from '@/components/5Entities/Commands/CategoriesModeraionBtn';
-import CategoriesEconomyBtn from '@/components/5Entities/Commands/CategoriesEconomyBtn';
-import CategoriesVoiceBtn from '@/components/5Entities/Commands/CategoriesVoiceBtn';
+import CategoriesAllBtn from '@/components/5Entities/Commands/Categories/CategoriesAllBtn';
+import CategoriesMajorBtn from '@/components/5Entities/Commands/Categories/CategoriesMajorBtn';
+import CategoriesModeraionBtn from '@/components/5Entities/Commands/Categories/CategoriesModeraionBtn';
+import CategoriesEconomyBtn from '@/components/5Entities/Commands/Categories/CategoriesEconomyBtn';
+import CategoriesVoiceBtn from '@/components/5Entities/Commands/Categories/CategoriesVoiceBtn';
+import CategoriesReactionsBtn from '@/components/5Entities/Commands/Categories/CategoriesReactionsBtn';
 
 export default function CommandsCategories() {
   return (
@@ -12,6 +13,7 @@ export default function CommandsCategories() {
       <CategoriesModeraionBtn />
       <CategoriesEconomyBtn />
       <CategoriesVoiceBtn />
+      <CategoriesReactionsBtn />
     </div>
   );
 }
