@@ -5,7 +5,7 @@ import HeaderSupporBtn from '@/components/5Entities/HeaderButtons/LeftBtns/Heade
 
 export default function LeftButtons() {
   return (
-    <div className='flex items-center gap-4 h-16'>
+    <div className='header_btn_block'>
       <HeaderHomeBtn />
       <HeaderDocsBtn />
       <HeaderComsBtn />

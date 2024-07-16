@@ -9,12 +9,12 @@ export default function HeaderHomeBtn() {
     <NavLink
       to='/'
       id='home'
-      className='animate-entry1 rounded-full'
+      className='animate-entry1 logo'
       aria-label={t('header.main')}>
-      <div className='rounded-full items-center gap-1.5 cursor-pointer py-1 px-[18px] flex'>
+      <div className='logo_container-header'>
         <SVGCrown />
-        <h1 className='text-2xl'>
-          <span className='font-bold'>Lord</span>
+        <h1>
+          <span>Lord</span>
           Cord
         </h1>
       </div>

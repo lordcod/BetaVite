@@ -9,7 +9,7 @@ export default function PhoneMenuButton() {
 
   return (
     <button
-      className=' 2md:hidden'
+      className='header_btn-menu'
       aria-label={t('header.menu')}
       onClick={changePhomeMenu}>
       <SVGMenu />

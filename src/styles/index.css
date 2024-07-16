@@ -5,6 +5,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer utilities {
   ::-webkit-scrollbar {
     width: 16px;
@@ -43,7 +44,7 @@
   html,
   body,
   #root {
-    @apply min-h-screen w-full tracking-wider text-lt-font dark:text-dt-font font-main overflow-x-hidden;
+    @apply min-h-screen w-full tracking-wider text-lt-font dark:text-dt-font font-main;
   }
   ::selection {
     @apply bg-lt-selection;
@@ -66,16 +67,19 @@
     @apply fixed top-0 self-start w-full h-16 flex items-center z-30 transition-all duration-150 ease-linear shadow-lt-main/50 dark:shadow-dt-main/50 bg-lt-main dark:bg-dt-main;
     nav {
       @apply px-6 mx-auto flex items-center justify-between w-full max-w-[1320px] select-none;
-      .header-btn {
-        @apply rounded-full items-center p-1.5 gap-1.5 hover:bg-header-btn-hover cursor-pointer;
+      .header_btn {
+        @apply px-[18px] font-bold hidden 2md:flex rounded-full items-center p-1.5 gap-1.5 hover:bg-header-btn-hover cursor-pointer duration-200;
+        &-menu {
+          @apply 2md:hidden;
+        }
+        &_block {
+          @apply flex items-center gap-4 h-16;
+        }
         &.active {
           @apply bg-header-btn hover:bg-header-btn-hover;
         }
-        .round {
+        &.round {
           @apply p-1.5;
-        }
-        &:not(.round) {
-          @apply px-[18px];
         }
       }
     }
@@ -95,8 +99,50 @@
 
   footer {
     @apply bg-lt-main dark:bg-dt-main py-2 px-4 flex items-center flex-col h-full w-full;
+    > nav {
+      @apply max-w-[1320px] py-2 gap-4 flex flex-col md:w-full 2md:grid 2md:grid-cols-[1fr,1fr,2fr];
+      > .socials {
+        @apply flex items-center justify-center;
+        > a {
+          @apply p-2;
+        }
+      }
+    }
+  }
+  .logo {
+    @apply flex items-center justify-center rounded-full;
+    &_container {
+      @apply flex gap-1.5 items-center;
+      &-header {
+        @apply rounded-full items-center gap-1.5 cursor-pointer py-1 px-[18px] flex;
+        h1 {
+          @apply text-2xl;
+          > span {
+            @apply font-bold;
+          }
+        }
+      }
+      > svg {
+        @apply h-[60px] w-[60px];
+      }
+      > h1 {
+        @apply text-4xl;
+        > span {
+          @apply font-bold;
+        }
+      }
+    }
   }
 
+  .links {
+    @apply flex flex-col gap-2 md:flex-row md:w-full md:justify-center;
+    &_container {
+      @apply gap-4 flex-col flex 2sm:flex-row md:gap-2 md:grid md:grid-cols-2;
+      &_column {
+        @apply flex flex-col gap-2 text-center md:text-start;
+      }
+    }
+  }
   #circ,
   #circ2 {
     @apply border-main-purple border-4 rounded-full w-screen h-screen max-w-[min(120px,calc(100vw-60px),calc(100vh-60px))] opacity-0 max-h-[min(120px,calc(100vw-60px),calc(100vh-60px))] dark:border-lt-main fixed left-1/2 top-[calc(50%-min(120px,calc(100vw-60px),calc(100vh-60px))/2)] -translate-x-1/2 -translate-y-1/2;
@@ -116,7 +162,7 @@
       }
     }
     &_title {
-      @apply font-bold text-6xl mb-12 animate-anti-entry1 text-center lg:text-start;
+      @apply font-bold text-6xl mb-12 animate-anti-entry1 text-center lg:text-start break-all;
     }
     &_elements {
       &-commands {
@@ -199,7 +245,7 @@
   .phone-btn,
   .settings-btn,
   .commands_category-btn {
-    @apply duration-150 flex items-center gap-4 h-10 px-4 py-2 rounded-md select-none hover:bg-lt-main-hover dark:hover:bg-dt-main-hover dark:hover:text-lt-main-hover hover:text-dt-main-hover w-full;
+    @apply text-start break-all duration-150 flex items-center gap-4 h-10 px-4 py-2 rounded-md select-none hover:bg-lt-main-hover dark:hover:bg-dt-main-hover dark:hover:text-lt-main-hover hover:text-dt-main-hover w-full;
     &:hover svg {
       @apply dark:fill-lt-main-hover fill-dt-main-hover;
     }

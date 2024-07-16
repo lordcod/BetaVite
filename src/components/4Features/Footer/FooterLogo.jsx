@@ -2,14 +2,11 @@ import SVGCrown from '@/components/5Entities/SVG/SVGCrown';
 
 export default function FooterLogo() {
   return (
-    <div className='flex items-center justify-center pt-2'>
-      <div className='flex gap-1.5 items-center'>
-        <SVGCrown
-          height='60px'
-          width='60px'
-        />
-        <h1 className='text-4xl'>
-          <span className='font-bold'>Lord</span>
+    <div className='logo'>
+      <div className='logo_container'>
+        <SVGCrown />
+        <h1>
+          <span>Lord</span>
           Cord
         </h1>
       </div>

@@ -3,7 +3,7 @@ import HeaderProfileBtn from '@/components/5Entities/HeaderButtons/RightBtns/Hea
 
 export default function RightButtons() {
   return (
-    <div className='flex items-center gap-4 h-16'>
+    <div className='header_btn_block'>
       {/* <HeaderServersBtn /> */}
       <HeaderProfileBtn />
     </div>

@@ -8,10 +8,10 @@ export default function HeaderDocsBtn() {
   return (
     <a
       href='https://docs.lordcord.fun/'
-      className='animate-entry2 header-btn hidden 2md:flex'
+      className='animate-entry2 header_btn'
       target='blank'>
       <SVGDocumentation />
-      <h1 className='font-bold'>{t('header.documentation')}</h1>
+      {t('header.documentation')}
     </a>
   );
 }

@@ -9,7 +9,7 @@ export default function HeaderProfileBtn() {
 
   return (
     <button
-      className='animate-entry6 header-btn round'
+      className='animate-entry6 header_btn round'
       tabIndex='0'
       aria-label={t('header.settings')}
       onClick={changeProfileMenu}>

@@ -9,10 +9,10 @@ export default function HeaderSupporBtn() {
   return (
     <a
       href='https://support.lordcord.fun/'
-      className='animate-entry4 header-btn hidden lg:flex'
+      className='animate-entry4 header_btn'
       target='blank'>
       <SVGHeart />
-      <h1 className='font-bold '>{t('header.supportUs')}</h1>
+      {t('header.supportUs')}
     </a>
   );
 }

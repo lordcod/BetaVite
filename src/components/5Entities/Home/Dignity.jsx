@@ -14,8 +14,8 @@ export default function Dignity(props) {
           sizes='100vw'
         /> */}
       {/* </div> */}
-      <div className='flex flex-col justify-center gap-4'>
-        <h2 className='text-4xl font-bold text-center'>{props.title}</h2>
+      <div>
+        <h2>{props.title}</h2>
         <p>{props.body}</p>
         <Invite />
       </div>

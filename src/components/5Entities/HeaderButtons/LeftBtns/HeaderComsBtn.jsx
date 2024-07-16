@@ -9,9 +9,9 @@ export default function HeaderComsBtn() {
   return (
     <NavLink
       to='/commands'
-      className='animate-entry3 header-btn hidden 2md:flex'>
+      className='animate-entry3 header_btn'>
       <SVGCommands />
-      <h1 className='font-bold'>{t('header.commands')}</h1>
+      {t('header.commands')}
     </NavLink>
   );
 }
