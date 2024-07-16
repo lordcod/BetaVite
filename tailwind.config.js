@@ -236,7 +236,7 @@ export default {
       'main-purple': '#8b00ff',
       'main-active': '#8b4dd5',
       'main-active-bg': '#9456e430',
-      'main-active-hover': '#7b3dc5',
+      // 'main-active-hover': '#7b3dc5',
       'main-active-hover-bg': '#8446d430',
       'ping-hover': '#e9edf2',
       'ping-bg': '#5865f260',

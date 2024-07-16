@@ -37,15 +37,13 @@ export default function CHomeHrBlock() {
   // }, []);
 
   return (
-    <div className='bg-lt-main dark:bg-dt-main'>
-      <div className='size-limit mx-auto gap-5 p-8 grid 2md:grid-cols-[1fr_auto] 2md:gap-10 '>
-        <p
-          className='text-2xl text-bold flex items-center justify-center
-        '>
-          {/* 2md:justify-start */}
-          {t('main.serverConquestPart1')} {!!serversAmount && serversAmount}{' '}
-          {t('main.serverConquestPart2')}
-        </p>
+    <div className='home_hr'>
+      <div className='home_hr_container'>
+        {/* <p> */}
+        {/* 2md:justify-start */}
+        {t('main.serverConquestPart1')} {!!serversAmount && serversAmount}{' '}
+        {t('main.serverConquestPart2')}
+        {/* </p> */}
         {/* <div className='flex flex-wrap gap-8 w-full justify-center items-center 2md:justify-end'>
           <img
             src={Avatar}

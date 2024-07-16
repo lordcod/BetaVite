@@ -17,6 +17,7 @@ import { MenuState } from '@context/MenuContext';
 import PhoneMenu from '@components/1Proceses/Menus/PhoneMenu';
 import CloseMenu from '@components/1Proceses/Menus/CloseMenu';
 import SettingsMenu from '@components/1Proceses/Menus/SettingsMenu';
+import { EmbedBuilder } from '../2Pages/EmbedBuilder/EmbedBuilder.lazy';
 
 export default function App() {
   return (
@@ -43,16 +44,16 @@ export default function App() {
               path='/commands'
               element={<Commands />}
             />
-            {/* 
-              <Route
+
+            <Route
+              path='/embed'
+              element={<EmbedBuilder />}
+            />
+            {/* <Route
                 path='/support'
                 element={<NoSiteTemporarily />}
-              />
-              <Route
-                path='/embed'
-                element={<NoSiteTemporarily />}
-              />
-              <Route
+              /> */}
+            {/* <Route
                 path='/servers'
                 element={<NoSiteTemporarily />}
               /> */}

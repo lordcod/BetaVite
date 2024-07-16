@@ -63,7 +63,7 @@
   "dir": "auto",
   "name": "LordCord",
   "short_name": "LordCord",
-  "start_url": "https://lordcord.fun/",
+  "start_url": "./",
   "description": "LordCord is a multifunctional Discord bot that provides server management features and tools for improving communication experienc.",
   "version": "1.0"
 }

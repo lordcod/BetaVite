@@ -10,7 +10,7 @@ export default function Category({ id, SVG, active }) {
   return (
     <button
       id={id}
-      className={`commands_category_btn ${active ? 'current' : ''}`}
+      className={`commands_category-btn ${active ? 'active' : ''}`}
       onClick={e => toggleCategory(e.target)}>
       <SVG />
       {t(`commands.${id}`)}

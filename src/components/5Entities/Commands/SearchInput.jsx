@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import NotFound from '@/components/5Entities/UI/Messages/NotFound';
 import { CommandsContext } from '@/context/CommandsContext';
 import { LangChangingContext } from '@context/LangContext';
+// import CategoriesSearchBtn from './Categories/CategoriesSearchBtn';
+// import SearchLabel from './SearchLabel';
 
 export default function SearchInput() {
   const { t } = useContext(LangChangingContext);
@@ -22,14 +24,15 @@ export default function SearchInput() {
     setSearchTerm(value);
 
     if (value == searchTerm) return;
+    if (value == '') {
+      setDisplay(commandsAll);
+      return;
+    }
 
     value = value.trim().toLowerCase();
 
     let result = commandsAll.filter(cm => {
-      if (
-        cm.key.trim().toLowerCase().includes(value) ||
-        cm.props['data-ales'].trim().toLowerCase().includes(value)
-      ) {
+      if (cm.props['data-search'].trim().toLowerCase().includes(value)) {
         return cm;
       }
     });
@@ -38,18 +41,24 @@ export default function SearchInput() {
       result = <NotFound />;
     }
 
-    setDisplay(result);
+    setTimeout(() => setDisplay(result), 0.05);
   };
 
   return (
+    // <div className='bg-lt-main rounded-2xl'>
     <input
       placeholder={t('commands.findCommand')}
       type='text'
       autoComplete='off'
-      id='command'
       value={searchTerm}
       onChange={search}
-      className='commands_search peer'
+      id='sbs'
+      className='sidebar_search'
     />
+    /* <SearchLabel />
+      <div className='p-3'>
+        <CategoriesSearchBtn />
+      </div>
+    </div> */
   );
 }

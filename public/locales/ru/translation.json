@@ -7,6 +7,7 @@
     "commandsSmall": "Команды",
     "documentation": "ДОКУМЕНТАЦИЯ",
     "supportUs": "СЕРВЕР ПОДДЕРЖКИ",
+    "embedSmall": "Embed-Конструктор",
     "onTop": "На верх",
     "menu": "меню",
     "settings": "Настройки"
@@ -63,6 +64,7 @@
     "economy": "Экономика",
     "voice": "Голосовые",
     "reactions": "Взаимодействия",
+    "search": "Поиск",
     "info": "Справка",
     "standardPrefix": "Стандартный префикс",
     "canChange": "Вы можете поменять его в панели управления",
@@ -77,7 +79,12 @@
     "can": "Можно",
     "cant": "Нельзя",
     "beTurnedOff": "выключить",
-    "usage": "Использование"
+    "usage": "Использование",
+    "notFound": "Не найдено",
+    "nothingFound": "По вашему запросу ничего не найдено"
+  },
+  "embed": {
+    "title": "Embed-Конструктор"
   },
   "notFound": {
     "temporarilyUnavailable": "Страница временно отсутствует",

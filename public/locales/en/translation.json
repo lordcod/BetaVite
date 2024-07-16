@@ -7,6 +7,7 @@
     "commandsSmall": "Commands",
     "documentation": "DOCUMENTATION",
     "supportUs": "SUPPORT SERVER",
+    "embedSmall": "Embed-Builder",
     "onTop": "On top",
     "menu": "menu",
     "settings": "Settings"
@@ -63,6 +64,7 @@
     "economy": "Economy",
     "voice": "Voice",
     "reactions": "Interactions",
+    "search": "Search",
     "info": "Help",
     "standardPrefix": "Standard prefix",
     "canChange": "You can change it in the control panel",
@@ -77,7 +79,12 @@
     "can": "Can",
     "cant": "Can't",
     "beTurnedOff": "be turned off",
-    "usage": "Usage"
+    "usage": "Usage",
+    "notFound": "Not found",
+    "nothingFound": "No results were found for your request"
+  },
+  "embed": {
+    "title": "Embed-Builder"
   },
   "notFound": {
     "temporarilyUnavailable": "Page is temporarily unavailable",

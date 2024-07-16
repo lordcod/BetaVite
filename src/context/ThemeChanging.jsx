@@ -28,7 +28,6 @@ export const ThemeChangingState = props => {
     if (isDark) {
       document.documentElement.classList.add('dark');
       meta.content = '#18181b';
-      themeCiki;
     } else {
       document.documentElement.classList.remove('dark');
       meta.content = '#fcfcff';

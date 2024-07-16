@@ -2,94 +2,129 @@
 @tailwind components;
 @tailwind utilities;
 
-/*!
- * animate.css - https://animate.style/
- * Version - 4.1.1
- * Licensed under the MIT license - http://opensource.org/licenses/MIT
- *
- * Copyright (c) 2020 Animate.css
- */
-
-.animate__fadeInLeft {
-  @apply animate-fadeInLeft;
-}
-.animate__fadeInRight {
-  @apply animate-fadeInRight;
-}
-/* animate.css end */
-
-.home-title {
-  @apply w-full z-10 -mt-16 pt-16 min-h-[560px] flex items-center bg-main-purple;
-}
-.dignity-list {
-  @apply max-w-[1320px] mx-auto flex flex-col gap-8 2md:gap-2 m-4 px-8 pt-8 transition-all duration-150 ease-in overflow-x-hidden;
-}
-
-.animate__fadeInRight {
-  a {
-    @apply 2md:self-end;
-  }
-  h1 {
-    @apply 2md:text-end;
-  }
-}
-.animate__fadeInLeft {
-  a {
-    @apply 2md:self-start;
-  }
-  h1 {
-    @apply 2md:text-start;
-  }
-  > div:first-child {
-    @apply 2md:order-1;
-  }
-}
-
-.dignity {
-  @apply grid gap-4 2md:grid-cols-2 2md:gap-16;
-}
-.reaction {
-  @apply cursor-pointer;
-  path:first-child {
-    @apply fill-lt-reaction-bg dark:fill-dt-reaction-bg stroke-lt-reaction-stroke dark:stroke-dt-reaction-stroke stroke-[1.5] transition-colors;
-  }
-  &.active path:first-child {
-    @apply stroke-reaction-active fill-reaction-active-trans;
-  }
-}
-
-.ping-add {
-  @apply cursor-pointer;
-  > path {
-    @apply fill-green-500 transition-all;
-    &:first-child {
-      @apply opacity-50;
+@layer components {
+  .home {
+    &_title {
+      @apply w-full z-10 -mt-16 pt-16 min-h-[560px] flex items-center bg-main-purple;
+      &_container {
+        @apply max-w-[1320px] mx-auto flex flex-col items-center 2md:grid 2md:grid-cols-2 lg:gap-10;
+        &-logo {
+          @apply flex justify-center p-2.5 animate-anti-entry1 2md:justify-end;
+          svg {
+            @apply fill-dt-svg w-60 h-60  2md:w-80 2md:h-80;
+          }
+        }
+        &_title {
+          @apply flex flex-col gap-2 p-2.5;
+          &-text {
+            @apply pl-2.5 flex flex-col gap-2 text-dt-font text-center 2md:text-start;
+            h1 {
+              @apply font-bold w-full text-4xl animate-anti-entry2;
+            }
+            p {
+              @apply animate-anti-entry3;
+            }
+          }
+          &-btns {
+            @apply flex flex-col gap-4 animate-anti-entry3 md:flex-row md:justify-center 2md:justify-start;
+          }
+        }
+      }
     }
-  }
-  &:hover {
-    > path {
-      @apply fill-green-200;
-      &:first-child {
-        @apply opacity-100 fill-green-500;
+    &_hr {
+      @apply bg-lt-main dark:bg-dt-main;
+      &_container {
+        @apply text-center text-2xl font-semibold max-w-[1320px] mx-auto gap-5 p-8 grid 2md:grid-cols-[1fr_auto] 2md:gap-10;
+        /* p {
+          @apply text-2xl font-semibold flex items-center justify-center;
+        } */
+      }
+    }
+    &_dignitys {
+      @apply flex justify-center;
+      &-list {
+        @apply max-w-[1320px] mx-auto flex flex-col gap-8 2md:gap-4 m-4 px-8 pt-8 transition-all duration-150 ease-in;
+        .dignity {
+          @apply grid gap-4 2md:grid-cols-2 2md:gap-16 items-center transition-all duration-1000 opacity-0 ease-out delay-100;
+          &.right {
+            @apply translate-x-1/2;
+            h2 {
+              @apply 2md:text-end;
+            }
+            div a {
+              @apply 2md:self-end;
+            }
+          }
+          &.left {
+            @apply -translate-x-1/2;
+            > svg {
+              @apply 2md:order-2;
+            }
+            h2 {
+              @apply 2md:text-start;
+            }
+            div a {
+              @apply 2md:self-start;
+            }
+          }
+          &.a {
+            @apply translate-x-0 opacity-100;
+          }
+        }
       }
     }
   }
-}
 
-.ping-remove {
-  @apply cursor-pointer;
-  > path {
-    @apply fill-red-500 transition-all;
-    &:first-child {
-      @apply opacity-50;
+  .reaction {
+    @apply cursor-pointer;
+    path:first-child {
+      @apply fill-lt-reaction-bg dark:fill-dt-reaction-bg stroke-lt-reaction-stroke dark:stroke-dt-reaction-stroke stroke-[1.5] transition-colors;
+    }
+    &.active path:first-child {
+      @apply stroke-reaction-active fill-reaction-active-trans;
     }
   }
-  &:hover {
+
+  .ping-add {
+    @apply cursor-pointer;
     > path {
-      @apply fill-red-200;
+      @apply fill-green-500 transition-all;
       &:first-child {
-        @apply opacity-100 fill-red-500;
+        @apply opacity-50;
       }
+    }
+    &:hover {
+      > path {
+        @apply fill-green-200;
+        &:first-child {
+          @apply opacity-100 fill-green-500;
+        }
+      }
+    }
+  }
+
+  .ping-remove {
+    @apply cursor-pointer;
+    > path {
+      @apply fill-red-500 transition-all;
+      &:first-child {
+        @apply opacity-50;
+      }
+    }
+    &:hover {
+      > path {
+        @apply fill-red-200;
+        &:first-child {
+          @apply opacity-100 fill-red-500;
+        }
+      }
+    }
+  }
+
+  .invite {
+    @apply flex items-center gap-4 py-3 px-6 rounded-3xl font-bold text-dt-font bg-dt-main hover:bg-dt-main-hover  dark:text-lt-font dark:bg-lt-main dark:hover:bg-lt-main-hover;
+    svg {
+      @apply fill-dt-svg dark:fill-lt-svg h-6 w-6 select-none;
     }
   }
 }

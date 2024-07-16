@@ -6,8 +6,8 @@ export default function CloseMenu() {
 
   return (
     <div
-      className={`fixed w-full h-full bg-black z-20 cursor-pointer  ${
-        isPhoneMenu || isProfileMenu ? 'opacity-25' : 'hidden'
+      className={`close-menu ${
+        isPhoneMenu || isProfileMenu ? 'showed' : 'hidden'
       }`}
       onClick={closeMenu}
     />

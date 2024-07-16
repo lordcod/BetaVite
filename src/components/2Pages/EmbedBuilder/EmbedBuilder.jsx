@@ -1,10 +1,20 @@
+import { LangChangingContext } from '@context/LangContext';
+import { useContext } from 'react';
+
 export default function EmbedBuilder() {
+  const { t } = useContext(LangChangingContext);
+
+  document.title = `${t('header.embedSmall')} – LordCord`;
+
   return (
     <div className='page'>
-      <div className='page__main'>
-        <h1 className='page__title'>Embed конструктор</h1>
-        <div className='ebuilder_page__main_grid_container'>
-          <div>text</div> <div>text</div>
+      <div className='page_container'>
+        <h1 className='page_title'>{t('embed.title')}</h1>
+        <div className='page_elements-embed'>
+          {/* <CommandsState>
+            <CommandSidebar />
+            <CommandsMainList />
+          </CommandsState> */}
         </div>
       </div>
     </div>

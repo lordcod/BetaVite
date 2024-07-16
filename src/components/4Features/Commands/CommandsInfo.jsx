@@ -13,25 +13,22 @@ export default function CommandsInfo() {
 
   return (
     <div
+      className={`sidebar_info_container ${opened ? 'opened' : ''}`}
       tabIndex='0'
       aria-label='Справка: Стандартный префикс l точка Вы можете поменять его в панели управления. Можно использовать упоминание бота. квадратные скобки — Опциональный параметр, <> — Обязательный параметр, A вертикальный слеш Б — Выбор параметра'>
-      <div className={`commands_sidebar_info ${opened ? 'opened' : ''}`}>
-        <div
-          className='commands_sidebar_info_title'
-          onClick={() => setOpened(!opened)}>
-          <div className='w-full flex items-center gap-4'>
-            <SVGInfo /> {t('commands.info')}
-          </div>
-          <SVGExpand />
-        </div>
-        <div className='commands_sidebar_info_body'>
-          <div className='flex min-h-0 flex-col invisible opacity-0 transition-all duration-200 ease-out-max px-1'>
-            <InfoPrefix />
-            <hr className='mb-2 border-main-purple' />
-            <InfoParams />
-            {/* <hr className='mb-2 border-main-purple' />
-            <InfoLang /> */}
-          </div>
+      <div
+        className='sidebar_info-title'
+        onClick={() => setOpened(!opened)}>
+        <span>
+          <SVGInfo /> {t('commands.info')}
+        </span>
+        <SVGExpand />
+      </div>
+      <div className='sidebar_info-body'>
+        <div className='sidebar_info-body-container'>
+          <InfoPrefix />
+          <hr />
+          <InfoParams />
         </div>
       </div>
     </div>

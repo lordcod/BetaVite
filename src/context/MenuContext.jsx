@@ -12,11 +12,11 @@ export const MenuState = props => {
   const [isPhoneMenu, setIsPhoneMenu] = useState(false);
   const [isProfileMenu, setIsProfileMenu] = useState(false);
 
-  useEffect(() => {
-    // const profileMenu = document.getElementById('phone-menu');
-    // const disableProfileMenu = profileMenu.childNodes;
-    // console.log(profileMenu);
-  }, []);
+  // useEffect(() => {
+  // const profileMenu = document.getElementById('phone-menu');
+  // const disableProfileMenu = profileMenu.childNodes;
+  // console.log(profileMenu);
+  // }, []);
 
   const changePhomeMenu = () => setIsPhoneMenu(!isPhoneMenu);
   const changeProfileMenu = () => setIsProfileMenu(!isProfileMenu);

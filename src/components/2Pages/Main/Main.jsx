@@ -8,11 +8,11 @@ import { useContext } from 'react';
 export default function MainPage() {
   const { t } = useContext(LangChangingContext);
 
-  document.title = `LordCord – ${t('header.mainSmall')}`;
+  document.title = `${t('header.mainSmall')} – LordCord`;
 
   return (
     <div className='page '>
-      <div className='flex flex-col'>
+      <div className='page_container-main'>
         <HomeTitleBlock />
         <HomeHrBlock />
         <HomeDignitysBlock />

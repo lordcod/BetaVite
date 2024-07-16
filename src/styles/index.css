@@ -29,12 +29,10 @@
 
   * {
     box-sizing: border-box;
-    /* &:focus {
-      outline-color: red;
-      outline-width: 4px;
+    &:focus-visible:not(input) {
       outline-style: solid;
-      @apply outline-offset-4 outline-main-purple;
-    } */
+      @apply outline-offset-4 outline-main-active outline-4;
+    }
   }
 }
 
@@ -45,7 +43,7 @@
   html,
   body,
   #root {
-    @apply min-h-screen w-full tracking-wider text-lt-font dark:text-dt-font font-main;
+    @apply min-h-screen w-full tracking-wider text-lt-font dark:text-dt-font font-main overflow-x-hidden;
   }
   ::selection {
     @apply bg-lt-selection;
@@ -67,7 +65,7 @@
   header {
     @apply fixed top-0 self-start w-full h-16 flex items-center z-30 transition-all duration-150 ease-linear shadow-lt-main/50 dark:shadow-dt-main/50 bg-lt-main dark:bg-dt-main;
     nav {
-      @apply px-6 mx-auto flex items-center justify-between w-full size-limit select-none;
+      @apply px-6 mx-auto flex items-center justify-between w-full max-w-[1320px] select-none;
       .header-btn {
         @apply rounded-full items-center p-1.5 gap-1.5 hover:bg-header-btn-hover cursor-pointer;
         &.active {
@@ -96,24 +94,8 @@
   }
 
   footer {
-    @apply bg-lt-main dark:bg-dt-main py-2 px-4 flex items-center flex-col h-full;
+    @apply bg-lt-main dark:bg-dt-main py-2 px-4 flex items-center flex-col h-full w-full;
   }
-  /* .loader_container {
-    @apply flex justify-center items-center;
-  }
-  .loader {
-    @apply w-24 h-24 text-dt-second dark:text-lt-second rotate-45;
-    &:before,
-    &:after {
-      @apply block content-[''] absolute top-0 left-0 w-24 h-24 rounded-[35%];
-    }
-    &:before {
-      @apply animate-load-spin;
-    }
-    &:after {
-      @apply text-main-purple animate-load-spin-delay;
-    }
-  } */
 
   #circ,
   #circ2 {
@@ -127,10 +109,25 @@
   }
   .page {
     @apply pt-16 bg-lt-second dark:bg-dt-second min-h-[max(calc(100vh-176px),480px)] pb-4 w-full;
+    &_container {
+      @apply pt-10 px-6 max-w-[1320px] mx-auto;
+      &-main {
+        @apply flex flex-col;
+      }
+    }
+    &_title {
+      @apply font-bold text-6xl mb-12 animate-anti-entry1 text-center lg:text-start;
+    }
+    &_elements {
+      &-commands {
+        @apply grid gap-3 h-full mlgh:2md:grid-cols-[340px_calc(100%-352px)];
+      }
+      &-embed {
+        @apply flex 2md:grid gap-3 h-full 2md:grid-cols-5;
+      }
+    }
   }
-  .size-limit {
-    @apply max-w-[1320px];
-  }
+
   .theme-changing {
     @apply fixed w-full h-full z-30 bg-lt-main dark:bg-dt-main items-center duration-300 delay-100 ease-out transition-all overflow-x-hidden;
     svg {
@@ -169,12 +166,18 @@
     @apply cursor-pointer text-lt-ping hover:text-dt-ping bg-dt-ping hover:bg-lt-ping dark:text-dt-ping  dark:bg-ping-bg  dark:hover:bg-ping-hover-bg  dark:hover:text-ping-hover hover:underline px-1 py-0.5 rounded  transition-all duration-150 ease-linear flex items-center;
   }
   .main-sec {
-    @apply rounded-lg py-1 px-4 bg-main-active hover:bg-main-active-hover mx-0.5 text-dt-font transition-all duration-150 ease-linear;
+    @apply rounded-lg py-1 px-4 bg-main-active mx-0.5 text-dt-font transition-all duration-150 ease-linear;
   }
-
+  .close-menu {
+    @apply fixed w-screen h-screen bg-black z-30 cursor-pointer;
+    &.showed {
+      @apply opacity-25;
+    }
+  }
   .phone-menu,
   .settings-menu {
-    @apply rounded-xl gap-0 top-20 max-h-[calc(100vh-80px)] translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 p-2 flex flex-col shadow-white/50 dark:shadow-black/50 transition-all duration-200 ease-out bg-lt-main dark:bg-dt-main fixed z-30 overflow-y-auto;
+    transition: background-color transform !important;
+    @apply rounded-xl top-20 max-h-[calc(100vh-96px)]  translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 p-2 flex flex-col shadow-white/50 dark:shadow-black/50 transition-all duration-200 ease-out bg-lt-main dark:bg-dt-main fixed z-40 overflow-x-auto;
     &.show {
       @apply opacity-100 translate-x-0 -translate-y-0 scale-100;
     }
@@ -187,35 +190,64 @@
     @apply left-4 -translate-x-1/2 gap-2;
   }
 
-  .settings-block {
-    @apply gap-2 flex flex-col overflow-hidden py-0 max-h-0 transition-all duration-200 ease-out;
-    &.active {
-      @apply max-h-[152px] py-2 overflow-visible;
-    }
+  .settings-menu {
+    @apply min-h-[113px] right-[max(16px,calc(100vw/2-660px+16px))];
   }
   .phone-btn {
     @apply flex-row-reverse;
   }
   .phone-btn,
   .settings-btn,
-  .commands_category_btn {
-    @apply flex items-center gap-4 h-10 px-4 py-2 rounded-md select-none hover:bg-lt-main-hover dark:hover:bg-dt-main-hover dark:hover:text-lt-main-hover hover:text-dt-main-hover w-full;
+  .commands_category-btn {
+    @apply duration-150 flex items-center gap-4 h-10 px-4 py-2 rounded-md select-none hover:bg-lt-main-hover dark:hover:bg-dt-main-hover dark:hover:text-lt-main-hover hover:text-dt-main-hover w-full;
     &:hover svg {
       @apply dark:fill-lt-main-hover fill-dt-main-hover;
     }
-    &.active,
-    &.current {
-      @apply text-main-active hover:text-main-active-hover hover:bg-main-active-hover-bg;
+    &.active {
+      @apply text-main-active hover:text-main-active hover:bg-main-active-hover-bg;
+      &:hover svg,
       svg {
         @apply fill-main-active;
-      }
-      &:hover svg {
-        @apply fill-main-active-hover;
       }
     }
   }
 
   .commands_search:hover + label svg {
     @apply dark:fill-lt-main-hover fill-dt-main-hover;
+  }
+
+  .dd-menu {
+    @apply bg-lt-main dark:bg-dt-main grid grid-cols-[1fr_auto];
+    &_container {
+      @apply flex flex-col;
+      > div {
+        @apply ease-in-out;
+      }
+    }
+    &_name {
+      @apply cursor-pointer select-none transition-all duration-200 ease-out-max;
+    }
+    &_body {
+      @apply grid grid-rows-[0fr]  overflow-hidden transition-all duration-200 ease-out-max;
+      &_content {
+        transition: color !important;
+
+        @apply flex min-h-0 gap-2 flex-col invisible opacity-0 transition-all duration-200 ease-out-max;
+      }
+    }
+    &_expand {
+      @apply cursor-pointer items-end transition-all duration-200 ease-out-max hidden md:flex md:pl-5;
+    }
+    &.active {
+      .dd-menu_body {
+        @apply grid-rows-[1fr] ease-in-out mt-2;
+        &_content {
+          @apply visible opacity-100 ease-in-out;
+        }
+      }
+      .dd-menu_expand svg {
+        @apply rotate-180;
+      }
+    }
   }
 }

@@ -4,6 +4,7 @@ import api_commands_ru from '@/Api/api_commands_ru.json';
 import { LangChangingContext } from '@context/LangContext';
 import ReactMarkdown from 'react-markdown';
 import SVGExpand from '@/components/5Entities/SVG/SVGExpand';
+import Error from '../components/5Entities/UI/Messages/Error';
 
 export const CommandsContext = createContext({
   category: <div />,
@@ -26,6 +27,27 @@ export const CommandsState = props => {
   const [searchTerm, setSearchTerm] = useState('');
   const [commandsAll, setCommandsAll] = useState([]);
 
+  async function getLng(lang) {
+    await fetch(`https://api.lordcord.fun/command_data/${lang}`)
+      .then(response => response.json())
+      .then(data =>
+        setTranslationsData({ ...translationsData, [lang]: { all: data } }),
+      )
+      .catch(e => {
+        console.error(
+          `Failed to get a list of commands:\n%c${e.stack}`,
+          `color: #f44;`,
+        );
+        setDisplay(
+          Error(
+            `Failed to get a list of commands (${e.name})`,
+            e.message,
+            e.stack,
+          ),
+        );
+      });
+  }
+
   const examplesList = list => {
     let examples = [];
 
@@ -43,9 +65,11 @@ export const CommandsState = props => {
   };
 
   function clickHandler(e) {
-    let targetCommand = e.target.closest('.command');
+    let targetCommand = e.target.closest('.dd-menu');
     targetCommand.className =
-      targetCommand.className == 'command' ? 'command opened' : 'command';
+      targetCommand.className == 'dd-menu command'
+        ? 'dd-menu command active'
+        : 'dd-menu command';
   }
 
   const commandsBuild = commands => {
@@ -61,57 +85,45 @@ export const CommandsState = props => {
       return (
         <div
           key={name}
-          className='command'
+          className='dd-menu command'
           tabIndex='0'
-          data-ales={command.aliases.join('|')}>
-          <div className='flex flex-col'>
+          data-search={name + (!!ales ? '|' + command.aliases.join('|') : '')}>
+          <div className='dd-menu_container'>
             <div
-              className='command_name'
+              className='dd-menu_name'
               onClick={clickHandler}>
               <span className='main-sec'>{name}</span> — {brde}
             </div>
-            <div className='command_body'>
-              <div className='command_body_content'>
+            <div className='dd-menu_body'>
+              <div className='dd-menu_body_content'>
                 {desc}
                 {(!!exms[0] || !!ales || !!args) && (
-                  <div className='flex gap-1 flex-wrap'>
+                  <div className='command-info'>
                     {!!ales && (
                       <>
-                        <h4 className='font-bold w-full font text-lg'>
-                          {t('commands.variants')}
-                        </h4>
-                        <p>
-                          <span className='usage ales'>{ales}</span>
-                        </p>
+                        <h4>{t('commands.variants')}</h4>
+                        <span className='usage ales'>{ales}</span>
                       </>
                     )}
                     {!!args && (
                       <>
-                        <h4 className='font-bold w-full font text-lg'>
-                          {t('commands.usage')}
-                        </h4>
-                        <p>
-                          <span className='usage'>
-                            {name} {args}
-                          </span>
-                        </p>
+                        <h4>{t('commands.usage')}</h4>
+                        <span className='usage'>
+                          {name} {args}
+                        </span>
                       </>
                     )}
 
                     {!!exms[0] && (
                       <>
-                        <h4 className='font-bold w-full font text-lg'>
-                          {t('commands.examples')}
-                        </h4>
-                        <div className='flex flex-col gap-1'>
+                        <h4>{t('commands.examples')}</h4>
+                        <div className='command-exams'>
                           {exms.map((ex, index) => {
                             return (
                               <div
-                                className='flex flex-col'
+                                className='command-exam'
                                 key={name + index}>
-                                <span className='usage self-start'>
-                                  {ex.usage}
-                                </span>
+                                <span className='usage'>{ex.usage}</span>
                                 {ex.description}
                               </div>
                             );
@@ -121,14 +133,16 @@ export const CommandsState = props => {
                     )}
                   </div>
                 )}
-                <div className='flex gap-3 flex-wrap'>
-                  <h4 className='font-bold w-full font text-lg'>
+                <div className='command-disable'>
+                  <h4>
                     {dact ? (
-                      <span className='text-green-500'>
+                      <span className='command-switchable'>
                         {t('commands.can')}
                       </span>
                     ) : (
-                      <span className='text-red-500'>{t('commands.cant')}</span>
+                      <span className='commads-non-switchable'>
+                        {t('commands.cant')}
+                      </span>
                     )}{' '}
                     {t('commands.beTurnedOff')}
                   </h4>
@@ -137,7 +151,7 @@ export const CommandsState = props => {
             </div>
           </div>
           <div
-            className='command_expand'
+            className='dd-menu_expand'
             onClick={clickHandler}>
             <SVGExpand />
           </div>
@@ -152,53 +166,69 @@ export const CommandsState = props => {
   }, []);
 
   useEffect(() => {
-    if (!(lng in translationsData)) {
-      //pseudo fetch
-      // fetch(`https://api.lordcord.fun/command_data/${lng}`).then(res => JSON.parse(res)).then(json => {translations[lng] = json}
-      if (lng == 'ru') {
-        setTranslationsData({
-          ...translationsData,
-          [lng]: { all: api_commands_ru },
-        });
-      } else {
-        setTranslationsData({
-          ...translationsData,
-          [lng]: { all: api_commands_en },
-        });
-      }
-    }
+    try {
+      // if (!(lng in translationsData)) {
+      //   getLng(lng);
+      // }
 
-    if (translationsData.hasOwnProperty(lng)) {
-      if (!translations.hasOwnProperty(lng)) {
-        let transFullChache = {
-          ...translations,
-          [lng]: {
-            all: translationsData[lng].all,
-          },
-        };
-
-        setDisplay(commandsBuild(transFullChache[lng].all));
-
-        translationsData[lng].all.forEach(command => {
-          if (!transFullChache[lng][command.category])
-            transFullChache[lng][command.category] = [];
-          transFullChache[lng][command.category].push(command);
-        });
-
-        for (let categoryKey in transFullChache[lng]) {
-          transFullChache[lng][categoryKey] = commandsBuild(
-            transFullChache[lng][categoryKey],
-          );
+      if (!(lng in translationsData)) {
+        if (lng == 'ru') {
+          setTranslationsData({
+            ...translationsData,
+            [lng]: { all: api_commands_ru },
+          });
+        } else {
+          setTranslationsData({
+            ...translationsData,
+            [lng]: { all: api_commands_en },
+          });
         }
-
-        setTranslations(transFullChache);
-        setDisplay(transFullChache[lng][category.id]);
-        setCommandsAll(transFullChache[lng].all);
-
-        console.log(`${lng.toUpperCase()} language is fully loaded`);
-      } else {
-        setDisplay(translations[lng][category.id]);
       }
+
+      if (translationsData.hasOwnProperty(lng)) {
+        if (!translations.hasOwnProperty(lng)) {
+          let transFullChache = {
+            ...translations,
+            [lng]: {
+              all: translationsData[lng].all,
+            },
+          };
+
+          // setDisplay(commandsBuild(transFullChache[lng].all));
+
+          translationsData[lng].all.forEach(command => {
+            if (!transFullChache[lng][command.category])
+              transFullChache[lng][command.category] = [];
+            transFullChache[lng][command.category].push(command);
+          });
+
+          for (let categoryKey in transFullChache[lng]) {
+            transFullChache[lng][categoryKey] = commandsBuild(
+              transFullChache[lng][categoryKey],
+            );
+          }
+
+          setTranslations(transFullChache);
+          setDisplay(transFullChache[lng][category.id]);
+          setCommandsAll(transFullChache[lng].all);
+
+          console.log(`${lng.toUpperCase()} language is fully loaded`);
+        } else {
+          setDisplay(translations[lng][category.id]);
+        }
+      }
+    } catch (e) {
+      console.error(
+        `The list of commands could not be compiled:\n%c${e.stack}`,
+        `color: #f44;`,
+      );
+      setDisplay(
+        Error(
+          `The list of commands could not be compiled (${e.name})`,
+          e.message,
+          e.stack,
+        ),
+      );
     }
   }, [lng, translationsData, category]);
 
@@ -213,8 +243,8 @@ export const CommandsState = props => {
 
   const toggleCategory = clicked => {
     if (clicked !== previosButton) {
-      clicked.classList.add('current');
-      previosButton.classList.remove('current');
+      clicked.classList.add('active');
+      previosButton.classList.remove('active');
       setCategory(clicked);
       setPreviosButton(clicked);
     }

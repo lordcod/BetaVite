@@ -7,7 +7,7 @@ import CategoriesReactionsBtn from '@/components/5Entities/Commands/Categories/C
 
 export default function CommandsCategories() {
   return (
-    <div className='bg-lt-main dark:bg-dt-main rounded-2xl sidebar__categories grid grid-rows-5 p-3 gap-1'>
+    <div className='sidebar_categories'>
       <CategoriesAllBtn />
       <CategoriesMajorBtn />
       <CategoriesModeraionBtn />
