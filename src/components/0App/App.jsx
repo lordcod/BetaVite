@@ -21,7 +21,7 @@ import { EmbedBuilder } from '../2Pages/EmbedBuilder/EmbedBuilder.lazy';
 
 export default function App() {
   return (
-    // <Suspense fallback={<SiteLoader tetx/> etetestestestete}>
+    // <Suspense fallback={<SiteLoader tetx/> init}>
     <LangChangingState>
       <BrowserRouter>
         <MenuState>
