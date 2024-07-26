@@ -2,10 +2,7 @@ export default function SVGMultilang() {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      viewBox='-96 -96 192 192'
-      width='100%'
-      height='100%'
-      className='max-h-64 overflow-visible'>
+      viewBox='-96 -96 192 192'>
       <path
         d='M-56-20C-52-33-47-46-42-58L-77-67-97-31-56-20Z'
         fill='#c8102e'

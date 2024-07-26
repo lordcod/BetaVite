@@ -4,9 +4,6 @@ export default function SVGCommandsDig(props) {
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='3.5 -47 49 49'
-      width='100%'
-      height='100%'
-      className='max-h-64 2md:rotate-3 overflow-visible'
       {...rest}>
       <path
         fill='#2d2d30'

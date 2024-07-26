@@ -22,9 +22,6 @@ export default function SVGCustomization(props) {
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 24 24'
-      width='100%'
-      height='100%'
-      className='max-h-64 2md:-rotate-3 overflow-visible'
       {...rest}>
       <g className='translate-x-7 translate-y-[22px] -rotate-[135deg]'>
         <path

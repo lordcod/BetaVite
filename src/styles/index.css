@@ -79,7 +79,7 @@
           @apply bg-header-btn hover:bg-header-btn-hover;
         }
         &.round {
-          @apply p-1.5;
+          @apply p-1.5 flex;
         }
       }
     }
@@ -169,7 +169,7 @@
         @apply grid gap-3 h-full mlgh:2md:grid-cols-[340px_calc(100%-352px)];
       }
       &-embed {
-        @apply flex 2md:grid gap-3 h-full 2md:grid-cols-5;
+        @apply flex flex-col 2md:grid gap-3 h-full 2md:grid-cols-2;
       }
     }
   }
@@ -244,7 +244,8 @@
   }
   .phone-btn,
   .settings-btn,
-  .commands_category-btn {
+  .commands_category-btn,
+  .embed_type-btn {
     @apply text-start break-all duration-150 flex items-center gap-4 h-10 px-4 py-2 rounded-md select-none hover:bg-lt-main-hover dark:hover:bg-dt-main-hover dark:hover:text-lt-main-hover hover:text-dt-main-hover w-full;
     &:hover svg {
       @apply dark:fill-lt-main-hover fill-dt-main-hover;

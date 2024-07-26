@@ -4,9 +4,6 @@ export default function SVGSettingsDig(props) {
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='-550 0 24 1990'
-      width='100%'
-      height='100%'
-      className='max-h-64 -rotate-3 2md:rotate-0 overflow-visible'
       {...rest}>
       <g className='translate-x-[100px] translate-y-[100px] rotate-6'>
         <path

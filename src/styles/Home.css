@@ -46,6 +46,12 @@
         @apply overflow-x-hidden max-w-[1320px] mx-auto flex flex-col gap-8 2md:gap-4 m-4 px-8 pt-8 transition-all duration-150 ease-in;
         .dignity {
           @apply grid gap-4 2md:grid-cols-2 2md:gap-16 items-center transition-all duration-1000 opacity-0 ease-out delay-100;
+          > svg {
+            @apply max-h-64 overflow-visible w-full h-full;
+          }
+          h2 {
+            @apply break-all;
+          }
           &.right {
             @apply translate-x-1/2;
             h2 {

@@ -47,6 +47,7 @@ export default function SearchInput() {
   return (
     // <div className='bg-lt-main rounded-2xl'>
     <input
+      spellCheck='false'
       placeholder={t('commands.findCommand')}
       type='text'
       autoComplete='off'

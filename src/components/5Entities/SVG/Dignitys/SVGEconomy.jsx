@@ -4,9 +4,6 @@ export default function SVGEconomy(props) {
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 512 512'
-      width='100%'
-      height='100%'
-      className='max-h-64 -rotate-3 2md:rotate-0 overflow-visible'
       {...rest}>
       <g className='scale-[11] translate-x-80 translate-y-[426px]'>
         <path

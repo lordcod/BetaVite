@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .page_elements-embed {
+    .embed {
+      &_type {
+        @apply w-full grid grid-cols-2 bg-lt-main dark:bg-dt-main gap-1 p-3 rounded-2xl;
+      }
+      &_control {
+        @apply bg-gray-400 flex flex-col;
+        /* .input_container:has(textarea:placeholder-shown),
+        .input_container:has(textarea:focus) {
+          @apply bg-dt-main py-4;
+        } */
+
+        textarea {
+          @apply resize-none outline-none w-full overflow-hidden;
+          /* &:placeholder-shown,
+          &:focus { */
+          /* @apply; */
+          /* } */
+        }
+      }
+    }
+  }
+}
