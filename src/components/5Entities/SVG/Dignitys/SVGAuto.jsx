@@ -22,9 +22,6 @@ export default function SVGAuto(props) {
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='13 -32 64 64'
-      width='100%'
-      height='100%'
-      className='max-h-64 overflow-visible'
       {...rest}>
       <g className='translate-x-16 translate-y-4 scale-50 -rotate-6 ping-remove'>
         <path d='M3 0c-2 0-3-1-3-3v-20c0-2 1-3 3-3h89c2 0 3 1 3 3v20c0 2-1 3-3 3h-69z ' />

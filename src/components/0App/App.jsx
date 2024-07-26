@@ -21,7 +21,7 @@ import { EmbedBuilder } from '../2Pages/EmbedBuilder/EmbedBuilder.lazy';
 
 export default function App() {
   return (
-    // <Suspense fallback={<SiteLoader />}>
+    // <Suspense fallback={<SiteLoader tetx/>}>
     <LangChangingState>
       <BrowserRouter>
         <MenuState>
@@ -45,10 +45,10 @@ export default function App() {
               element={<Commands />}
             />
 
-            <Route
+            {/* <Route
               path='/embed'
               element={<EmbedBuilder />}
-            />
+            /> */}
             {/* <Route
                 path='/support'
                 element={<NoSiteTemporarily />}

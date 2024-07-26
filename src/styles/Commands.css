@@ -19,125 +19,126 @@
   .usage {
     @apply self-start min-h-9 py-1 px-4 rounded-lg bg-lt-third dark:bg-dt-third font-inconsolata flex items-center gap-2 break-words break-all;
   }
-
-  .sidebar {
-    @apply self-start flex flex-col gap-3 animate-anti-entry2 relative mlgh:2md:sticky mlgh:2md:top-[76px];
-    &_search {
-      @apply h-full w-full  bg-lt-main hover:bg-lt-main-hover dark:bg-dt-main dark:hover:bg-dt-main-hover rounded-2xl p-[15px] pl-[50px] outline-none border-2 border-solid border-lt-main dark:border-dt-main hover:border-lt-main-hover dark:hover:border-dt-main-hover  focus:border-main-active  hover:focus:border-main-active transition-all duration-150 ease-linear;
-      &:focus::placeholder {
-        @apply text-main-active duration-150;
-      }
-      &-label {
-        @apply cursor-text absolute top-4 left-4;
-      }
-
-      &:focus + label path,
-      &:focus:hover + label path {
-        @apply fill-main-active duration-150;
-      }
-
-      &:hover {
-        & + label path {
-          @apply fill-main-active duration-150;
-        }
-        &::placeholder {
+  .page_elements-commands {
+    .sidebar {
+      @apply self-start flex flex-col gap-3 animate-anti-entry2 relative mlgh:2md:sticky mlgh:2md:top-[76px];
+      &_search {
+        @apply h-full w-full  bg-lt-main hover:bg-lt-main-hover dark:bg-dt-main dark:hover:bg-dt-main-hover rounded-2xl p-[15px] pl-[50px] outline-none border-2 border-solid border-lt-main dark:border-dt-main hover:border-lt-main-hover dark:hover:border-dt-main-hover  focus:border-main-active  hover:focus:border-main-active transition-all duration-150 ease-linear;
+        &:focus::placeholder {
           @apply text-main-active duration-150;
         }
-      }
-    }
-    &_categories {
-      @apply bg-lt-main dark:bg-dt-main rounded-2xl grid grid-rows-5 p-3 gap-1;
-    }
-    &_info {
-      @apply block mdh:hidden lgh:block;
-      &_container {
-        @apply bg-lt-main dark:bg-dt-main rounded-2xl p-2;
-        &.opened {
-          & .sidebar_info-title {
-            @apply text-main-active fill-main-active duration-150 ease-in-out hover:bg-main-active-bg;
-            &:hover svg,
-            svg {
-              @apply fill-main-active rotate-180;
-            }
-          }
+        &-label {
+          @apply cursor-text absolute top-4 left-4;
+        }
 
-          & .sidebar_info-body {
-            @apply pt-2 grid-rows-[1fr] ease-in-out;
-            & div {
-              @apply visible opacity-100 ease-in-out;
-            }
-          }
+        &:focus + label path,
+        &:focus:hover + label path {
+          @apply fill-main-active duration-150;
         }
-      }
-      &-title {
-        @apply h-10 rounded-lg py-2 px-3 flex gap-4 items-center cursor-pointer transition-all duration-150 ease-linear select-none justify-between;
-        & > span {
-          @apply flex gap-4;
-        }
+
         &:hover {
-          @apply bg-lt-main-hover dark:bg-dt-main-hover;
-
-          svg {
-            @apply fill-lt-svg-hover dark:fill-dt-svg-hover;
+          & + label path {
+            @apply fill-main-active duration-150;
+          }
+          &::placeholder {
+            @apply text-main-active duration-150;
           }
         }
       }
-      &-body {
-        @apply pt-0 grid grid-rows-[0fr] overflow-hidden transition-all duration-150 ease-out-max;
-        &-container {
-          @apply flex min-h-0 flex-col invisible opacity-0 transition-all duration-200 ease-out-max px-1;
-          div {
-            @apply mb-1;
+      &_categories {
+        @apply bg-lt-main dark:bg-dt-main rounded-2xl grid grid-rows-5 p-3 gap-1;
+      }
+      &_info {
+        @apply block mdh:hidden lgh:block;
+        &_container {
+          @apply bg-lt-main dark:bg-dt-main rounded-2xl p-2;
+          &.opened {
+            & .sidebar_info-title {
+              @apply text-main-active fill-main-active duration-150 ease-in-out hover:bg-main-active-bg;
+              &:hover svg,
+              svg {
+                @apply fill-main-active rotate-180;
+              }
+            }
+
+            & .sidebar_info-body {
+              @apply pt-2 grid-rows-[1fr] ease-in-out;
+              & div {
+                @apply visible opacity-100 ease-in-out;
+              }
+            }
           }
-          hr {
-            @apply mb-2 border-main-purple;
+        }
+        &-title {
+          @apply h-10 rounded-lg py-2 px-3 flex gap-4 items-center cursor-pointer transition-all duration-150 ease-linear select-none justify-between;
+          & > span {
+            @apply flex gap-4;
           }
-          p {
-            @apply mb-2 flex flex-wrap items-center;
+          &:hover {
+            @apply bg-lt-main-hover dark:bg-dt-main-hover;
+
+            svg {
+              @apply fill-lt-svg-hover dark:fill-dt-svg-hover;
+            }
           }
-          .prefix,
-          ul span {
-            @apply px-2 py-1 bg-lt-second dark:bg-dt-second rounded-lg;
-          }
-          h4 {
-            @apply font-bold w-full text-lg;
-          }
-          ul {
-            @apply pl-[30px] list-disc flex flex-col gap-3;
+        }
+        &-body {
+          @apply pt-0 grid grid-rows-[0fr] overflow-hidden transition-all duration-150 ease-out-max;
+          &-container {
+            @apply flex min-h-0 flex-col invisible opacity-0 transition-all duration-200 ease-out-max px-1;
+            div {
+              @apply mb-1;
+            }
+            hr {
+              @apply mb-2 border-main-purple;
+            }
+            p {
+              @apply mb-2 flex flex-wrap items-center;
+            }
+            .prefix,
+            ul span {
+              @apply px-2 py-1 bg-lt-second dark:bg-dt-second rounded-lg;
+            }
+            h4 {
+              @apply font-bold w-full text-lg;
+            }
+            ul {
+              @apply pl-[30px] list-disc flex flex-col gap-3;
+            }
           }
         }
       }
     }
-  }
 
-  .commands {
-    @apply flex flex-col gap-3 animate-anti-entry3;
+    .commands {
+      @apply flex flex-col gap-3 animate-anti-entry3;
 
-    &-info {
-      @apply hidden mdh:block lgh:hidden;
-    }
-
-    .command {
-      h4 {
-        @apply font-bold w-full text-lg;
-      }
       &-info {
-        @apply flex gap-0.5 flex-wrap;
+        @apply hidden mdh:block lgh:hidden;
       }
-      &-exams {
-        @apply flex flex-col gap-2;
-      }
-      &-exam {
-        @apply flex flex-col gap-1 break-all;
-      }
-      &-disable {
-        @apply flex gap-3 flex-wrap;
-      }
-      &-switchable {
-        @apply text-green-500;
-      }
-      &-non-switchable {
-        @apply text-red-500;
+
+      .command {
+        h4 {
+          @apply font-bold w-full text-lg;
+        }
+        &-info {
+          @apply flex gap-0.5 flex-wrap;
+        }
+        &-exams {
+          @apply flex flex-col gap-2;
+        }
+        &-exam {
+          @apply flex flex-col gap-1 break-all;
+        }
+        &-disable {
+          @apply flex gap-3 flex-wrap;
+        }
+        &-switchable {
+          @apply text-green-500;
+        }
+        &-non-switchable {
+          @apply text-red-500;
+        }
       }
     }
   }

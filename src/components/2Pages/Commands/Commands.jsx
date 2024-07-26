@@ -7,8 +7,11 @@ import { useContext } from 'react';
 
 export default function CommandsPage() {
   const { t } = useContext(LangChangingContext);
-
   document.title = `${t('header.commandsSmall')} – LordCord`;
+  window.scrollTo({
+    top: 0,
+    behavior: 'instant',
+  });
 
   return (
     <div className='page'>
