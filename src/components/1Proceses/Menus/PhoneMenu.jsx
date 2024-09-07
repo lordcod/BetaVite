@@ -35,7 +35,7 @@ export default function PhoneMenu() {
         {t('header.commands')}
       </NavLink>
       <a
-        href='https://discord.gg/us7feXU4xS'
+        href='https://support.lordcord.fun/'
         className='phone-btn'>
         <SVGHeart />
         {t('header.supportUs')}

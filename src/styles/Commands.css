@@ -24,8 +24,14 @@
       @apply self-start flex flex-col gap-3 animate-anti-entry2 relative mlgh:2md:sticky mlgh:2md:top-[76px];
       &_search {
         @apply h-full w-full  bg-lt-main hover:bg-lt-main-hover dark:bg-dt-main dark:hover:bg-dt-main-hover rounded-2xl p-[15px] pl-[50px] outline-none border-2 border-solid border-lt-main dark:border-dt-main hover:border-lt-main-hover dark:hover:border-dt-main-hover  focus:border-main-active  hover:focus:border-main-active transition-all duration-150 ease-linear;
-        &:focus::placeholder {
-          @apply text-main-active duration-150;
+        &:focus {
+          @apply border-main-active border-2 border-solid;
+          &:hover {
+            @apply border-main-active border-2 border-solid;
+          }
+          &::placeholder {
+            @apply text-main-active duration-150;
+          }
         }
         &-label {
           @apply cursor-text absolute top-4 left-4;

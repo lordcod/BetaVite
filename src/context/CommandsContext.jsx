@@ -1,10 +1,11 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import api_commands_en from '@/Api/api_commands_en.json';
-import api_commands_ru from '@/Api/api_commands_ru.json';
+// import api_commands_en from '@/Api/api_commands_en.json';
+// import api_commands_ru from '@/Api/api_commands_ru.json';
 import { LangChangingContext } from '@context/LangContext';
 import ReactMarkdown from 'react-markdown';
 import SVGExpand from '@/components/5Entities/SVG/SVGExpand';
 import Error from '../components/5Entities/UI/Messages/Error';
+import MainLoader from '@components/5Entities/Loaders/MainLoader';
 
 export const CommandsContext = createContext({
   category: <div />,
@@ -28,6 +29,31 @@ export const CommandsState = props => {
   const [commandsAll, setCommandsAll] = useState([]);
 
   async function getLng(lang) {
+    setDisplay(
+      <div
+        className='dd-menu command'
+        tabIndex='0'>
+        <div className='dd-menu_container'>
+          <div
+            className='dd-menu_name'
+            onClick={clickHandler}>
+            <span className='main-sec'>Загрузка</span> — Список команд
+            загружается
+          </div>
+          <div className='dd-menu_body'>
+            <div className='dd-menu_body_content'>
+              Немного подождите пока список команд бота загрузится
+            </div>
+          </div>
+        </div>
+        <div
+          className='dd-menu_expand'
+          onClick={clickHandler}>
+          <SVGExpand />
+        </div>
+      </div>,
+    );
+
     await fetch(`https://api.lordcord.fun/command_data/${lang}`)
       .then(response => response.json())
       .then(data =>
@@ -38,12 +64,45 @@ export const CommandsState = props => {
           `Failed to get a list of commands:\n%c${e.stack}`,
           `color: #f44;`,
         );
+
+        // setDisplay(
+        //   Error(
+        //     `Failed to get a list of commands (${e.name})`,
+        //     e.message,
+        //     e.stack,
+        //   ),
+        // );
+
         setDisplay(
-          Error(
-            `Failed to get a list of commands (${e.name})`,
-            e.message,
-            e.stack,
-          ),
+          <div
+            className='dd-menu command'
+            tabIndex='0'>
+            <div className='dd-menu_container'>
+              <div
+                className='dd-menu_name'
+                onClick={clickHandler}>
+                <span className='main-sec'>Ошибка</span> — Скопируйте эту ошибку
+                и отправьте в наш{' '}
+                <a
+                  href='https://support.lordcord.fun/'
+                  className='link'>
+                  сервер поддержки
+                </a>
+              </div>
+              <div className='dd-menu_body'>
+                <div className='dd-menu_body_content'>
+                  Подождите некоторое время и перезагрузите страницу
+                  <h4>{e.message}</h4>
+                  {e.stack}
+                </div>
+              </div>
+            </div>
+            <div
+              className='dd-menu_expand'
+              onClick={clickHandler}>
+              <SVGExpand />
+            </div>
+          </div>,
         );
       });
   }
@@ -75,7 +134,7 @@ export const CommandsState = props => {
   const commandsBuild = commands => {
     return commands.map(command => {
       let name = command.name;
-      let ales = command.aliases[0] && `${command.aliases.join(' | ')}`;
+      let ales = command.aliases[0] ?? `${command.aliases.join(' | ')}`;
       let args = command.arguments.join(' ');
       let dact = command.allowed_disabled;
       let brde = command.brief_descriptrion;
@@ -167,22 +226,8 @@ export const CommandsState = props => {
 
   useEffect(() => {
     try {
-      // if (!(lng in translationsData)) {
-      //   getLng(lng);
-      // }
-
       if (!(lng in translationsData)) {
-        if (lng == 'ru') {
-          setTranslationsData({
-            ...translationsData,
-            [lng]: { all: api_commands_ru },
-          });
-        } else {
-          setTranslationsData({
-            ...translationsData,
-            [lng]: { all: api_commands_en },
-          });
-        }
+        getLng(lng);
       }
 
       if (translationsData.hasOwnProperty(lng)) {
@@ -223,11 +268,35 @@ export const CommandsState = props => {
         `color: #f44;`,
       );
       setDisplay(
-        Error(
-          `The list of commands could not be compiled (${e.name})`,
-          e.message,
-          e.stack,
-        ),
+        <div
+          className='dd-menu command'
+          tabIndex='0'>
+          <div className='dd-menu_container'>
+            <div
+              className='dd-menu_name'
+              onClick={clickHandler}>
+              <span className='main-sec'>Ошибка</span> — Скопируйте эту ошибку и
+              отправьте в наш{' '}
+              <a
+                href='https://support.lordcord.fun/'
+                className='link'>
+                сервер поддержки
+              </a>
+            </div>
+            <div className='dd-menu_body'>
+              <div className='dd-menu_body_content'>
+                Подождите некоторое время и перезагрузите страницу
+                <h4>{e.message}</h4>
+                {e.stack}
+              </div>
+            </div>
+          </div>
+          <div
+            className='dd-menu_expand'
+            onClick={clickHandler}>
+            <SVGExpand />
+          </div>
+        </div>,
       );
     }
   }, [lng, translationsData, category]);

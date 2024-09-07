@@ -7,7 +7,12 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'none';" /> -->
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge,chrome=1" />
     <!-- doc congif end & main start -->
 
     <meta
@@ -150,20 +155,20 @@
 
     <!-- connections end & styles start -->
 
-    <style id="loader_style">
-      html.dark #mcirc,
-      html.dark #mcirc2 {
+    <style>
+      html.dark .mcirc,
+      html.dark .mcirc2 {
         border-color: #fcfcff;
       }
 
-      html.dark #main_loader {
+      html.dark .main_loader {
         background-color: #18181b;
       }
 
-      html.dark #loader_logo {
+      html.dark .loader_logo {
         fill: #fcfcff;
       }
-      #main_loader {
+      .main_loader {
         width: 100vw;
         height: 100vh;
         background-color: #fcfcff;
@@ -174,8 +179,8 @@
         opacity: 1;
         transition: opacity 300ms linear;
       }
-      #mcirc,
-      #mcirc2 {
+      .mcirc,
+      .mcirc2 {
         border: #8b00ff solid;
         border-width: 4px;
         border-radius: 50%;
@@ -184,14 +189,14 @@
         opacity: 0;
       }
 
-      #mcirc {
+      .mcirc {
         animation: pulse 1.75s linear infinite 0.5s;
       }
-      #mcirc2 {
+      .mcirc2 {
         animation: pulse 1.75s linear infinite 1375ms;
       }
 
-      svg#loader_logo {
+      svg.loader_logo {
         fill: #8b00ff;
         max-width: min(192px, calc(100vw - 96px), calc(100vh - 96px));
         max-height: min(192px, calc(100vw - 96px), calc(100vh - 96px));
@@ -203,9 +208,9 @@
         text-align: center;
         display: block;
       }
-      #loader_logo,
-      #mcirc,
-      #mcirc2 {
+      .loader_logo,
+      .mcirc,
+      .mcirc2 {
         width: 100vw;
         height: 100vw;
         left: 50%;
@@ -240,13 +245,13 @@
       src="/src/main.jsx"
       async></script>
 
-    <div id="main_loader">
-      <div id="mcirc"></div>
-      <div id="mcirc2"></div>
+    <div class="main_loader">
+      <div class="mcirc"></div>
+      <div class="mcirc2"></div>
       <svg
         viewBox="0 0 36 36"
         xmlns="http://www.w3.org/2000/svg"
-        id="loader_logo">
+        class="loader_logo">
         <path
           fill="#fee028"
           d="M7.5 16.375C11.5 10.375 24.5 10.375 28.5 16.375V6.375L23.25 11.625 18 1.875 12.75 11.625 7.5 6.375V16.375Z" />
@@ -285,7 +290,7 @@ C:\\Users\\shashlychok\\bestbots\\LordCord>lordcord init
         'color: #D902FF; font-weight: 1000',
       );
 
-      const loader = document.getElementById('main_loader');
+      const loader = document.getElementsByClassName('main_loader')[0];
 
       if (
         { true: true, false: false }[localStorage.themeIsDark] ??
@@ -329,7 +334,6 @@ C:\\Users\\shashlychok\\bestbots\\LordCord>lordcord init
         document.documentElement.lastChild.removeAttribute('style');
         setTimeout(() => {
           loader.remove();
-          document.getElementById('loader_style').remove();
           document.getElementById('loader_config').remove();
         }, 300);
       });
