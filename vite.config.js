@@ -8,6 +8,7 @@ export default args => {
     args.mode == 'production' ? '[hash:base64:4]' : '[hash:base64:4]';
 
   return defineConfig({
+    publicDir: 'public',
     server: {
       host: true
     },
