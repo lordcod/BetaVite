@@ -355,7 +355,7 @@
     "arguments": ["\u003Ctext/json\u003E"],
     "brief_descriptrion": "Отправляет сообщение",
     "category": "moderation",
-    "descriptrion": "Отправляет сообщение от имени бота, используя уникальный [**embed конструктор**](\u003Chttps://lordcord.fun/embed-builder\u003E) или обычный текст",
+    "descriptrion": "Отправляет сообщение от имени бота, используя уникальный [**embed конструктор**](\u003C/embed\u003E) или обычный текст",
     "examples": [
       ["say Hello", "Отправьте «Привет» в текущий чат."],
       [

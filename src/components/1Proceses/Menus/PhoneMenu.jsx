@@ -23,7 +23,7 @@ export default function PhoneMenu() {
         {t('header.main')}
       </NavLink>
       <a
-        href='https://docs.lordcord.fun/english/'
+        href='/docs'
         className='phone-btn'>
         <SVGDocumentation />
         {t('header.documentation')}

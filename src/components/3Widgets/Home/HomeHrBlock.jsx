@@ -14,7 +14,7 @@ export default function CHomeHrBlock() {
   //       Date.now() - 60000 > Number(localStorage.servsReqTime) ||
   //       isNaN(Number(localStorage.servsReqTime))
   //     ) {
-  //       fetch('https://api.lordcord.fun/command_data/ru', {
+  //       fetch('/apicommand_data/ru', {
   //         method: 'GET',
   // withCredentials: true,
   // crossorigin: true,

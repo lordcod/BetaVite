@@ -28,7 +28,7 @@ export const CommandsState = props => {
   const [commandsAll, setCommandsAll] = useState([]);
 
   async function getLng(lang) {
-    await fetch(`https://api.lordcord.fun/command_data/${lang}`)
+    await fetch(`/apicommand_data/${lang}`)
       .then(response => response.json())
       .then(data =>
         setTranslationsData({ ...translationsData, [lang]: { all: data } }),

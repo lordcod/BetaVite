@@ -12,7 +12,7 @@ export default function Error(name, desc, stack) {
           Copy this message in full or screenshot this message and write about
           it to our support server.{' '}
           <a
-            href='https://support.lordcord.fun/'
+            href='/support'
             className='text-blue-500'>
             LINK
           </a>
@@ -20,7 +20,7 @@ export default function Error(name, desc, stack) {
           Полностью скопируйте это сообщение или заскриншотьте это сообщение и
           напишите о нем в наш сервер поддержки.{' '}
           <a
-            href='https://support.lordcord.fun/'
+            href='/support'
             className='text-blue-500'>
             ССЫЛКА
           </a>

@@ -8,7 +8,7 @@ export default function HeaderSupporBtn() {
 
   return (
     <a
-      href='https://support.lordcord.fun/'
+      href='/support'
       className='animate-entry4 header_btn'
       target='blank'>
       <SVGHeart />

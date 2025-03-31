@@ -10,25 +10,13 @@ export default function FooterLinks() {
       <div className='links_container'>
         <div className='links_container_column'>
           <Link to={'/'}>{t('footer.main')}</Link>
-          <a
-            href='https://docs.lordcord.fun/'
-            target='blank'>
-            {t('footer.documentation')}
-          </a>
+          <Link to={'/docs'}>{t('footer.documentation')}</Link>
           <Link to={'/commands'}>{t('footer.commands')}</Link>
-          <a
-            href='https://support.lordcord.fun/'
-            target='blank'>
-            {t('footer.feedback')}
-          </a>
+          <Link to={'support'}>{t('footer.feedback')}</Link>
         </div>
         <div className='links_container_column'>
           {/* <Link to={'/support'}>{t('footer.supportUs')}</Link> */}
-          <a
-            href='https://support.lordcord.fun/'
-            target='blank'>
-            {t('footer.invite')}
-          </a>
+          <Link to={'support'}>{t('footer.invite')}</Link>
           <a
             href='https://jino.ru'
             target='blank'>

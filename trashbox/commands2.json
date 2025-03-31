@@ -708,15 +708,15 @@
       "aliases": [],
       "arguments": ["<text/json>"],
       "descriptrion": {
-        "en": "Sends a message on behalf of the bot using a unique [embed builder](<https://lordcord.fun/embed-builder>) or plain text",
-        "ru": "\u041e\u0442\u043f\u0440\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435 \u043e\u0442 \u0438\u043c\u0435\u043d\u0438 \u0431\u043e\u0442\u0430, \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u044f \u0443\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439 [embed \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440](<https://lordcord.fun/embed-builder>) \u0438\u043b\u0438 \u043e\u0431\u044b\u0447\u043d\u044b\u0439 \u0442\u0435\u043a\u0441\u0442",
-        "id": "Mengirim pesan atas nama bot menggunakan unik [pembuat sematan](<https://lordcord.fun/embed-builder>) atau teks biasa",
-        "da": "Sender en besked p\u00e5 vegne af bot ved hj\u00e6lp af en unik [embed builder](<https://lordcord.fun/embed-builder>) eller almindelig tekst",
-        "de": "Sendet eine Nachricht im Namen des Bots mit einem eindeutigen [Einbettungsersteller ](<https://lordcord.fun/embed-builder>) oder Klartext",
-        "es": "Env\u00eda un mensaje en nombre del bot usando un \u00fanico [constructor de incrustaciones](<https://lordcord.fun/embed-builder>) o texto sin formato",
-        "fr": "Envoie un message au nom du bot en utilisant un unique [constructeur d'int\u00e9gration](<https://lordcord.fun/embed-builder>) ou texte brut",
-        "pl": "Wysy\u0142a wiadomo\u015b\u0107 w imieniu bota za pomoc\u0105 unikalnego [embed builder](<https://lordcord.fun / embed-builder>) lub zwyk\u0142y tekst",
-        "tr": "Bot ad\u0131na benzersiz bir mesaj g\u00f6nderir [g\u00f6mme olu\u015fturucu](<https://lordcord.fun/embed-builder>) veya d\u00fcz metin"
+        "en": "Sends a message on behalf of the bot using a unique [embed builder](</embed>) or plain text",
+        "ru": "\u041e\u0442\u043f\u0440\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435 \u043e\u0442 \u0438\u043c\u0435\u043d\u0438 \u0431\u043e\u0442\u0430, \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u044f \u0443\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439 [embed \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440](</embed>) \u0438\u043b\u0438 \u043e\u0431\u044b\u0447\u043d\u044b\u0439 \u0442\u0435\u043a\u0441\u0442",
+        "id": "Mengirim pesan atas nama bot menggunakan unik [pembuat sematan](</embed>) atau teks biasa",
+        "da": "Sender en besked p\u00e5 vegne af bot ved hj\u00e6lp af en unik [embed builder](</embed>) eller almindelig tekst",
+        "de": "Sendet eine Nachricht im Namen des Bots mit einem eindeutigen [Einbettungsersteller ](</embed>) oder Klartext",
+        "es": "Env\u00eda un mensaje en nombre del bot usando un \u00fanico [constructor de incrustaciones](</embed>) o texto sin formato",
+        "fr": "Envoie un message au nom du bot en utilisant un unique [constructeur d'int\u00e9gration](</embed>) ou texte brut",
+        "pl": "Wysy\u0142a wiadomo\u015b\u0107 w imieniu bota za pomoc\u0105 unikalnego [embed builder](<embed>) lub zwyk\u0142y tekst",
+        "tr": "Bot ad\u0131na benzersiz bir mesaj g\u00f6nderir [g\u00f6mme olu\u015fturucu](</embed>) veya d\u00fcz metin"
       },
       "brief_descriptrion": {
         "en": "Sends a message",

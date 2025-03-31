@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Main } from '@components/2Pages/Main/Main.lazy';
 import { Commands } from '@components/2Pages/Commands/Commands.lazy';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate, redirect  } from 'react-router-dom';
 import Header from '@components/1Proceses/Header';
 import Footer from '@components/1Proceses/Footer';
 import MainLoader from '@components/5Entities/Loaders/MainLoader';
@@ -18,6 +18,20 @@ import PhoneMenu from '@components/1Proceses/Menus/PhoneMenu';
 import CloseMenu from '@components/1Proceses/Menus/CloseMenu';
 import SettingsMenu from '@components/1Proceses/Menus/SettingsMenu';
 import { EmbedBuilder } from '../2Pages/EmbedBuilder/EmbedBuilder.lazy';
+
+
+function Redirect({to}) {
+  let element = document.createElement('a');
+
+  if(to.startsWith('http://') || to.startsWith('https://')){
+    element.href =  to;
+  } else{
+    element.href = 'http://' + to;
+  }
+
+  element.click();
+}
+
 
 export default function App() {
   return (
@@ -58,23 +72,25 @@ export default function App() {
               element={<MainLoader />}
             />
 
-              {/* Redirects */}
-              <Route
-                path='/docs'
-                element={<Navigate to="https://docs.lordcord.xyz" />}
-              />
-              <Route
-                path='/invite'
-                element={<Navigate to="https://discord.com/oauth2/authorize?client_id=1095713975532007434" />}
-              />
-              <Route
-                path='/support'
-                element={<Navigate to="https://discord.gg/48JCcbAAnV" />}
-              />
-              <Route
-                path='/partner/tyumen'
-                element={<Navigate to="https://discord.gg/k9MP7ws2ar" />}
-              />
+            {/* Redirects */}
+            <Route
+              path='/docs'
+              element={<Redirect to="https://docs.lordcord.xyz"  />}
+            />
+            <Route
+              path='/invite'
+              element={<Redirect to="https://discord.com/oauth2/authorize?client_id=1095713975532007434"  />}
+            />
+            <Route
+              path='/support'
+              element={<Redirect to="https://discord.gg/48JCcbAAnV"  />}
+            />
+            <Route
+              path='/partner/tyumen'
+              element={<Redirect to="https://discord.gg/k9MP7ws2ar"  />}
+            />
+
+
 
             <Route
               path=''

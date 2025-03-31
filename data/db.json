@@ -770,8 +770,8 @@
       ]
     ],
     "descriptrion": {
-      "en": "Sends a message on behalf of the bot using a unique [**embed builder**](<https://lordcord.fun/embed-builder>) or plain text",
-      "ru": "Отправляет сообщение от имени бота, используя уникальный [**embed конструктор**](<https://lordcord.fun/embed-builder>) или обычный текст"
+      "en": "Sends a message on behalf of the bot using a unique [**embed builder**](</embed>) or plain text",
+      "ru": "Отправляет сообщение от имени бота, используя уникальный [**embed конструктор**](</embed>) или обычный текст"
     },
     "brief_descriptrion": {
       "en": "Sends a message",

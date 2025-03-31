@@ -7,7 +7,7 @@ export default function FooterSocials() {
   return (
     <div className='socials'>
       <a
-        href='https://support.lordcord.fun/'
+        href='/support'
         target='blank'
         aria-label='discord'>
         <SVGDiscord />

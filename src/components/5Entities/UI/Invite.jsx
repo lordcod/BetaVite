@@ -7,7 +7,7 @@ export default function Invite() {
 
   return (
     <a
-      href='https://invite.lordcord.fun/'
+      href='/invite'
       target='blank'
       className='invite'>
       <SVGDiscord />
