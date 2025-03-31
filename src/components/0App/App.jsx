@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Main } from '@components/2Pages/Main/Main.lazy';
 import { Commands } from '@components/2Pages/Commands/Commands.lazy';
-import { BrowserRouter, Route, Routes, Navigate, redirect  } from 'react-router-dom';
+import { BrowserRouter, Route, Routes  } from 'react-router-dom';
 import Header from '@components/1Proceses/Header';
 import Footer from '@components/1Proceses/Footer';
 import MainLoader from '@components/5Entities/Loaders/MainLoader';
@@ -18,19 +18,6 @@ import PhoneMenu from '@components/1Proceses/Menus/PhoneMenu';
 import CloseMenu from '@components/1Proceses/Menus/CloseMenu';
 import SettingsMenu from '@components/1Proceses/Menus/SettingsMenu';
 import { EmbedBuilder } from '../2Pages/EmbedBuilder/EmbedBuilder.lazy';
-
-
-function Redirect({to}) {
-  let element = document.createElement('a');
-
-  if(to.startsWith('http://') || to.startsWith('https://')){
-    element.href =  to;
-  } else{
-    element.href = 'http://' + to;
-  }
-
-  element.click();
-}
 
 
 export default function App() {
@@ -73,7 +60,7 @@ export default function App() {
             />
 
             {/* Redirects */}
-            <Route
+            {/* <Route
               path='/docs'
               element={<Redirect to="https://docs.lordcord.xyz"  />}
             />
@@ -88,7 +75,7 @@ export default function App() {
             <Route
               path='/partner/tyumen'
               element={<Redirect to="https://discord.gg/k9MP7ws2ar"  />}
-            />
+            /> */}
 
 
 
