@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Main } from '@components/2Pages/Main/Main.lazy';
 import { Commands } from '@components/2Pages/Commands/Commands.lazy';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Header from '@components/1Proceses/Header';
 import Footer from '@components/1Proceses/Footer';
 import MainLoader from '@components/5Entities/Loaders/MainLoader';
@@ -45,22 +45,36 @@ export default function App() {
               element={<Commands />}
             />
 
-            {/* <Route
+            <Route
               path='/embed'
               element={<EmbedBuilder />}
-            /> */}
-            {/* <Route
-                path='/support'
-                element={<NoSiteTemporarily />}
-              /> */}
+            />
             {/* <Route
                 path='/servers'
                 element={<NoSiteTemporarily />}
               /> */}
-            {/* <Route
+            <Route
               path='/loader'
               element={<MainLoader />}
-            /> */}
+            />
+
+              {/* Redirects */}
+              <Route
+                path='/docs'
+                element={<Navigate to="https://docs.lordcord.xyz" />}
+              />
+              <Route
+                path='/invite'
+                element={<Navigate to="https://discord.com/oauth2/authorize?client_id=1095713975532007434" />}
+              />
+              <Route
+                path='/support'
+                element={<Navigate to="https://discord.gg/48JCcbAAnV" />}
+              />
+              <Route
+                path='/partner/tyumen'
+                element={<Navigate to="https://discord.gg/k9MP7ws2ar" />}
+              />
 
             <Route
               path=''
