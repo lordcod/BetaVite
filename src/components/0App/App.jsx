@@ -18,6 +18,7 @@ import PhoneMenu from '@components/1Proceses/Menus/PhoneMenu';
 import CloseMenu from '@components/1Proceses/Menus/CloseMenu';
 import SettingsMenu from '@components/1Proceses/Menus/SettingsMenu';
 import { EmbedBuilder } from '../2Pages/EmbedBuilder/EmbedBuilder.lazy';
+import ServerList from '../2Pages/VkServerList/ServerList';
 
 
 export default function App() {
@@ -58,25 +59,10 @@ export default function App() {
               path='/loader'
               element={<MainLoader />}
             />
-
-            {/* Redirects */}
-            {/* <Route
-              path='/docs'
-              element={<Redirect to="https://docs.lordcord.xyz"  />}
-            />
             <Route
-              path='/invite'
-              element={<Redirect to="https://discord.com/oauth2/authorize?client_id=1095713975532007434"  />}
+              path='/vk'
+              element={<ServerList />}
             />
-            <Route
-              path='/support'
-              element={<Redirect to="https://discord.gg/48JCcbAAnV"  />}
-            />
-            <Route
-              path='/partner/tyumen'
-              element={<Redirect to="https://discord.gg/k9MP7ws2ar"  />}
-            /> */}
-
 
 
             <Route
