@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Выбор сервера | LordCord</title>
+
+  <link rel="shortcut icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
+  <link rel="icon" sizes="48x48" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/icon-64.png" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e2f;
+      color: white;
+    }
+
+    #connectBtn {
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #a100ff, #c300ff);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(155, 0, 255, 0.4);
+      transition: background 0.3s, transform 0.2s;
+      margin-bottom: 30px;
+    }
+
+    #connectBtn:hover {
+      background: linear-gradient(135deg, #8900cc, #b000e6);
+      transform: scale(1.05);
+    }
+
+
+    header {
+      background: #9b00ff;
+      display: flex;
+      align-items: center;
+      padding: 15px 30px;
+      gap: 40px;
+    }
+
+    header svg {
+      height: 30px;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .title {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .server-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .server button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 180px;
+      width: 100%;
+      background-color: #2c2c3d;
+      border-radius: 15px;
+      text-align: center;
+      padding: 20px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .server button:hover {
+      background-color: #3c3c5a;
+      transform: translateY(-3px);
+    }
+
+    .server img {
+      border-radius: 50%;
+      width: 72px;
+      height: 72px;
+      margin-bottom: 10px;
+    }
+
+    .server h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    /* Затемнение фона */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      /* Под уведомлением */
+      display: none;
+      /* Скрыто по умолчанию */
+      animation: fadeInOverlay 0.5s forwards;
+      /* Плавное затемнение */
+    }
+
+    /* Стили для уведомления */
+    .notification {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      background-color: #333;
+      color: white;
+      font-size: 20px;
+      border-radius: 12px;
+      text-align: center;
+      z-index: 1000;
+      /* Над затемнением */
+      display: none;
+      /* Скрыто по умолчанию */
+      font-family: 'Arial', sans-serif;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    /* Эмодзи внутри уведомления */
+    .emoji {
+      font-size: 30px;
+      margin-right: 12px;
+    }
+
+    /* Анимация появления уведомления */
+    .notification.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Плавное появление фона */
+    @keyframes fadeInOverlay {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header><svg width="36px" height="36px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" class="-translate-y-1">
+      <path
+        d="M5.5 20.375c5-10 20-10 25 0 1 2 1 8 0 10-5 5-20 5-25 0-1-2-1-8 0-10zm10 3a1 1 0 00-6 0 1 1 0 006 0zm5 0a1 1 0 006 0 1 1 0 00-6 0zm-16-3c-6 1-6 9 0 10-1-2-1-8 0-10zm27 0c6 1 6 9 0 10 1-2 1-8 0-10m-24-4c4-6 17-6 21 0v-10l-5.25 5.25-5.25-9.75-5.25 9.75-5.25-5.25v10z">
+      </path>
+    </svg>
+    <a href="#"><span>📖 ДОКУМЕНТАЦИЯ</span></a>
+    <a href="#"><span>🖥 КОМАНДЫ</span></a>
+    <a href="#"><span>🤍 СЕРВЕР ПОДДЕРЖКИ</span></a>
+  </header>
+
+  <div id="overlay" style="display: none;" class="overlay"></div>
+  <div id="notification" style="display: none;" class="notification">
+    <span class="emoji">⚙️</span>
+    Возвращайтесь к настройке
+  </div>
+
+  <div class="container">
+    <button id="connectBtn">🔗 Подключиться к серверу</button>
+    <div class="title" style="visibility: hidden">Выберите сервер для подключения</div>
+    <div class="server-list"></div>
+  </div>
+
+  <script>
+    let debounce = false;
+    let win = null;
+    let socket = new WebSocket("wss://t3mtsh6z-5000.euw.devtunnels.ms/ws");
+    let serverList = document.querySelector(".server-list")
+    let titleServerList = document.querySelector(".title")
+    let connectBtn = document.querySelector("#connectBtn");
+    const urlParams = new URLSearchParams(window.location.search);
+    const state = urlParams.get('state');
+
+    if (state == null) {
+      connectBtn.style.visibility = "hidden"
+      showNotification("У вас нет прямого подключения к боту!")
+    }
+
+    socket.onopen = function (e) {
+      console.log("[open] Соединение установлено");
+
+      data = {
+        t: 'WAIT_STATE',
+        d: {
+          state: state
+        }
+      }
+      socket.send(JSON.stringify(data))
+
+      debounce = true;
+    };
+
+    socket.onmessage = function (event) {
+      let data = JSON.parse(event.data);
+      console.debug('Receive data: ')
+      console.debug(data)
+
+      if (data.t !== "RECEIVE_STATE") {
+        return
+      }
+      if (data.d.method === "error") {
+        win.close()
+        showNotification(data.d.message.error.error_msg)
+      }
+      if (data.d.method === "groups.addCallbackServer") {
+        win.close()
+        showNotification()
+      }
+      if (data.d.method !== "groups.get") {
+        return
+      }
+
+      win.close()
+      connectBtn.style.visibility = "hidden"
+      titleServerList.style.visibility = "visible"
+      data.d.response.items.forEach(element => {
+        createVkServer(element)
+      });
+    };
+
+
+
+    function createVkServer(element) {
+      let server = document.createElement("div")
+      server.classList.add("server")
+      serverList.append(server)
+
+      let link = document.createElement("button")
+      link.setAttribute("id", element.id)
+      server.append(link)
+
+      link.addEventListener("click", () => {
+        win = window.open(
+          `https://t3mtsh6z-5000.euw.devtunnels.ms/vk/invite?state=${state}&group=${element.id}`,
+          '_blank', 'width=500, height=300'
+        )
+      })
+
+      let img = document.createElement("img")
+      img.src = element.photo_200
+      img.alt = element.name
+
+      let title = document.createElement("h3")
+      title.innerText = element.name
+
+      link.append(img, title)
+    }
+
+    function showNotification(msg) {
+      const overlay = document.getElementById('overlay');
+      const notification = document.getElementById('notification');
+
+      if (msg !== undefined) {
+        notification.innerText = msg
+      }
+
+      overlay.style.display = 'block';
+      notification.style.display = 'block';
+
+      setTimeout(() => {
+        notification.classList.add('show');
+      }, 100);
+    }
+
+
+
+    connectBtn.addEventListener("click", () => {
+      if (!debounce) {
+        return
+      }
+      win = window.open(
+        `https://t3mtsh6z-5000.euw.devtunnels.ms/vk/invite?state=${state}`,
+        '_blank', 'width=500, height=300'
+      )
+    })
+  </script>
+
+</body>
+
+</html>

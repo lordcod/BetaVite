@@ -7,7 +7,7 @@ export default function ServerButton({data}) {
             <div className="server-icon">
                 <img src={data.photo_200} alt={data.name} />
             </div>
-            <span>{data.name}</span>
+            <span className="server-text">{data.name}</span>
         </button>
     </>
 }
