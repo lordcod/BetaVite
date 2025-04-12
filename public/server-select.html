@@ -32,7 +32,14 @@
       margin-bottom: 30px;
     }
 
-    #connectBtn:hover {
+    #connectBtn:not(:enabled) {
+      background: rgb(75, 75, 75);
+      transform: scale(0.95);
+      box-shadow: none;
+    }
+
+
+    #connectBtn:hover:enabled {
       background: linear-gradient(135deg, #8900cc, #b000e6);
       transform: scale(1.05);
     }
@@ -197,7 +204,7 @@
   </div>
 
   <div class="container">
-    <button id="connectBtn">🔗 Подключиться к серверу</button>
+    <button id="connectBtn" disabled>🔗 Подключиться к серверу</button>
     <div class="title" style="visibility: hidden">Выберите сервер для подключения</div>
     <div class="server-list"></div>
   </div>
@@ -205,7 +212,8 @@
   <script>
     let debounce = false;
     let win = null;
-    let socket = new WebSocket("wss://t3mtsh6z-5000.euw.devtunnels.ms/ws");
+    const BASE_URL = "api.lordcord.xyz"
+    let socket = new WebSocket(`wss://${BASE_URL}/ws`);
     let serverList = document.querySelector(".server-list")
     let titleServerList = document.querySelector(".title")
     let connectBtn = document.querySelector("#connectBtn");
@@ -219,6 +227,8 @@
 
     socket.onopen = function (e) {
       console.log("[open] Соединение установлено");
+
+      connectBtn.disabled = false;
 
       data = {
         t: 'WAIT_STATE',
@@ -272,8 +282,8 @@
 
       link.addEventListener("click", () => {
         win = window.open(
-          `https://t3mtsh6z-5000.euw.devtunnels.ms/vk/invite?state=${state}&group=${element.id}`,
-          '_blank', 'width=500, height=300'
+          `https://${BASE_URL}/vk/invite?state=${state}&group=${element.id}`,
+          '_blank', 'resizable=yes,scrollbars=yes,top=50,left=50,width=500,height=500'
         )
       })
 
@@ -310,8 +320,8 @@
         return
       }
       win = window.open(
-        `https://t3mtsh6z-5000.euw.devtunnels.ms/vk/invite?state=${state}`,
-        '_blank', 'width=500, height=300'
+        `https://${BASE_URL}/vk/invite?state=${state}`,
+        '_blank', 'resizable=yes,scrollbars=yes,top=50,left=50,width=500,height=500'
       )
     })
   </script>
